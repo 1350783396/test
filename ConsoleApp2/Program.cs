@@ -1,18 +1,77 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
+          
+
+            {
+                Stopwatch watch = Stopwatch.StartNew();
+                int w1 = 1;
+                int w2 = 10;
+                var w4 = 0;
+
+                var tasks = new List<Task>();
+
+                while (w1 < w2)
+                {
+
+
+                    int w7 = 0;
+                    for (int i = 1; i < 1000000000; i++)
+                    {
+                        w7 = w7 + i;
+                        //TaskClass task = new TaskClass();
+                        //w4.Add(task);
+                    }
+                    w4 = w4 + w7;
+                    w1 += 1;
+                }
+               // Task.WaitAll(tasks.ToArray());
+                watch.Stop();
+
+                Console.WriteLine($"耗时：{watch.ElapsedMilliseconds}总数为{w4}");//49999995
+
+            }
 
 
 
 
+
+
+
+            Console.ReadKey();
+
+
+
+
+
+
+
+            int asdad1 = Convert.ToInt32(null);
+            var datet = DateTime.Now;
+            var startTime = new DateTime(datet.Year, datet.Month, 1);
+            var endTime = startTime.AddMonths(1).AddDays(-1);
+
+            double asd13 = double.PositiveInfinity;
+
+            int num2 = Convert.ToInt32(5.6);
+            int num3 = Convert.ToInt32(6.6);
+
+            string url = "https://trade-acs.m.taobao.com/gw/mtop.taobao.detail.getdetail/6.0/?data=itemNumId%22%3A%22{0}%22&callback=__jp5";
+            string str = HttpUtil.HttpGet2(string.Format(url, 595867371115));
 
 
             ServiceReference2.WebServiceTestSoapClient hello = new ServiceReference2.WebServiceTestSoapClient();
@@ -22,7 +81,7 @@ namespace ConsoleApp2
             string sad123 = "";
             foreach (var item in strItem.Split(',').ToList())
             {
-                var asdaz1 = skuClientSoapClient.GetSkuDetail(Convert.ToInt64(item));
+                var asdaz1 = skuClientSoapClient.GetSkuDetail(617462493511);
                 if (asdaz1.Contains("message"))
                 {
                     sad123 = asdaz1;

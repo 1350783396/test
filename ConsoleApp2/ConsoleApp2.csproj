@@ -66,6 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="HttpUtil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -73,6 +74,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TestClass.cs" />
     <Compile Include="Web References\hello\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,7 +105,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SkuService\SkuClient1.wsdl" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -204,6 +205,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SkuService\SkuClient1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\DingHelp\topsdk-net-core.csproj">
+      <Project>{185da622-c5cc-47dd-81c9-d27933748c67}</Project>
+      <Name>topsdk-net-core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

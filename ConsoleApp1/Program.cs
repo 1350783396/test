@@ -8,19 +8,109 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
     class Program
     {
-        public static string Tongbi(decimal a, decimal b)
-        {
-            return "0";
-        }
-
+     
         static void Main(string[] args)
         {
+            
 
+            {
+
+                try
+                {
+                    int a56 = 0;
+                    int ba56 = 5 / a56;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                }
+            }
+
+
+            var props = typeof(KeyWord);
+            foreach (var item in props.GetProperties().ToList())
+            {
+                var asd44 = item.PropertyType.Name;
+                object[] objs = item.GetCustomAttributes(typeof(DescriptionAttribute), true);
+                if (objs.Length > 0)
+                {
+                    Console.WriteLine("{0}: {1}", item.Name, ((DescriptionAttribute)objs[0]).Description);
+                }
+            }
+            KeyWord keyWordtest = new KeyWord() { kword = "ada", uv = 12 };
+            var ccc2 = props.GetProperty("uv").GetValue(keyWordtest);
+            string strkasf2 = "asd" + ccc2;
+            props.GetProperty("dec1").SetValue(keyWordtest, 12m);
+            int decuv = (int)keyWordtest.dec;
+            var props2 = typeof(KeyWord);
+            dynamic dyc = new { title = "asdasd", avg = 12 };
+
+
+
+            List<KeyWord> keyWord1 = new List<KeyWord>();
+
+            keyWord1.Add(keyWordtest);
+
+            string serobj = Newtonsoft.Json.JsonConvert.SerializeObject(keyWord1).Replace("\\\"","\"");
+
+            var keyWord2 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<KeyWord2>>(serobj);
+
+            List<KeyWord3> word3s = new List<KeyWord3>();
+            word3s.Add(new KeyWord3() { dec3 = 1, dec4 = 2, uv = 12 });
+            Type type8 = typeof(KeyWord3);
+
+            Type type7 = typeof(KeyWord2);
+            //欢迎  你喝水了吗 没喝多少 两杯那一会再喝点 行呀 现在就在喝 请将good
+            foreach (var item in keyWord2)
+            {
+                var word3 = word3s.Where(u => u.uv == item.uv).FirstOrDefault();
+                if (word3 != null)
+                {
+                    foreach (var prop in type8.GetProperties())
+                    {
+                        if (prop.Name == "uv") 
+                        {
+                            continue;
+                        }
+                        if (type7.GetProperty(prop.Name) != null)
+                        {
+                            type7.GetProperty(prop.Name).SetValue(item, prop.GetValue(word3));
+                        }
+
+                    }
+
+                }
+            }
+
+            
+            var a = new System.Data.DataTable().Compute("1/0", "");
+            a = a?.ToString() == "Infinity" ? a : 0;
+            var ad555 = null * 0.6m;
+
+            List<Student2> student2s = new List<Student2>();
+            student2s.Add(new Student2() { b = 0, a = 5 });
+            var asdad1 = student2s.Where(u => u.b == 0).Select(u => u.a).FirstOrDefault();
+
+
+            student2s = student2s.OrderByDescending(u => u.a == 0).ToList();
+            var monitoringData = student2s.GroupBy(u => new { u.a, u.b }).ToList();
+
+
+
+
+            Guid guid12 = Guid.Parse("931E1F27-3C01-44B4-A205-FE7DADEEDC17");
+
+
+            string str123 = "//img.alicdn.com/bao/uploaded/i4/3177173659/TB1slsnSFXXXXaeXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg";
+            str123 = str123.Split("jpg")[0] + "jpg";
+            DateTime dateTime5 = DateTime.Parse("2020-07-02");
 
             var sda123 = Math.Round(0.2543, 0);
 
@@ -51,7 +141,7 @@ namespace ConsoleApp1
             {
                 numb1 = 3
                ,
-               
+
                 numb3 = 3,
                 dt = "2020-03-31"
             });
@@ -66,14 +156,14 @@ namespace ConsoleApp1
             };
             students.Insert(0, sadas);
 
-            var testList5 =  students.OrderByDescending(u => u.numb2>0).ThenBy(u=>u.numb2).ToList();
+            var testList5 = students.OrderByDescending(u => u.numb2 > 0).ThenBy(u => u.numb2).ToList();
 
 
-            var testList = students.Where(u=>u.numb1==10).ToList();
+            var testList = students.Where(u => u.numb1 == 10).ToList();
 
             //var testList3 = testList.Where(u => u.Key == 2);
-          var testList4= testList.Sum(u => u.numb1);
-           // var testList2 = students.ToDictionary(u => u.numb1);
+            var testList4 = testList.Sum(u => u.numb1);
+            // var testList2 = students.ToDictionary(u => u.numb1);
 
             List<Student2> students2 = new List<Student2>();
             students2.Add(new Student2
@@ -86,7 +176,7 @@ namespace ConsoleApp1
 
             var asdasd = students.GroupJoin(students2, u => Convert.ToDateTime(u.dt), i => i.dt.Date, (u, i) => new { u, i });
 
-           
+
             //inList.AddRange(testList.Select(u => u.Key));
 
             //foreach (var item in inList)
@@ -104,28 +194,39 @@ namespace ConsoleApp1
             int asd23 = 2016 % 4;
 
             string sad12312 = "123:12;13:123;12:5";
-           var countspi= sad12312.Split(';').ToList()[0].Split(':');
+            var countspi = sad12312.Split(';').ToList()[0].Split(':');
             long long1 = 12;
             int long3 = (int)long1;
             //SkuClientSoapClient skuClient = new SkuClientSoapClient();
             List<long> vsasdw = new List<long>();
             List<KeyWord> keyWord232 = new List<KeyWord>();
-            keyWord232.Add(new KeyWord());
-         int Averagesa1 =   (int)keyWord232.Average(u => u.dec);
+            //keyWord232.Add(new KeyWord());
+            var Averagesa1 = keyWord232.OrderByDescending(u => u.dec).FirstOrDefault();
 
 
-          var asda999 =  keyWord232.Select(u => (long)u.dec).ToList();
+            var asda999 = keyWord232.Select(u => (long)u.dec).ToList();
 
 
-            keyWord232.Add(new KeyWord { dec=0.1m, dec1=12m, uv=1, kword=""  });
-          var ads2a1 =  keyWord232.Where(u => vsasdw.Contains((long)u.uv)).ToList();
+            keyWord232.Add(new KeyWord { dec = 0.1m, dec1 = 12m, uv = 1, kword = "" });
+            var ads2a1 = keyWord232.Where(u => vsasdw.Contains((long)u.uv)).ToList();
             KeyWord keyWord23 = new KeyWord();
 
             Type t23 = typeof(KeyWord);
 
-            var vvalue = t23.GetProperty("kwo2rd");
+            var vvalue = t23.GetProperty("dec1").PropertyType.FullName;
 
+            if (vvalue.Contains("String"))
+            {
 
+            }
+            else if (vvalue.Contains("Int32"))
+            {
+
+            }
+            else if (vvalue.Contains("Decimal"))
+            {
+
+            }
             List<dynamic> dycList = new List<dynamic>();
 
             dycList = dycList.OrderByDescending(u => u.isStick).ThenByDescending(u => u.stickTime).ToList();
@@ -158,7 +259,7 @@ namespace ConsoleApp1
                 stopwatch.Stop();
                 var newdata = new { jzitem = item, result = result11 };
                 string data = Newtonsoft.Json.JsonConvert.SerializeObject(newdata);
-               // resoultData = HttpUtil.PostData("http://localhost:12850/JcService/MonitorJzItemChanges", data);
+                 resoultData = HttpUtil.PostData("http://www.bk.caoam.cn/JcService/MonitorJzItemChanges", data);
                 //resoultData = HttpUtil.PostData("http://www.caoam.cn/JcService/MonitorJzItemChanges", data);
             }
             myData = JsonConvert.DeserializeObject<dynamic>(resoultData);
@@ -273,34 +374,6 @@ namespace ConsoleApp1
 
 
 
-            int asd123 = 15;
-
-
-            int a = 1;
-
-            int b = 1;
-
-            int n;  //　　声明一个变量用来定义数列的长度;
-
-            for (int i = 2; i < 5; i++)
-            {
-
-                b = a + b;    //　　得到b的值;
-
-                a = b - a;    //　　得到上一次a的值;
-
-            }
-
-
-
-
-
-
-
-
-
-
-
             List<Student2> listNewss1 = new List<Student2>();
 
             listNewss1.Add(new Student2() { dt = DateTime.Now });
@@ -316,12 +389,7 @@ namespace ConsoleApp1
 
             var keyword1 = "asd1111";
 
-            var props = typeof(KeyWord);
-            KeyWord keyWordtest = new KeyWord() { kword = "ada", uv = 12 };
-            props.GetProperty("dec1").SetValue(keyWordtest,12m);
-            int decuv = (int)keyWordtest.dec;
-            var props2 = typeof(KeyWord);
-            dynamic dyc = new { title = "asdasd", avg = 12 };
+
 
             var asdasd1231 = props2.GetProperty("uv").GetValue(keyWordtest) == null ? 0 : Convert.ToDecimal(props2.GetProperty("uv").GetValue(keyWordtest));
 
@@ -342,19 +410,6 @@ namespace ConsoleApp1
                 }
             }
 
-            //var propValue = props.GetProperty("").GetValue(keyWordtest);
-
-
-
-
-
-
-
-
-
-
-
-            int asd2 = 5 % 100;
 
             Dictionary<string, string> dicList = new Dictionary<string, string>() { { "流量指数", "shop_uvIndex" }, { "收藏人气", "shop_cltHits" }, { "加购人气", "shop_cartHits" }, { "支付转化指数", "shop_payRateIndex" }, { "交易指数", "shop_tradeIndex" }, { "客群指数", "shop_payByrCntIndex" }, { "预售定金指数", "shop_preTradeIndex" }, { "预售定金商品件数", "shop_preSellItmCnt" }, { "上新商品数", "shop_fstOnsItmCnt" } };
 
@@ -384,23 +439,10 @@ namespace ConsoleApp1
 
 
 
-
-
-
-
             Assembly assembly1 = Assembly.Load("testModel");
             var assemblyClass = assembly1.CreateInstance("testModel.AssemblyClass");
 
             var asProperties = assemblyClass.GetType().GetProperties();
-
-            //AssemblyClass obj = (AssemblyClass)Activator.CreateInstance(assemblyClass.GetType());
-
-
-            //var asdas123 = obj.Name;
-
-
-
-
 
 
 
@@ -588,7 +630,7 @@ namespace ConsoleApp1
             //Console.WriteLine(student.numb2);
             Console.ReadLine();
             Console.WriteLine("Hello World!");
-
+        jieshu:;
         }
         public static int Getjnt(int c, int? a = 1)
         {
@@ -643,13 +685,40 @@ namespace ConsoleApp1
     }
     public class KeyWord
     {
-        [DisplayName("测试")]
+        [Description("日期")]
         public string kword { get; set; }
+        /// <summary>
+        /// 访客
+        /// </summary>
         public int uv { get; set; }
+        public int? uv2 { get; set; }
         public decimal dec { get; set; }
         public decimal? dec1 { get; set; }
+        public long dec2 { get; set; }
     }
-
+    public class KeyWord2
+    {
+        [Description("日期")]
+        public string kword { get; set; }
+        /// <summary>
+        /// 访客
+        /// </summary>
+        public int uv { get; set; }
+        public int? uv2 { get; set; }
+        public decimal dec { get; set; }
+        public decimal? dec1 { get; set; }
+        public long dec3 { get; set; }
+        public long dec4 { get; set; }
+        public long? dec5 { get; set; }
+    }
+    public class KeyWord3
+    {
+        public int uv { get; set; }
+        public long dec2 { get; set; }
+        public long dec3 { get; set; }
+        public long dec4 { get; set; }
+        public long? dec5 { get; set; }
+    }
     public enum enumTest
     {
         你好 = 0,
