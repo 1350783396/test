@@ -18,22 +18,8 @@ namespace ConsoleApp1
      
         static void Main(string[] args)
         {
-            
 
-            {
-
-                try
-                {
-                    int a56 = 0;
-                    int ba56 = 5 / a56;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.StackTrace);
-                }
-            }
-
-
+            Dictionary<string, string> keyValues = new Dictionary<string, string>();
             var props = typeof(KeyWord);
             foreach (var item in props.GetProperties().ToList())
             {
@@ -41,8 +27,31 @@ namespace ConsoleApp1
                 object[] objs = item.GetCustomAttributes(typeof(DescriptionAttribute), true);
                 if (objs.Length > 0)
                 {
-                    Console.WriteLine("{0}: {1}", item.Name, ((DescriptionAttribute)objs[0]).Description);
+                    keyValues.Add(((DescriptionAttribute)objs[0]).Description, item.Name);
                 }
+            }
+            Dictionary<string, string> valuePairs = new Dictionary<string, string>() { { "日期" , "2018-04-09 21:33:08.770" },{ "访客","23" },{ "访客2","" } };
+            KeyWord keyWord = new KeyWord();
+            foreach (var item in keyValues)
+            {
+                var tName = props.GetProperty(item.Value).PropertyType.FullName;
+                if (tName.Contains("String"))
+                {
+                    props.GetProperty(item.Value).SetValue(keyWord, valuePairs[item.Key]);
+                }
+                else if (tName.Contains("Int32"))
+                {
+                    props.GetProperty(item.Value).SetValue(keyWord, Convert.ToInt32(valuePairs[item.Key]));
+                }
+                else if (tName.Contains("Decimal"))
+                {
+                    props.GetProperty(item.Value).SetValue(keyWord, Convert.ToDecimal(valuePairs[item.Key]));
+                }
+                else if (tName.Contains("DateTime"))
+                {
+                    props.GetProperty(item.Value).SetValue(keyWord, Convert.ToDateTime(valuePairs[item.Key]));
+                }
+                //props.GetProperty(item.Value).SetValue(keyWord, valuePairs[item.Key]);
             }
             KeyWord keyWordtest = new KeyWord() { kword = "ada", uv = 12 };
             var ccc2 = props.GetProperty("uv").GetValue(keyWordtest);
@@ -686,11 +695,11 @@ namespace ConsoleApp1
     public class KeyWord
     {
         [Description("日期")]
+        public DateTime thedate { get; set; }
         public string kword { get; set; }
-        /// <summary>
-        /// 访客
-        /// </summary>
+        [Description("访客")]
         public int uv { get; set; }
+        [Description("访客2")]
         public int? uv2 { get; set; }
         public decimal dec { get; set; }
         public decimal? dec1 { get; set; }
@@ -700,10 +709,9 @@ namespace ConsoleApp1
     {
         [Description("日期")]
         public string kword { get; set; }
-        /// <summary>
-        /// 访客
-        /// </summary>
+        [Description("访客")]
         public int uv { get; set; }
+        [Description("访客2")]
         public int? uv2 { get; set; }
         public decimal dec { get; set; }
         public decimal? dec1 { get; set; }
