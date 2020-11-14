@@ -23,7 +23,7 @@ namespace ConsoleApp1
     class Program
     {
         public static QType Gasadad(QType q)
-        {
+        { 
             return q;
         }
 
