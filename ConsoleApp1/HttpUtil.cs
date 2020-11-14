@@ -35,7 +35,7 @@ namespace ConsoleApp1
                 myRequest.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)";
                 myRequest.Method = "GET";
                 myRequest.Timeout = 60000;
-                myRequest.Headers.Add("cookie", "t=1808081c2af89cdada7b1966c047b2a9; _tb_token_=e7f3e6036733b; _m_h5_tk=e4c9dd9084f43d3ce30f573f71d6f99b_1600339020742; _m_h5_tk_enc=7e5a287bb77d974c17fd75447d7be0db; unb=2200804602352; sn=%E6%9C%A8%E9%9F%A9%E6%97%97%E8%88%B0%E5%BA%97%3A%E6%9B%BC%E6%9B%BC; csg=63d2a4c2; skt=cde6190c082e128e; _cc_=V32FPkk%2Fhw%3D%3D; cna=Z9DoF+rDElICASQYz0No29Wa; uc1=cookie14=Uoe0bUt%2BIRlB7A%3D%3D&cookie21=V32FPkk%2FhSg%2F; tfstk=cRJlBPXqnQ5SUg5D1Y6WfbtEc2RhZdwFSpJX3KDdHbYkwIJVi6V4_bZ-maYkpW1..; l=eBEM1njqOJ5cxTbkXOfwnurza77OIIRAguPzaNbMiOCP9WCW5ztCWZr083LXCnGVh6j6R3JSqGkXBeYBqIb981IhwmCj_fHmn; isg=BEZGIT42ZTKRMjHWfb_4QssVlzzIp4ph9Bk3OzBvImlEM-ZNmDUIcUvBD2__m4J5");
+                myRequest.Headers.Add("cookie", "t=476e879a877668bce81a02e4ccd7d458; _tb_token_=363455e89638e; _m_h5_tk=8f084d48cbd00840062ed6352383f10a_1603883242868; _m_h5_tk_enc=4cef010064a865e49cf47da68d4d5908; unb=2200730404342; sn=%E6%99%BA%E5%8D%A1%E6%95%B0%E7%A0%81%E4%B8%93%E8%90%A5%E5%BA%97%3A%E9%98%BF%E7%9E%92; csg=547e42ef; skt=ca50b1bff5f9fea3; _cc_=U%2BGCWk%2F7og%3D%3D; cna=wNMfGPrg0DMCAXrpqErF7gb4; uc1=cookie21=UtASsssmfufd&cookie14=Uoe0bkFCroxgxw%3D%3D; v=0; tfstk=cdacB00ProofsYouAZgb98I_QpBRajLZKPz7zzPQMl-iwLargsDD4HSXM_D0nPK1.; l=eBjNWoVlOAFS5fcSBOfwourza77OSIRAguPzaNbMiOCP_yCe51qlWZW1rqTwC3GVh6VBR3JSqGkXBeYBq3tSnxvtIosM_Ckmn; isg=BNXVDeeGJo3tigLx7riNkbfZ5NGP0onk-3Tkxld6-sybrvWgHyTYtOFmfLIYrqGc");
 
                 using (WebResponse wr = myRequest.GetResponse())
                 {

@@ -13,11 +13,371 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    public enum QType
+    {
+        我来了,
+        好
+    }
+
+
     class Program
     {
-     
+        public static QType Gasadad(QType q)
+        {
+            return q;
+        }
+
+        //public static void WriteLog(string strLog)
+        //{
+        //    string sFilePath =  @"D:\jcLog\" + DateTime.Now.ToString("yyyyMM");
+        //    string sFileName = "rizhi" + DateTime.Now.ToString("dd") + ".log";
+        //    sFileName = sFilePath + "\\" + sFileName; //文件的绝对路径
+        //    if (!Directory.Exists(sFilePath))//验证路径是否存在
+        //    {
+        //        Directory.CreateDirectory(sFilePath);
+        //        //不存在则创建
+        //    }
+        //    FileStream fs;
+        //    StreamWriter sw;
+        //    if (System.IO.File.Exists(sFileName))
+        //    //验证文件是否存在，有则追加，无则创建
+        //    {
+        //        fs = new FileStream(sFileName, FileMode.Append, FileAccess.Write);
+        //    }
+        //    else
+        //    {
+        //        fs = new FileStream(sFileName, FileMode.Create, FileAccess.Write);
+        //    }
+        //    sw = new StreamWriter(fs);
+        //    sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + "   ---   " + strLog);
+        //    sw.Close();
+        //    fs.Close();
+        //}
+
+        public static void WriteLog(string strLog)
+        {
+
+            Thread thread = new Thread(new ParameterizedThreadStart(delegate (object obj)
+
+        {
+            lock (_lock)
+
+            {
+                string sFilePath = @"D:\jcLog\" + DateTime.Now.ToString("yyyyMM");
+                string sFileName = "rizhi" + DateTime.Now.ToString("dd") + ".log";
+                sFileName = sFilePath + "\\" + sFileName; //文件的绝对路径
+                if (!Directory.Exists(sFilePath))//验证路径是否存在
+                {
+                    Directory.CreateDirectory(sFilePath);
+                    //不存在则创建
+                }
+                FileStream fs;
+                StreamWriter sw;
+                if (System.IO.File.Exists(sFileName))
+                //验证文件是否存在，有则追加，无则创建
+                {
+                    fs = new FileStream(sFileName, FileMode.Append, FileAccess.Write);
+                }
+                else
+                {
+                    fs = new FileStream(sFileName, FileMode.Create, FileAccess.Write);
+                }
+                sw = new StreamWriter(fs);
+                sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + "   ---   " + strLog);
+                sw.Close();
+                fs.Close();
+            }
+
+        }));
+
+            thread.Start(strLog);
+
+
+        }
+        public static readonly object _lock = new object();
+
+        /// <summary>
+        /// 读取文本文件内容
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string GetText(string path)
+        {
+            string asd = "";
+            try
+            {
+                // 创建一个 StreamReader 的实例来读取文件 
+                // using 语句也能关闭 StreamReader
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string line;
+
+                    // 从文件读取并显示行，直到文件的末尾 
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        asd = asd + line;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // 向用户显示出错消息
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+            return asd;
+        }
+
         static void Main(string[] args)
         {
+
+            List<KeyWord2> keys13 = new List<KeyWord2>();
+
+          
+
+
+            var keys133 = new KeyWord2() { dec = 300 };
+            var keys134 = new KeyWord2() { dec = 400 };
+            var keys135 = new KeyWord2() { dec = 500 };
+
+           
+
+
+            var keys131 = new KeyWord2() { dec = -200 };
+            var keys132 = new KeyWord2() { dec = -100 };
+
+            var keys136 = new KeyWord2() { dec = 600 };
+            var keys137 = new KeyWord2() { dec = (keys131.dec + keys132.dec) / 2 };
+
+            keys13.Add(keys131);
+            keys13.Add(keys132);
+            keys13.Add(keys133);
+            keys13.Add(keys134);
+            keys13.Add(keys135);
+            keys13.Add(keys136);
+            keys13.Add(keys137);
+            var asda15 = keys13.Skip(2).FirstOrDefault();
+
+
+            keys13 = keys13.OrderBy(u => u.dec).ToList();
+
+
+            string strss = "4.5万+";
+            strss = strss.Replace("+", "");
+
+            if (strss.Contains("万"))
+            {
+
+                decimal dec123a = Convert.ToDecimal(strss.Replace("万", "")) * 10000;
+
+            }
+            int a222 = 12;
+
+            var asdddd = Math.Round(a222 / 2m).ToString("P");
+            Stopwatch sw = new Stopwatch();
+
+            // 开始测量代码运行时间
+            sw.Start();
+            List<Student> students15 = new List<Student>();
+            for (int i = 0; i < 10000000; i++)
+            {
+                students15.Add(new Student());
+            }
+
+            List<Task> tasks = new List<Task>();
+
+            var wl = true;
+            var skip = 1;
+            while (wl)
+            {
+                var students152 = students15.Skip((skip - 1) * 20000).Take(200);
+                if (students152.Count() < 20000)
+                {
+                    wl = false;
+                    if (students152.Count() == 0)
+                    {
+                        break;
+                    }
+                }
+                tasks.Add(Task.Run(() =>
+                {
+                    foreach (var item in students152)
+                    {
+                        item.numb1 = 12;
+                    }
+                }));
+
+                skip = skip + 1;
+            }
+            Task.WaitAll(tasks.ToArray());
+
+            sw.Stop();
+            Console.WriteLine("总运行时间：" + sw.Elapsed);
+
+
+
+
+
+
+
+            //StreamWriter sw = new StreamWriter(@"D:\cookies.dll");
+            //sw.Write("21");
+            //sw.Close();
+
+
+
+            DateTime daasd12 = new DateTime(2020, 2, 29).AddMonths(-1);
+
+
+            var newdate23 = DateTime.Now.AddDays(-30);
+
+            List<long> adslong = new List<long>();
+            adslong.Add(1289767320547214357); adslong.Add(1289767320541214357);
+            List<Student> students12 = new List<Student>();
+
+            students12.Add(new Student() { dt = "aa", thedate = DateTime.Now });
+            students12.Add(new Student() { dt = "aa", thedate = DateTime.Now.AddHours(-1) });
+            students12.Add(new Student() { dt = "bb", thedate = DateTime.Now });
+            students12.Add(new Student() { dt = "cc", thedate = DateTime.Now });
+
+            var end = DateTime.Now;
+            var start = end.AddDays(-30).Date;
+            var data2 = students12.GroupBy(u => new { u.dt, u.thedate.Date });
+            var newEnd = end;
+            while (newEnd >= start)
+            {
+                var dt = data2.Where(u => u.Key.Date == newEnd.Date);
+                Dictionary<string, int> kv = new Dictionary<string, int>();
+
+                foreach (var item in dt)
+                {
+                    kv.Add(item.Key.dt, item.Count());
+                }
+
+                var count = kv.Sum(u => u.Value);
+                newEnd = newEnd.AddDays(-1);
+            }
+
+
+
+
+
+
+
+
+            students12 = students12.Where(u => adslong.Contains(u.numb1)).ToList();
+            List<PublicN5<string, int, decimal, int, decimal>> qudaoList = new List<PublicN5<string, int, decimal, int, decimal>>();
+            qudaoList.AddRange(JsonConvert.DeserializeObject<List<PublicN5<string, int, decimal, int, decimal>>>("[]"));
+
+
+            string asd = "";
+
+            asd = GetText(@"C:\Users\Admin\Downloads\333.txt");
+            var returnData1 = JsonConvert.DeserializeObject<dynamic>(asd);
+            JArray jarray2;
+            //DateTime newDate = date;
+            int sum = 29;
+            dynamic keyWords_data2 = returnData1["content"] == null ? null : returnData1["content"];
+            if (null == keyWords_data2)
+            {
+            }
+            jarray2 = keyWords_data2["data"] == null ? null : keyWords_data2["data"];
+            if (jarray2 == null)
+            {
+
+            }
+
+
+
+            //for (int i = 0; i < 12; i++)
+            //{
+            //    Task.Run(() =>
+            //    {
+            //        WriteLog("khg2");
+            //    });
+            //}
+
+            //Thread.Sleep(5000);
+
+
+            var asda222 = JsonConvert.DeserializeObject<List<KeyWord3>>("[]");
+
+            asda222.Where(u => u.dec5 == 5);
+            //  Student student161 = new Student();
+            //  student161.dt = "asd";
+            //  string asd214 = null;
+
+            //var asd2222= student161.dt.Length;
+
+            //  var datet12 = new DateTime(2020,9,25);
+            //  var datet2 = new DateTime(2020, 9, 20);
+
+
+            //  var datet3 = (datet12 - datet2).Days + 1;
+
+
+            //string data35 = "3424+" + DateTime.Now + "+" + asd;
+            //string urlEncode = System.Web.HttpUtility.UrlEncode(data35);
+
+
+            Console.WriteLine(QType.好);
+
+
+            var datetime1 = DateTime.Now.Date.AddDays(-8);
+            ////生意参谋解密
+            //var str = CookieHelper.sk(asd);
+
+            //dynamic returnData1 = JsonConvert.DeserializeObject<dynamic>(asd);
+            //string keyWords_data1 = returnData1["data"]?.ToString();
+
+            //if (null == keyWords_data1)
+            //{
+
+            //}
+            //解密
+            string keyWords_str1 = CookieHelper.sk(asd);
+            dynamic keyWords_json1 = JsonConvert.DeserializeObject<dynamic>(keyWords_str1);
+            if (keyWords_json1 == null)
+            {
+
+            }
+            JArray jarray1 = keyWords_json1["data"]; ;
+            foreach (JToken j in jarray1)
+            {
+                if (j["shop"] != null)
+                {
+                    var ad5553 = j["itemId"]["value"] == null ? 0 : Convert.ToInt64(j["itemId"]["value"].ToString());
+                    //JZItem jzData = new JZItem();
+                    //jzData.item = 0;
+                    //jzData.ShopID = upLodate.shopId;
+                    //jzData.jzItem = j["itemId"]["value"] == null ? 0 : Convert.ToInt64(j["itemId"]["value"].ToString());
+                    //jzData.title = j["item"]["title"]?.ToString();
+                    //jzData.catId = catId.ToString();
+                    //jzData.pic = j["item"]["pictUrl"]?.ToString();
+                    //jzData.url = j["item"]["detailUrl"]?.ToString();
+                    //jzData.price = string.Empty;
+                    //jzData.CreateDate = DateTime.Now;
+                    //jzData.shopName = j["shop"]["title"]?.ToString();
+                    //jzData.isMonitoring = 1;
+                    //jzData.sort = null;
+                    //jzData.isOpen = 0;
+                    //jzData.remark = string.Empty;
+                    //jzData.province = j["shop"]["province"]?.ToString();
+                    //jzData.city = j["shop"]["city"]?.ToString();
+                    //jzData.b2CShop = j["shop"]["b2CShop"]?.ToString() == "true" ? 1 : 0;
+                    //jzData.pictureUrl = j["shop"]["pictureUrl"]?.ToString();
+                    //jzData.shopUrl = j["shop"]["shopUrl"]?.ToString();
+                    //dataList.Add(jzData);
+                }
+            }
+
+
+            ////请求接口
+            //string resoultData = HttpUtil.HttpGet2("http://www.bk.caoam.cn/JCApiCore/TestMethod");
+            //dynamic myData = JsonConvert.DeserializeObject<dynamic>(resoultData);
+
+
+
 
             Dictionary<string, string> keyValues = new Dictionary<string, string>();
             var props = typeof(KeyWord);
@@ -30,7 +390,7 @@ namespace ConsoleApp1
                     keyValues.Add(((DescriptionAttribute)objs[0]).Description, item.Name);
                 }
             }
-            Dictionary<string, string> valuePairs = new Dictionary<string, string>() { { "日期" , "2018-04-09 21:33:08.770" },{ "访客","23" },{ "访客2","" } };
+            Dictionary<string, string> valuePairs = new Dictionary<string, string>() { { "日期", "2018-04-09 21:33:08.770" }, { "访客", "23" }, { "访客2", "12" }, { "测试", "123" } };
             KeyWord keyWord = new KeyWord();
             foreach (var item in keyValues)
             {
@@ -67,7 +427,7 @@ namespace ConsoleApp1
 
             keyWord1.Add(keyWordtest);
 
-            string serobj = Newtonsoft.Json.JsonConvert.SerializeObject(keyWord1).Replace("\\\"","\"");
+            string serobj = Newtonsoft.Json.JsonConvert.SerializeObject(keyWord1).Replace("\\\"", "\"");
 
             var keyWord2 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<KeyWord2>>(serobj);
 
@@ -84,7 +444,7 @@ namespace ConsoleApp1
                 {
                     foreach (var prop in type8.GetProperties())
                     {
-                        if (prop.Name == "uv") 
+                        if (prop.Name == "uv")
                         {
                             continue;
                         }
@@ -98,18 +458,31 @@ namespace ConsoleApp1
                 }
             }
 
-            
+
             var a = new System.Data.DataTable().Compute("1/0", "");
             a = a?.ToString() == "Infinity" ? a : 0;
             var ad555 = null * 0.6m;
 
             List<Student2> student2s = new List<Student2>();
+            var ceshi234 = student2s.Average(u => u.ba).GetValueOrDefault(0);
+            student2s.Add(new Student2() { b = 0, a = 5, student2s = new List<Student2>() });
+            student2s.Add(new Student2() { b = 1, a = 5 });
+            student2s.Add(new Student2() { b = 1, a = 5 });
             student2s.Add(new Student2() { b = 0, a = 5 });
+            foreach (var item in student2s)
+            {
+                item.student2s.Add(new Student2() { b = 1, a = 5 });
+            }
+
+
             var asdad1 = student2s.Where(u => u.b == 0).Select(u => u.a).FirstOrDefault();
 
 
             student2s = student2s.OrderByDescending(u => u.a == 0).ToList();
-            var monitoringData = student2s.GroupBy(u => new { u.a, u.b }).ToList();
+            foreach (var item in student2s.GroupBy(u => u.b))
+            {
+                double ceshi23 = item.Average(u => u.ba).GetValueOrDefault(0);
+            }
 
 
 
@@ -268,7 +641,7 @@ namespace ConsoleApp1
                 stopwatch.Stop();
                 var newdata = new { jzitem = item, result = result11 };
                 string data = Newtonsoft.Json.JsonConvert.SerializeObject(newdata);
-                 resoultData = HttpUtil.PostData("http://www.bk.caoam.cn/JcService/MonitorJzItemChanges", data);
+                resoultData = HttpUtil.PostData("http://www.bk.caoam.cn/JcService/MonitorJzItemChanges", data);
                 //resoultData = HttpUtil.PostData("http://www.caoam.cn/JcService/MonitorJzItemChanges", data);
             }
             myData = JsonConvert.DeserializeObject<dynamic>(resoultData);
@@ -335,14 +708,6 @@ namespace ConsoleApp1
             if (jarray == null)
             {
             }
-
-            ////生意参谋解密
-            //var str = CookieHelper.sk("D86E64E948F99333ADACCD676779B37A0153C88A84641E158EE53219BB0A0FCDB5EBE12823D9AA9BA108FA2AD1ED7A19BD4AA858014E1A9AC8B5F699368902E7F92A416566959D70D91FCD5C8FABBBAAF1AFFD11819D4FA56842116E5966FEABE55CF8D99D1A614130BCCB7349AD55B07B71FF1954030FFD2878F448A54FB3D8");
-
-            ////请求接口
-            //string resoultData = HttpUtil.HttpGet2("http://www.bk.caoam.cn/JCApiCore/TestMethod");
-            //dynamic myData = JsonConvert.DeserializeObject<dynamic>(resoultData);
-
 
 
 
@@ -678,11 +1043,12 @@ namespace ConsoleApp1
     public class Student
 
     {
-        public int numb1 { get; set; }
+        public long numb1 { get; set; }
         public int? numb2 { get; set; }
         public int numb3 { get; set; }
         public int numb4 { get; set; }
         public string dt { get; set; }
+        public DateTime thedate { get; set; }
     }
     public class Student2
 
@@ -691,6 +1057,8 @@ namespace ConsoleApp1
         public int b { get; set; }
         public int? ba { get; set; }
         public DateTime dt { get; set; }
+
+        public List<Student2> student2s { get; set; }
     }
     public class KeyWord
     {
@@ -703,6 +1071,7 @@ namespace ConsoleApp1
         public int? uv2 { get; set; }
         public decimal dec { get; set; }
         public decimal? dec1 { get; set; }
+        [Description("测试")]
         public long dec2 { get; set; }
     }
     public class KeyWord2
