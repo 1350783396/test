@@ -24,7 +24,7 @@ namespace ConsoleApp1
     {
         public static QType Gasadad(QType q)
         { 
-            return q;
+            return q; 
         }
 
         //public static void WriteLog(string strLog)
@@ -89,7 +89,6 @@ namespace ConsoleApp1
             }
 
         }));
-
             thread.Start(strLog);
 
 
