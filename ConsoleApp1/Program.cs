@@ -23,8 +23,8 @@ namespace ConsoleApp1
     class Program
     {
         public static QType Gasadad(QType q)
-        { 
-            return q; 
+        {
+            return q;
         }
 
         //public static void WriteLog(string strLog)
@@ -129,18 +129,31 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-
+          var asdadaaa=  Math.Round(5m / 2).ToString("P");
+            var ads = CamCrypto.Encrypt("123456");
             List<KeyWord2> keys13 = new List<KeyWord2>();
 
-          
+
+            var asd123 = Convert.ToInt64("12313  ");
+
+            var keys133 = new KeyWord2() { dec = 0,dec1=20 };
+            var keys134 = new KeyWord2() { dec = 400, dec1 = 20 };
+            var keys135 = new KeyWord2() { dec = 500, dec1 = 20 };
+            keys13.Add(new KeyWord2 { });
 
 
-            var keys133 = new KeyWord2() { dec = 300 };
-            var keys134 = new KeyWord2() { dec = 400 };
-            var keys135 = new KeyWord2() { dec = 500 };
+            var aa22 = keys13.Average(u => u.uv2);
 
-           
+            keys13.Add(keys133);
+            keys13.Add(keys134);
+            keys13.Add(keys135);
 
+       
+
+            foreach (var item in keys13)
+            {
+                var ad33 = item.getSum();
+            }
 
             var keys131 = new KeyWord2() { dec = -200 };
             var keys132 = new KeyWord2() { dec = -100 };
@@ -150,9 +163,7 @@ namespace ConsoleApp1
 
             keys13.Add(keys131);
             keys13.Add(keys132);
-            keys13.Add(keys133);
-            keys13.Add(keys134);
-            keys13.Add(keys135);
+          
             keys13.Add(keys136);
             keys13.Add(keys137);
             var asda15 = keys13.Skip(2).FirstOrDefault();
@@ -1072,6 +1083,8 @@ namespace ConsoleApp1
         public decimal? dec1 { get; set; }
         [Description("测试")]
         public long dec2 { get; set; }
+
+      
     }
     public class KeyWord2
     {
@@ -1086,6 +1099,10 @@ namespace ConsoleApp1
         public long dec3 { get; set; }
         public long dec4 { get; set; }
         public long? dec5 { get; set; }
+        public decimal getSum()
+        {
+            return dec + dec1.GetValueOrDefault(0);
+        }
     }
     public class KeyWord3
     {
