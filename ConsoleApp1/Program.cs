@@ -56,42 +56,29 @@ namespace ConsoleApp1
 
         public static void WriteLog(string strLog)
         {
-
-            Thread thread = new Thread(new ParameterizedThreadStart(delegate (object obj)
-
-        {
-            lock (_lock)
-
+            string sFilePath = "d:\\jcLog\\" + DateTime.Now.ToString("yyyyMM");
+            string sFileName = "rizhi" + DateTime.Now.ToString("dd") + ".log";
+            sFileName = sFilePath + "\\" + sFileName; //文件的绝对路径
+            if (!Directory.Exists(sFilePath))//验证路径是否存在
             {
-                string sFilePath = @"D:\jcLog\" + DateTime.Now.ToString("yyyyMM");
-                string sFileName = "rizhi" + DateTime.Now.ToString("dd") + ".log";
-                sFileName = sFilePath + "\\" + sFileName; //文件的绝对路径
-                if (!Directory.Exists(sFilePath))//验证路径是否存在
-                {
-                    Directory.CreateDirectory(sFilePath);
-                    //不存在则创建
-                }
-                FileStream fs;
-                StreamWriter sw;
-                if (System.IO.File.Exists(sFileName))
-                //验证文件是否存在，有则追加，无则创建
-                {
-                    fs = new FileStream(sFileName, FileMode.Append, FileAccess.Write);
-                }
-                else
-                {
-                    fs = new FileStream(sFileName, FileMode.Create, FileAccess.Write);
-                }
-                sw = new StreamWriter(fs);
-                sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + "   ---   " + strLog);
-                sw.Close();
-                fs.Close();
+                Directory.CreateDirectory(sFilePath);
+                //不存在则创建
             }
-
-        }));
-            thread.Start(strLog);
-
-
+            FileStream fs;
+            StreamWriter sw;
+            if (System.IO.File.Exists(sFileName))
+            //验证文件是否存在，有则追加，无则创建
+            {
+                fs = new FileStream(sFileName, FileMode.Append, FileAccess.Write);
+            }
+            else
+            {
+                fs = new FileStream(sFileName, FileMode.Create, FileAccess.Write);
+            }
+            sw = new StreamWriter(fs);
+            sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + "   ---   " + strLog);
+            sw.Close();
+            fs.Close();
         }
         public static readonly object _lock = new object();
 
@@ -129,14 +116,39 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-          var asdadaaa=  Math.Round(5m / 2).ToString("P");
+
+            for (int i = 0; i < 5; i++)
+            {
+                WriteLog($"{i}adsa");
+            }
+
+
+
+
+            string hh = "<dl class=\"tm-price-panel\" id=\"J_StrPriceModBox\">        <dt class=\"tb-metatit\">价格</dt>        <dd><em class=\"tm-yen\">¥</em> <span class=\"tm-price\">139.00</span></dd>    </dl><dl class=\"tm-promo-panel tm-promo-cur\" id=\"J_PromoPrice\" data-label=\"促销价\"><dt class=\"tb-metatit\">促销价</dt><dd><div class=\"tm-promo-price\">              <em class=\"tm-yen\">¥</em> <span class=\"tm-price\">39.60-44.60</span>                                                    &nbsp;&nbsp;                                 </div> <p>   </p></dd></dl><script type=\"data/tpl\" id=\"J_PromoHintText\"><!--rullBanner ids:$ids true--></script>                  <dl class=\"tm-shopPromo-panel\"><div class=\"tm-shopPromotion-title tm-gold \"><dt class=\"tb-metatit\">本店活动</dt><dd>满61件6折</dd><a class=\"more\">更多优惠<s></s></a></div><div class=\"tm-floater-Box  hidden\"><div class=\"floater fold\">     <div class=\"hd\">         <em class=\"title \">本店活动</em>         11.15                               到2020-11-30 23:59:59结束                  <a class=\"more unmore\">收起<s></s></a>         <a class=\"more\">更多优惠<s></s></a>              </div>     <ul class=\"bd\">                  <li class=\"noCoupon\" data-index=\"0\">             <p>                                      满<em>61</em>件                     <em>6</em>折                                                                                                                                                                                                                                                </p>                      </li>              </ul>     <div class=\"ft\">                       </div> </div></div></dl>";
+            var hhList = hh.Split("¥").ToList();
+            hh = hhList[hhList.Count() - 1];
+            hh = hh.Split("price\">")[1].Split("</span>")[0];
+
+            hh = "<dl class=\"tm-price-panel\" id=\"J_StrPriceModBox\">        <dt class=\"tb-metatit\">价格</dt>        <dd><em class=\"tm-yen\">¥</em> <span class=\"tm-price\">139.00</span></dd>    </dl><dl class=\"tm-promo-panel tm-promo-cur\" id=\"J_PromoPrice\" data-label=\"促销价\"><dt class=\"tb-metatit\">促销价</dt><dd><div class=\"tm-promo-price\">              <em class=\"tm-yen\">¥</em> <span class=\"tm-price\">39.60-44.60</span>                                                    &nbsp;&nbsp;                                 </div> <p>   </p></dd></dl><script type=\"data/tpl\" id=\"J_PromoHintText\"><!--rullBanner ids:$ids true--></script>                  <dl class=\"tm-shopPromo-panel\"><div class=\"tm-shopPromotion-title tm-gold \"><dt class=\"tb-metatit\">本店活动</dt><dd>满61件6折</dd><a class=\"more\">更多优惠<s></s></a></div><div class=\"tm-floater-Box  hidden\"><div class=\"floater fold\">     <div class=\"hd\">         <em class=\"title \">本店活动</em>         11.15                               到2020-11-30 23:59:59结束                  <a class=\"more unmore\">收起<s></s></a>         <a class=\"more\">更多优惠<s></s></a>              </div>     <ul class=\"bd\">                  <li class=\"noCoupon\" data-index=\"0\">             <p>                                      满<em>61</em>件                     <em>6</em>折                                                                                                                                                                                                                                                </p>                      </li>              </ul>     <div class=\"ft\">                       </div> </div></div></dl>";
+            hhList = hh.Split("本店活动").ToList();
+            hh = hhList[hhList.Count() - 1];
+
+
+
+            hh = hh.Split("price\">")[1].Split("</span>")[0];
+
+            string asdadaaa = Math.Round(5m / 2).ToString("P");
             var ads = CamCrypto.Encrypt("123456");
             List<KeyWord2> keys13 = new List<KeyWord2>();
 
-
             var asd123 = Convert.ToInt64("12313  ");
 
-            var keys133 = new KeyWord2() { dec = 0,dec1=20 };
+            var keys133 = new KeyWord2() { dec = 0, dec1 = 20, kword = "a1d" };
+            asdadaaa = (keys133.kword?.Contains("ad")).GetValueOrDefault(true) ? "1" : "2";
+            asdadaaa = keys133.uv.ToString().Replace("+", "");
+            asdadaaa = keys133.uv2.ToString().Replace("+", "");
+
             var keys134 = new KeyWord2() { dec = 400, dec1 = 20 };
             var keys135 = new KeyWord2() { dec = 500, dec1 = 20 };
             keys13.Add(new KeyWord2 { });
@@ -148,7 +160,7 @@ namespace ConsoleApp1
             keys13.Add(keys134);
             keys13.Add(keys135);
 
-       
+
 
             foreach (var item in keys13)
             {
@@ -163,7 +175,7 @@ namespace ConsoleApp1
 
             keys13.Add(keys131);
             keys13.Add(keys132);
-          
+
             keys13.Add(keys136);
             keys13.Add(keys137);
             var asda15 = keys13.Skip(2).FirstOrDefault();
@@ -1084,7 +1096,7 @@ namespace ConsoleApp1
         [Description("测试")]
         public long dec2 { get; set; }
 
-      
+
     }
     public class KeyWord2
     {
