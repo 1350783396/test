@@ -4,12 +4,16 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ConsoleApp1
 {
@@ -59,6 +63,10 @@ namespace ConsoleApp1
             string sFilePath = "d:\\jcLog\\" + DateTime.Now.ToString("yyyyMM");
             string sFileName = "rizhi" + DateTime.Now.ToString("dd") + ".log";
             sFileName = sFilePath + "\\" + sFileName; //文件的绝对路径
+            if (!Directory.Exists("d:"))
+            {
+                sFilePath = "e:\\jcLog\\" + DateTime.Now.ToString("yyyyMM");
+            }
             if (!Directory.Exists(sFilePath))//验证路径是否存在
             {
                 Directory.CreateDirectory(sFilePath);
@@ -89,6 +97,9 @@ namespace ConsoleApp1
         /// <returns></returns>
         public static string GetText(string path)
         {
+
+
+
             string asd = "";
             try
             {
@@ -114,8 +125,421 @@ namespace ConsoleApp1
             return asd;
         }
 
+        public class Cs1
+        {
+            public virtual void V() { }
+
+        }
+        public abstract class Cs2
+        {
+            public virtual void V() { }
+            public abstract void V2();
+        }
+
+        public class Cs3 : Cs1
+        {
+
+            public override void V() { }
+        }
+        private static int Getaa(KeyWord2 word2)
+        {
+            word2.dec = 0;
+            return 0;
+        }
+        public static T DeepCopyByXml<T>(T obj)
+        {
+            object retval;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                XmlSerializer xml = new XmlSerializer(typeof(T));
+                xml.Serialize(ms, obj);
+                ms.Seek(0, SeekOrigin.Begin);
+                retval = xml.Deserialize(ms);
+                ms.Close();
+            }
+            return (T)retval;
+        }
+        public static int Testaa(int a, int b = 0)
+        {
+            var aa = a + b;
+            return aa;
+
+        }
+        /// <summary>
+        /// 返回sql建表语句
+        /// </summary>
+        /// <returns></returns>
+        public static string GetSqlCreateTable()
+        {
+            string str = @"public class PreServiceData
+    {
+     public int id { get; set; }
+        /// <summary>
+        /// 上传人
+        /// </summary>
+        public long userid { get; set; }
+        public int shopId { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime createDate { get; set; }
+        [Description('日期')]
+        public DateTime thedate { get; set; }
+        [Description('店铺')]
+        public string shopName { get; set; }
+        [Description('旺旺')]
+        public string wangwang { get; set; }
+        [Description('销售额')]
+        public decimal? xiaoshoue { get; set; }
+        [Description('销售量')]
+        public int? xiaoshouliang { get; set; }
+
+        [Description('客单价修')]
+        public decimal? kedanjiaxiu { get; set; }
+        [Description('客件数修')]
+        public decimal? kejianshu { get; set; }
+        [Description('接待人数')]
+        public int? jiedairenshu { get; set; }
+        [Description('询单人数延')]
+        public int? xundanrenshuyan { get; set; }
+        [Description('付款流失人数')]
+        public int? fukuanliushirenshu { get; set; }
+        [Description('询单->最终付款人数延')]
+        public int? xdzuizhongfukuanrenshu { get; set; }
+        [Description('询单->最终付款成功率延')]
+        public string xdzuizhongfukuanchenggonglv { get; set; }
+
+        [Description('未回复人数')]
+        public int? weihuifurenshu { get; set; }
+        [Description('平均响应(秒)')]
+        public decimal? pingjunxiangying { get; set; }
+        [Description('买家消息数')]
+        public int? maijiaxiaoxishu { get; set; }
+        [Description('客服消息数')]
+        public int? kefuxiaoxishu { get; set; }
+        [Description('答问比')]
+        public string dawenbi { get; set; }
+        [Description('成交笔数')]
+        public int? chengjiaobishu { get; set; }
+        [Description('退款笔数')]
+        public int? tuikuanbishu { get; set; }
+        [Description('完成退款金额')]
+        public decimal? wanchengtuikuanjine { get; set; }
+        [Description('退款率')]
+        public string tuikuanlv { get; set; }
+    }
+    ";
+            str = Regex.Replace(str, @"[\r\n]", "");
+            string sqlhead = "";
+            string sqlbody = "";
+            for (int i = 0; i < str.Length; i++)
+
+                if (str[i] == 'p' && str[i + 1] == 'u' && str[i + 2] == 'b' && str[i + 3] == 'l' && str[i + 4] == 'i' && str[i + 5] == 'c')
+                {
+                    if (i == 0)
+                    {
+                        i += 13;
+                        for (; ; )
+                        {
+                            if (str[i] == '{') break;
+                            sqlhead += str[i];
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        string type = "";
+                        string sqltype = "";
+                        string sqlname = "";
+                        i += 7;
+                        for (; ; )
+                        {
+                            if (str[i] == ' ') break;
+                            type += str[i];
+                            i++;
+                        }
+                        switch (type)
+                        {
+                            case "string":
+                                sqltype = " nvarchar(500),\r\n";
+                                break;
+                            case "bool":
+                                sqltype = " BIT,\r\n";
+                                break;
+                            case "DateTime":
+                            case "DateTime?":
+                                sqltype = " datetime,\r\n";
+                                break;
+                            case "decimal":
+                            case "decimal?":
+                                sqltype = " decimal(18, 2),\r\n";
+                                break;
+                            case "int":
+                            case "int?":
+                                sqltype = " int,\r\n";
+                                break;
+                            case "long":
+                            case "long?":
+                                sqltype = " bigint,\r\n";
+                                break;
+                            default:
+                                sqltype = " " + type + ",\r\n";
+                                break;
+                        }
+                        i++;
+                        for (; ; )
+                        {
+                            if (str[i] == ' ') break;
+                            sqlname += str[i];
+                            i++;
+                        }
+                        sqlbody += sqlname + sqltype;
+                        i += 13;
+                    }
+                }
+
+            return "create table " + sqlhead + "(\r" + sqlbody + ")";
+        }
+
+        /// <summary>
+        /// 查询扩展方法
+        /// </summary>
+
+
         static void Main(string[] args)
         {
+            string strCreate = GetSqlCreateTable();
+
+
+
+            int aa00 = Convert.ToInt32("-".Split("-")[0] ?? "0");
+
+
+            KeyWord2 keyWord21 = new KeyWord2();
+            var keyWord21s = keyWord21.uv2.ToString().Replace(",", "");
+            var rra11 = Testaa(10, 2);
+
+            var adaaaa = Convert.ToInt32("");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var data211111 = Guid.NewGuid();
+
+
+            List<KeyWord2> keys13325 = new List<KeyWord2>();
+            var keys1345 = new KeyWord2() { uv = 1, dec = 400, dec1 = 20, kword = "大家好" };
+
+            for (int i = 0; i < 3; i++)
+            {
+                KeyWord2 word2 = DeepCopyByXml(keys1345); ;
+                var cc5 = Getaa(word2);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var keys13456 = new KeyWord2() { uv = 2, dec = 400, dec1 = 20, kword = "大家好晚上" };
+            var keys134567 = new KeyWord2() { uv = 3, dec = 400, dec1 = 20, kword = "大家好非常" };
+            var keys1345678 = new KeyWord2() { uv = 4, dec = 400, dec1 = 20, kword = "大家好非常" };
+            keys13325.Add(keys1345678);
+            keys13325.Add(keys1345);
+            keys13325.Add(keys13456);
+            keys13325.Add(keys134567);
+            keys13325 = QueryableExtension.OrderByDescending(keys13325.AsQueryable(), "uv").ToList();
+
+
+            List<int> jids = new List<int>();
+            Dictionary<int, int> keyValues2 = new Dictionary<int, int>();
+            int a11 = 1;
+            foreach (var item in "2,1,3".Split(",", StringSplitOptions.RemoveEmptyEntries))
+            {
+                jids.Add(Convert.ToInt32(item));
+                keyValues2.Add(Convert.ToInt32(item), a11);
+                a11 = +1;
+            }
+            keys13325 = keys13325.OrderBy(u => jids.Contains(u.uv)).ThenBy(u => keyValues2.ContainsKey(u.uv) ? keyValues2[u.uv] : 888).ToList();
+
+
+
+
+
+            List<KeyWord2> keys13322 = new List<KeyWord2>();
+            keys13322.Add(new KeyWord2());
+            if (keys13322.First().uv2 > 0)
+            {
+                var avasvav = (keys13322.First().uv2 / 100)?.ToString("P");
+
+
+            }
+            var asd1222222 = keys13322.Average(u => u.uv2.GetValueOrDefault(0));
+            for (int i = 0; i < 30; i++)
+            {
+                keys13322.Add(new KeyWord2());
+            }
+            var asdasd222 = keys13322[0];
+
+            var ctrr = Convert.ToInt64("");
+            string asdayyy = "s://";
+
+
+            int yyyaa = Convert.ToInt32("");// 9 % 7;
+
+
+            if ("data:image".IndexOf("http") == -1)
+            {
+                var atttta = "data:image".IndexOf("http") >= 0;//.Substring(0, 4);
+
+            }
+
+            Dictionary<string, string> dicList = new Dictionary<string, string>() { { "流量指数", "shop_uvIndex" }, { "收藏人气", "shop_cltHits" }, { "加购人气", "shop_cartHits" }, { "支付转化指数", "shop_payRateIndex" }, { "交易指数", "shop_tradeIndex" }, { "客群指数", "shop_payByrCntIndex" }, { "预售定金指数", "shop_preTradeIndex" }, { "预售定金商品件数", "shop_preSellItmCnt" }, { "上新商品数", "shop_fstOnsItmCnt" } };
+            var dicFirst = dicList.Where(u => u.Key == "asdas").Count();
+
+
+            List<string> vsss = new List<string>();
+            vsss.Add("大家好非常");
+            vsss.Add("大家好晚上");
+
+            keys13325 = keys13325.Where(u => vsss.Contains(u.kword)).ToList();
+
+
+            Stopwatch sw = new Stopwatch();
+
+            // 开始测量代码运行时间
+            sw.Start();
+            ////请求接口
+            string resoultDatasdddaaa = WebClientHelper.DownloadString("http://www.bk.caoam.cn/JCReport2/GetTestJson");
+            //string resoultDatasdddaaa = HttpUtil.HttpGet2("http://www.bk.caoam.cn/JCReport2/GetTestJson");
+            //dynamic myData = JsonConvert.DeserializeObject<dynamic>(resoultData);
+            sw.Stop();
+            var ElapsedMilliseconds = sw.ElapsedMilliseconds;
+
+            StreamReader sr111111 = new StreamReader("D:\\新建文本文档.txt", Encoding.Default);
+            string content;
+            string cc333 = "";
+            while ((content = sr111111.ReadLine()) != null)
+            {
+                cc333 += content;
+            }
+
+
+
+            if (keys1345.kword.StartsWith("@"))
+            {
+
+                keys1345 = new KeyWord2() { uv = 4, dec = 400, dec1 = 20 };
+            }
+            foreach (var item in keys1345.kword?.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList())
+            {
+
+            }
+
+            var da231231ss = new DateTime(2020, 8, 29).AddDays(-29);
+
+
+            var aqe22 = new System.Data.DataTable().Compute("", "");
+            aqe22 = (aqe22?.ToString() == "Infinity") || (aqe22?.ToString() == "NaN") ? 0 : aqe22;
+
+            decimal aaa441a = 0;
+
+            decimal.TryParse("njkl", out aaa441a);
+
+            string valstri = "ads";
+            valstri = valstri.Substring(0, 7);
+
+            var json2 = JsonConvert.SerializeObject(new List<KeyWord2>());
+
+            var json3 = JsonConvert.DeserializeObject<List<KeyWord2>>(json2);
+
+            json3 = json3.Where(u => u.dec == 1).ToList();
+
+            decimal y1 = 1000 - (-5);
+            decimal y2 = 0m;
+            decimal y3 = 0m;
+            int yCount = 0;
+            while (true)
+            {
+                y1 = Math.Round(y1 / 2, 8);
+                if (y1 == y2)
+                {
+                    break;
+                }
+                y2 = y1;
+                yCount += 1;
+            }
+
+
+
+
+
+            WriteLog($"adsa");
+            string strprop = "Tid	AlipayNo	BuyerMemo	BuyerNick	CommissionFee	ConsignTime	Created	CreditCardFee	DiscountFee	EndTime	Modified	PayTime	Payment	post_fee	ReceivedPayment	ReceiverAddress	ReceiverCity	ReceiverDistrict	ReceiverMobile	ReceiverName	ReceiverPhone	ReceiverState	ReceiverZip	SellerFlag	SellerMemo	Status	TotalFee	TradeFrom	Platform	src_id	AllFee	AllCost	LastAllFeeDate	LastAllCostDate	ExpressInfo	IsShua	ShuaKeyWords	ShopID	vistorNum	Title	IsO2oPassport	StepPaidFee	StepTradeStatus	Type	ShippingType	SellerRate	BuyerRate	AdjustFee	MarkDesc	HasBuyerMessage	PicPath";
+
+            var adas12312311 = strprop.Split("	").ToList().Count();
+
+
+            List<KeyWord2> keys1332 = new List<KeyWord2>();
+
+            var keys1341 = new KeyWord2() { kword = "1", uv = 1, dec = 400.333m, dec1 = 20 };
+
+            var keys1352 = new KeyWord2() { kword = "ww", uv = 3, dec = 500, dec1 = 20 };
+            var keys1342 = new KeyWord2() { kword = "33", uv = 2, dec = 400, dec1 = 20 };
+            var keys1353 = new KeyWord2() { kword = "qq", uv = 4, dec = 500, dec1 = 20 };
+            keys1341.dec = Math.Round(keys1341.dec, 0);
+            keys1332.Add(keys1341);
+            keys1332.Add(keys1352);
+            keys1332.Add(keys1342);
+            keys1332.Add(keys1353);
+
+
+            var fields = "ww,33".Split(",");
+            foreach (var item in keys1332)
+            {
+                if (fields.Where(u => u == item.kword).FirstOrDefault() != null)
+                {
+                    item.uv = 1;
+                }
+            }
+
+
+            keys1332.Remove(keys1341);
+
+
+            List<KeyWord2> keys1335 = new List<KeyWord2>();
+
+
+            var keys1355 = new KeyWord2() { uv = 2, dec = 500, dec1 = 20 };
+            var keys1346 = new KeyWord2() { uv = 3, dec = 400, dec1 = 20 };
+            var keys1356 = new KeyWord2() { uv = 1, dec = 500, dec1 = 20 };
+
+            keys1335.Add(keys1345);
+            keys1335.Add(keys1355);
+            keys1335.Add(keys1346);
+            keys1335.Add(keys1356);
+            keys1332 = keys1332.OrderBy(u => u.uv).ToList();
+            var idList2 = keys1332.Select(u => u.uv);
+            keys1335 = keys1335.OrderBy(u => keys1332.Select(i => i.uv == u.uv)).ToList();
 
             for (int i = 0; i < 5; i++)
             {
@@ -154,7 +578,7 @@ namespace ConsoleApp1
             keys13.Add(new KeyWord2 { });
 
 
-            var aa22 = keys13.Average(u => u.uv2);
+            var aa22 = keys13.Average(u => u.uv);
 
             keys13.Add(keys133);
             keys13.Add(keys134);
@@ -196,10 +620,7 @@ namespace ConsoleApp1
             int a222 = 12;
 
             var asdddd = Math.Round(a222 / 2m).ToString("P");
-            Stopwatch sw = new Stopwatch();
 
-            // 开始测量代码运行时间
-            sw.Start();
             List<Student> students15 = new List<Student>();
             for (int i = 0; i < 10000000; i++)
             {
@@ -233,7 +654,7 @@ namespace ConsoleApp1
             }
             Task.WaitAll(tasks.ToArray());
 
-            sw.Stop();
+
             Console.WriteLine("总运行时间：" + sw.Elapsed);
 
 
@@ -394,9 +815,6 @@ namespace ConsoleApp1
             }
 
 
-            ////请求接口
-            //string resoultData = HttpUtil.HttpGet2("http://www.bk.caoam.cn/JCApiCore/TestMethod");
-            //dynamic myData = JsonConvert.DeserializeObject<dynamic>(resoultData);
 
 
 
@@ -458,7 +876,6 @@ namespace ConsoleApp1
             Type type8 = typeof(KeyWord3);
 
             Type type7 = typeof(KeyWord2);
-            //欢迎  你喝水了吗 没喝多少 两杯那一会再喝点 行呀 现在就在喝 请将good
             foreach (var item in keyWord2)
             {
                 var word3 = word3s.Where(u => u.uv == item.uv).FirstOrDefault();
@@ -807,7 +1224,6 @@ namespace ConsoleApp1
             }
 
 
-            Dictionary<string, string> dicList = new Dictionary<string, string>() { { "流量指数", "shop_uvIndex" }, { "收藏人气", "shop_cltHits" }, { "加购人气", "shop_cartHits" }, { "支付转化指数", "shop_payRateIndex" }, { "交易指数", "shop_tradeIndex" }, { "客群指数", "shop_payByrCntIndex" }, { "预售定金指数", "shop_preTradeIndex" }, { "预售定金商品件数", "shop_preSellItmCnt" }, { "上新商品数", "shop_fstOnsItmCnt" } };
 
             //var sad122 = dicList.ContainsKey["ads"];
 
@@ -1026,7 +1442,7 @@ namespace ConsoleApp1
             //Console.WriteLine(student.numb2);
             Console.ReadLine();
             Console.WriteLine("Hello World!");
-        jieshu:;
+            jieshu:;
         }
         public static int Getjnt(int c, int? a = 1)
         {
