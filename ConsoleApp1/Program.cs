@@ -308,11 +308,27 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
+            dynamic clay = Clay.Object(new
+            {
+                Foo = "json",
+                Bar = 100,
+                Nest = new
+                {
+                    Foobar = true
+                }
+            });
+
+            // 更新
+            clay.Foo = "Furion";
+            clay["Nest"].Foobar = false;
+            clay.Nest["Foobar"] = true;
+
+
+
             string strCreate = GetSqlCreateTable();
 
 
 
-            int aa00 = Convert.ToInt32("-".Split("-")[0] ?? "0");
 
 
             KeyWord2 keyWord21 = new KeyWord2();
