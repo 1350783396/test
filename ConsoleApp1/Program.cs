@@ -1,4 +1,6 @@
 ﻿
+using CardReader;
+using JiaMi;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -9,6 +11,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -304,10 +308,95 @@ namespace ConsoleApp1
         /// <summary>
         /// 查询扩展方法
         /// </summary>
-
-
+        [DllImport("CardReaderDLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        //[DllImport("CardReaderDLL.dll", EntryPoint = "ZJ_Hmac_SM3", SetLastError = true)]
+        public static extern string ZJ_Hmac_SM3(string key, string secret, string unix_timestamp, string request_body);
+        /// 获取时间戳
+        /// </summary>
+        /// <returns></returns>
+        public static string GetTimeStamp()
+        {
+            TimeSpan ts = DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            var aaa = Convert.ToInt64(ts.TotalSeconds).ToString();
+            return aaa;
+        }
+        private static string CreateToken(string message, string secret)
+        {
+            secret = secret ?? "";
+            var encoding = new System.Text.ASCIIEncoding();
+            byte[] keyByte = encoding.GetBytes(secret);
+            byte[] messageBytes = encoding.GetBytes(message);
+            using (var hmacsha256 = new HMACSHA256(keyByte))
+            {
+                byte[] hashmessage = hmacsha256.ComputeHash(messageBytes);
+                return Convert.ToBase64String(hashmessage);
+            }
+        }
         static void Main(string[] args)
         {
+            var jiamitext = SignGenerator.ZJ_Hmac_SM3("1", "1", "1646825799978", "{\"a\":\"11\"}");
+
+
+            System.Text.UTF8Encoding UTF8 = new System.Text.UTF8Encoding();
+            AesManaged tdes = new AesManaged();
+            tdes.Key = UTF8.GetBytes("4dbd1966f8d691d27b70be9110bb386a");//key
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+            ICryptoTransform crypt = tdes.CreateEncryptor();
+            byte[] plain = Encoding.UTF8.GetBytes("11".ToString());//需加密字符串
+            byte[] cipher = crypt.TransformFinalBlock(plain, 0, plain.Length);
+            var encryptedText = Convert.ToBase64String(cipher);//结果
+
+            IntPtr intPtr = new IntPtr(1);
+            //var result2 = ZJ_Hmac_SM3(intPtr, intPtr, intPtr, intPtr);
+
+            var result2 = ZJ_Hmac_SM3("1", "wRhVQMudgWKxkh9", "1", "12");
+
+            String secretAccessKey = "1";
+            String data3 = "1";
+            byte[] secretKey = Encoding.UTF8.GetBytes(secretAccessKey);
+            HMACSHA256 hmac = new HMACSHA256(secretKey);
+            hmac.Initialize();
+            byte[] bytes = Encoding.UTF8.GetBytes(data3);
+            byte[] rawHmac = hmac.ComputeHash(bytes);
+            var resul5 = Convert.ToBase64String(rawHmac);
+            Console.WriteLine();
+
+
+            string assstt = "1" + "\n" + "1";
+            var voo = CreateToken("1" + "\n" + "1", "1");
+            int abcd = "87f75d257be3915d5a067c66afda3ab136ab2b12aad547c0a1470b008f1b2302".Length;
+            abcd = "924DF1F3CD3A81C8D4A903E24FE8FA65046307ED8FC2908A4F9F2C4CB63C2325".Length;
+            TimeSpan ts = DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            var aaa = Convert.ToInt64(ts.TotalSeconds).ToString();
+
+            string str1312 = "111";
+            string str312 = "111";
+            var asaa = Sm3Crypto.ToSM3HexStr(str1312);
+
+            var as1123 = Sm3Crypto.ToSM3byte(str1312);
+            as1123 = Sm3Crypto.ToSM3byte(assstt, "1");
+            var as112 = Sm3Crypto.ToSM3HexStr(str1312);
+            var asdasq = Sm3Crypto.ToSM3HexStr(assstt, "wqe");
+            //F378C5C4E3E7828F9A9DC61BB3020F9FD3FC9033F3897E91E918B45FD3AB2E2E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             dynamic clay = Clay.Object(new
             {
                 Foo = "json",
@@ -317,13 +406,19 @@ namespace ConsoleApp1
                     Foobar = true
                 }
             });
-
+            clay["asd"] = "asd";
             // 更新
             clay.Foo = "Furion";
             clay["Nest"].Foobar = false;
             clay.Nest["Foobar"] = true;
 
+            dynamic clay2 = new Clay();
+            clay2.Arr = new string[] { "Furion", "Fur" };
 
+            // 数组转换示例
+            var a1 = clay2.Arr.Deserialize<string[]>(); // 通过 Deserialize 方法
+            var a2 = (string[])clay2.Arr;    // 强制转换
+            string[] a3 = clay2.Arr; // 声明方式
 
             string strCreate = GetSqlCreateTable();
 

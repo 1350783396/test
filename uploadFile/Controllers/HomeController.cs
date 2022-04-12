@@ -55,26 +55,30 @@ namespace uploadFile.Controllers
             try
             {
                 string fileName = file.FileName;
-                string dtTime = fileName.Split("源-")[1].Split(".")[0];
-                startTime = Convert.ToDateTime(dtTime.Split("_")[0]);
-                endTime = Convert.ToDateTime(dtTime.Split("_")[1]);
-                if (startTime != endTime)
-                {
-                    isMonth = 1;//月文件
-                }
+                //string dtTime = fileName.Split("源-")[1].Split(".")[0];
+                //startTime = Convert.ToDateTime(dtTime.Split("_")[0]);
+                //endTime = Convert.ToDateTime(dtTime.Split("_")[1]);
+                //if (startTime != endTime)
+                //{
+                //    isMonth = 1;//月文件
+                //}
             }
             catch (Exception)
             {
             }
 
-            if (file.Length > 0 )
+            if (file.Length > 0)
             {
-             
+
                 DataTable dt = new DataTable();
                 string strMsg;
                 //利用IFormFile里面的OpenReadStream()方法直接读取文件流
                 dt = ExcelToDatatable2(file.OpenReadStream(), Path.GetExtension(file.FileName), out strMsg, null, 0);
-
+                var str = "";
+                foreach (DataRow row in dt.Rows)
+                {
+                    str += row["校验规则"].ToString() +"$"+ row["编码说明"].ToString()+"@";
+                }
                 List<ShopChannel> shopChannelList = new List<ShopChannel>();
                 if (dt.Rows.Count > 0)
                 {
@@ -86,7 +90,7 @@ namespace uploadFile.Controllers
                     }
                     if (!cnameList.Contains("流量来源"))
                     {
-                      
+
                     }
                     Dictionary<string, string> keyValues = new Dictionary<string, string>();
                     var props = typeof(ShopChannel);
@@ -388,7 +392,7 @@ namespace uploadFile.Controllers
 
         public ActionResult GetJson()
         {
-            
+
             List<Dictionary<string, int>> keyValues = new List<Dictionary<string, int>>();
 
             Dictionary<string, int> keyValuePairs1 = new Dictionary<string, int>() { { "asd", 1 }, { "ads", 2 } };
