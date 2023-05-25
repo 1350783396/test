@@ -1,11 +1,14 @@
 ﻿
 using CardReader;
-using JiaMi;
+using ConsoleApp1.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SocialExplorer.IO.FastDBF;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -18,6 +21,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Linq.Dynamic.Core;
+using System.Collections;
 
 namespace ConsoleApp1
 {
@@ -332,9 +337,287 @@ namespace ConsoleApp1
                 return Convert.ToBase64String(hashmessage);
             }
         }
+        private static List<KeyValuePair<string, PropertyInfo>> Mapping<T>() where T : class
+        {
+            Type type = typeof(T);
+            var properties = type.GetProperties();
+
+            List<KeyValuePair<string, PropertyInfo>> result = new List<KeyValuePair<string, PropertyInfo>>(); ;
+            //保存dbf字段和实体的映射关系
+            //实体没有ColumnAttribute,则认为dbf字段名称和实体名称一致
+            foreach (var pro in properties)
+            {
+                var attrs = pro.GetCustomAttributes(typeof(ColumnAttribute), false);
+                if (attrs == null)
+                {
+                    result.Add(new KeyValuePair<string, PropertyInfo>(pro.Name, pro));
+                }
+                else
+                {
+                    //ColumnAttribute ar = (ColumnAttribute)attrs[0];
+                    //if (ar == null)
+                    //{
+                    result.Add(new KeyValuePair<string, PropertyInfo>(pro.Name, pro));
+
+                    //}
+                    //else
+                    //{
+                    //    result.Add(new KeyValuePair<string, PropertyInfo>(ar.Name, pro));
+                    //}
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 导出dbf
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">列表数据</param>
+        /// <param name="dbfPath">dbf保存路径</param>
+        /// <returns></returns>
+        public static string WritePdf<T>(List<T> list, string dbfPath) where T : class
+        {
+            if (list == null)
+            {
+                return null;
+            }
+            try
+            {
+                var dicProperty = Mapping<T>();
+                //创建dbf文件
+                var odbf = new DbfFile(Encoding.Default);
+                odbf.Open(Path.Combine(dbfPath), FileMode.Create);
+                //create a header
+                foreach (var it in dicProperty)
+                {
+                    odbf.Header.AddColumn(new DbfColumn(it.Key, DbfColumn.DbfColumnType.Character, 20, 0));
+                }
+
+                foreach (var it in list)
+                {
+                    var orec = new DbfRecord(odbf.Header) { AllowDecimalTruncate = true };
+                    foreach (var col in dicProperty)
+                    {
+                        var pro = col.Value;
+                        object value = pro.GetValue(it);
+                        if (value == null || value == DBNull.Value)
+                        {
+                            value = "";
+                        }
+                        orec[col.Key] = value.ToString();
+                    }
+                    odbf.Write(orec, true);
+                }
+
+                odbf.WriteHeader();
+
+                odbf.Close();
+                return dbfPath;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+        public static (Dictionary<string, int> str, int bo) Gethaha(string str, bool bo)
+        {
+            return (new Dictionary<string, int>(), 5);
+        }
+        public static void insertDataToExcel() //undo,no test
+        {
+            Microsoft.Office.Interop.Excel.Application myExcelApp;
+            Microsoft.Office.Interop.Excel.Workbooks myExcelWorkbooks;
+            Microsoft.Office.Interop.Excel.Workbook myExcelWorkbook;
+
+
+            object misValue = System.Reflection.Missing.Value;
+
+            myExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            myExcelApp.Visible = false;
+            myExcelWorkbooks = myExcelApp.Workbooks;
+            String fileName = @"D:\博石科技\卫生部、卫生厅统计报表\04全院及分科部分医疗质量指标汇总表.xlt";
+            String fileName2 = @"D:\博石科技\a4.xlsx";
+            // set this to your file you want
+            //myExcelWorkbook = myExcelWorkbooks.OpenDatabase(fileName, misValue, misValue, misValue, misValue);
+            myExcelWorkbook = myExcelWorkbooks.Open(fileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
+
+            Microsoft.Office.Interop.Excel.Worksheet myExcelWorksheet = (Microsoft.Office.Interop.Excel.Worksheet)myExcelWorkbook.ActiveSheet;
+
+            myExcelWorksheet.get_Range("A1", misValue).Formula = "3";
+            myExcelWorksheet.get_Range("A2", misValue).Formula = "2";
+
+            myExcelWorkbook.SaveAs(fileName2, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, misValue, misValue, misValue, misValue, misValue);
+            myExcelWorkbook.Close();
+        }
+
+        public static dynamic GetZkData()
+        {
+            List<Student> students1 = new List<Student>();
+            students1.Add(new Student() { numb1 = 1, numb2 = 2 });
+            students1.Add(new Student() { numb1 = 2, numb2 = 3 });
+            students1.Add(new Student() { numb1 = 3, numb2 = 4 });
+            students1.Add(new Student() { numb1 = 1, numb2 = 4 });
+            students1.Add(new Student() { numb1 = 3, numb2 = 3 });
+            return students1;
+        }
         static void Main(string[] args)
         {
+            var result666 = Email.MailSystem163.SendMail("1979097305@qq.com", "早", "早上好。");
+
+
+
+
+
+            var shuzu = new int[11] { 1, 7, 5, 4, 3, 6, 7, 2, 7, 22, 66 };
+            var aa = shuzu[1].ToString();
+            for (int i = 0; i < shuzu.Length; i++)
+            {
+                for (int j = i + 1; j < shuzu.Length; j++)
+                {
+                    if (shuzu[j] > shuzu[i])
+                    {
+                        var ccshuzu = shuzu[j];
+                        shuzu[j] = shuzu[i];
+                        shuzu[i] = ccshuzu;
+                    }
+                }
+            }
+            string shuzustr = string.Join(',', shuzu);
+
+
+            string strskb = "1";
+            string strqkb = strskb;
+            strqkb = "2";
+            Console.WriteLine(strskb);
+            int intskb = 1;
+            int intqkb = intskb;
+            intqkb = 2;
+            Console.WriteLine(intskb);
+
+            string yjj = "asdasfa[as]gaas";
+            var yjj2 = yjj.Substring(0, yjj.LastIndexOf("]"));
+            var yjj3 = yjj.Substring(yjj.LastIndexOf("]"));
+
+
+
+
+
+
+
+            foreach (var item66 in GetZkData())
+            {
+                var sttt = typeof(Student).GetProperty("numb1").GetValue(item66);
+            }
+
+            List<Student> students1 = new List<Student>();
+            var cctt = new Student() { numb1 = 1, numb2 = 2 };
+            students1.Add(new Student() { numb1 = 1, numb2 = 2 });
+            students1.Add(new Student() { numb1 = 2, numb2 = 3 });
+            students1.Add(new Student() { numb1 = 3, numb2 = 4 });
+            students1.Add(new Student() { numb1 = 1, numb2 = 4 });
+            students1.Add(new Student() { numb1 = 3, numb2 = 3 });
+
+            insertDataToExcel();
+            string asd61 = "123".Substring(3);
+            List<string> stss1 = new List<string>() { "123", "qwe", "1234", "0123" };
+            List<string> stss2 = new List<string>() { "123", "qw" };
+            var rt6 = stss1.Where(u => u.Contains("123")).ToList();
+
+            var rt5 = stss2.Where(u => stss1.Contains(u)).ToList();
+            Student2 student251 = new Student2();
+            var asdagqt1 = student251.dt2?.ToString() ?? "-";
+            var asdagqt2 = student251.ba?.ToString() ?? "-";
+
             var jiamitext = SignGenerator.ZJ_Hmac_SM3("1", "1", "1646825799978", "{\"a\":\"11\"}");
+
+            var asdasga = '\'';
+
+            var duoshaotian = (int)(new DateTime(1997, 9, 1) - new DateTime(1997, 9, 1)).TotalDays;
+
+
+            List<Student> students6 = new List<Student>();
+            students6.Add(new Student() { numb1 = 1, numb2 = 2 });
+            students6.Add(new Student() { numb1 = 3, numb2 = 4 });
+            students6.Add(new Student() { numb1 = 1, numb2 = 4 });
+            students6.Add(new Student() { numb1 = 3, numb2 = 3 });
+            var adtrue = students1.Select(u => u.numb1) == students6.Select(u => u.numb1);
+            adtrue = students1.Select(u => u.numb1).Equals(students6.Select(u => u.numb1));
+            adtrue = students1.Select(u => u.numb1).SequenceEqual(students6.Select(u => u.numb1).ToList());
+            adtrue = students1.Count(u => students6.Select(u => u.numb1).Contains(u.numb1)) == students6.Count();
+
+            students1 = students1.AsQueryable().OrderBy("numb1,numb2").ToList();
+
+
+
+            for (int i = 1; i < 100000; i++)
+            {
+                students1.Add(new Student() { numb1 = i, numb2 = i });
+            }
+            var students1list = students1.Select(u => new { u.numb1, u.numb2 });
+            var students1dic = students1.Select(u => new { u.numb1, u.numb2 }).ToDictionary(u => u.numb1, i => i.numb2);
+            System.Diagnostics.Stopwatch stopwatch2 = new System.Diagnostics.Stopwatch();
+            stopwatch2.Start(); //  开始监视代码运行时间
+            for (int i = 1; i < 100000; i++)
+            {
+                int a81 = (students1.FirstOrDefault(u => u.numb1 == i)?.numb2).GetValueOrDefault(0);
+            }
+            stopwatch2.Stop(); //  停止监视
+            TimeSpan timespan = stopwatch2.Elapsed;
+            double seconds = timespan.TotalSeconds;  //  总秒数 
+
+            for (int i = 1; i < 100000; i++)
+            {
+                int a81 = students1dic.ContainsKey(i) ? students1dic[i] : 0;
+            }
+
+            int dzxh = "as2121".Length;
+            int.TryParse("as2121".Substring(0, 4).Trim(), out dzxh);
+
+
+
+            DateTime dateTime12 = new DateTime(2022, 3, 1).AddDays(-1);
+            dateTime12 = dateTime12.AddMonths(-1);
+
+
+            List<Student2> students25 = new List<Student2>();
+            students25.Add(new Student2() { numb1 = 1 });
+            students25.Add(new Student2() { numb1 = 3 });
+            var ttt2 = students1.GroupJoin(students25, u => u.numb1, i => i.numb1, (u, i) => new { u.numb1 }).ToList();
+
+
+
+            //(string str, bool vv) asdaqe = Gethaha("asd", true);
+            var asdaa = DateTime.Now;
+            int jj = 5000 / 300;
+            ConcurrentBag<int> bagInt = new ConcurrentBag<int>();
+            ConcurrentDictionary<int, string> concurrentDictionary = new ConcurrentDictionary<int, string>();
+            List<int> listInt = new List<int>();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Encoding encoding1 = Encoding.GetEncoding(1252);
+            Console.WriteLine(encoding1.WebName);
+            Encoding encoding2 = Encoding.GetEncoding("GB2312");
+            Console.WriteLine(encoding2.WebName);
+            Console.ReadKey();
+
+
+            var asd113 = new List<WeiTongShiView>();
+            asd113.Add(new WeiTongShiView() { BAH = "qwe" });
+            var asds6 = WritePdf<WeiTongShiView>(asd113, @"E:\download\test.dbf");
+            string asd14 = "USERNAME	YLFKFS	JKKH	ZYCS	BAH	XM	XB	CSRQ	NL	GJ	BZYZSNL	XSECSTZ	XSERYTZ	CSD	GG	MZ	SFZH	ZY	HY	XZZ	DH	YB1	HKDZ	YB2	GZDWJDZ	DWDH	YB3	LXRXM	GX	DZ	DH2	RYTJ	RYSJ	RYSJS	RYKB	RYBF	ZKKB	CYSJ	CYSJS	CYKB	CYBF	SJZYTS	MZZD	JBBM	ZYZD	JBDM	RYBQ	QTZD11	JBDM11	RYBQ11	QTZD1	JBDM1	RYBQ1	QTZD12	JBDM12	RYBQ12	QTZD2	JBDM2	RYBQ2	QTZD13	JBDM13	RYBQ13	QTZD3	JBDM3	RYBQ3	QTZD14	JBDM14	RYBQ14	QTZD4	JBDM4	RYBQ4	QTZD15	JBDM15	RYBQ15	QTZD5	JBDM5	RYBQ5	QTZD16	JBDM16	RYBQ16	QTZD6	JBDM6	RYBQ6	QTZD17	JBDM17	RYBQ17	QTZD7	JBDM7	RYBQ7	QTZD18	JBDM18	RYBQ18	QTZD8	JBDM8	RYBQ8	QTZD19	JBDM19	RYBQ19	QTZD9	JBDM9	RYBQ9	QTZD20	JBDM20	RYBQ20	QTZD10	JBDM10	RYBQ10	QTZD21	JBDM21	RYBQ21	WBYY	H23	BLZD	JBMM	BLH	YWGM	GMYW	SWHZSJ	XX	RH	KZR	ZRYS	ZZYS	ZYYS	ZRHS	JXYS	SXYS	BMY	BAZL	ZKYS	ZKHS	ZKRQ	SSJCZBM1	SSJCZRQ1	SSJB1	SSJCZMC1	SZ1	YZ1	EZ1	QKDJ1	QKYHLB1	MZFS1	MZYS1	SSJCZBM2	SSJCZRQ2	SSJB2	SSJCZMC2	SZ2	YZ2	EZ2	QKDJ2	QKYHLB2	MZFS2	MZYS2	SSJCZBM3	SSJCZRQ3	SSJB3	SSJCZMC3	SZ3	YZ3	EZ3	QKDJ3	QKYHLB3	MZFS3	MZYS3	SSJCZBM4	SSJCZRQ4	SSJB4	SSJCZMC4	SZ4	YZ4	EZ4	QKDJ4	QKYHLB4	MZFS4	MZYS4	SSJCZBM5	SSJCZRQ5	SSJB5	SSJCZMC5	SZ5	YZ5	EZ5	QKDJ5	QKYHLB5	MZFS5	MZYS5	SSJCZBM6	SSJCZRQ6	SSJB6	SSJCZMC6	SZ6	YZ6	EZ6	QKDJ6	QKYHLB6	MZFS6	MZYS6	SSJCZBM7	SSJCZRQ7	SSJB7	SSJCZMC7	SZ7	YZ7	EZ7	QKDJ7	QKYHLB7	MZFS7	MZYS7	SSJCZBM8	SSJCZRQ8	SSJB8	SSJCZMC8	SZ8	YZ8	EZ8	QKDJ8	QKYHLB8	MZFS8	MZYS8	SSJCZBM9	SSJCZRQ9	SSJB9	SSJCZMC9	SZ9	YZ9	EZ9	QKDJ9	QKYHLB9	MZFS9	MZYS9	SSJCZBM10	SSJCZRQ10	SSJB10	SSJCZMC10	SZ10	YZ10	EZ10	QKDJ10	QKYHLB10	MZFS10	MZYS10	LYFS	YZZY_YLJG	WSY_YLJG	SFZZYJH	MD	RYQ_T	RYQ_XS	RYQ_F	RYH_T	RYH_XS	RYH_F	ZFY	ZFJE	YLFUF	ZLCZF	HLF	QTFY	BLZDF	SYSZDF	YXXZDF	LCZDXMF	FSSZLXMF	WLZLF	SSZLF	MAF	SSF	KFF	ZYZLF	XYF	KJYWF	ZCYF	ZCYF1	XF	BDBLZPF	QDBLZPF	NXYZLZPF	XBYZLZPF	HCYYCLF	YYCLF	YCXYYCLF	QTF	DBZGL_ZJ	LCLJGL_ZJ	ZGQK_ZJ	QJCS_ZJ	MZYZY_ZJ	RYYCY_ZJ	SQYSH_ZJ	LCYBL_ZJ	FSYBL_ZJ	QJCGCS_ZJ";
+            string netsad = "";
+            foreach (var item in asd14.Split("\t", StringSplitOptions.RemoveEmptyEntries))
+            {
+                netsad += "public string " + item + " {get;set;}" + "\r\n";
+            }
+
+            Parallel.For(0, 10, (u) => { });
+
+
+            //var jiamitext = SignGenerator.ZJ_Hmac_SM3("1", "1", "1646825799978", "{\"a\":\"11\"}");
 
 
             System.Text.UTF8Encoding UTF8 = new System.Text.UTF8Encoding();
@@ -372,13 +655,7 @@ namespace ConsoleApp1
 
             string str1312 = "111";
             string str312 = "111";
-            var asaa = Sm3Crypto.ToSM3HexStr(str1312);
-
-            var as1123 = Sm3Crypto.ToSM3byte(str1312);
-            as1123 = Sm3Crypto.ToSM3byte(assstt, "1");
-            var as112 = Sm3Crypto.ToSM3HexStr(str1312);
-            var asdasq = Sm3Crypto.ToSM3HexStr(assstt, "wqe");
-            //F378C5C4E3E7828F9A9DC61BB3020F9FD3FC9033F3897E91E918B45FD3AB2E2E
+          
 
 
 
@@ -478,7 +755,7 @@ namespace ConsoleApp1
             keys13325.Add(keys1345);
             keys13325.Add(keys13456);
             keys13325.Add(keys134567);
-            keys13325 = QueryableExtension.OrderByDescending(keys13325.AsQueryable(), "uv").ToList();
+            //keys13325 = QueryableExtension.OrderByDescending(keys13325.AsQueryable(), "uv").ToList();
 
 
             List<int> jids = new List<int>();
@@ -1553,7 +1830,7 @@ namespace ConsoleApp1
             //Console.WriteLine(student.numb2);
             Console.ReadLine();
             Console.WriteLine("Hello World!");
-            jieshu:;
+        jieshu:;
         }
         public static int Getjnt(int c, int? a = 1)
         {
@@ -1593,7 +1870,7 @@ namespace ConsoleApp1
 
     {
         public long numb1 { get; set; }
-        public int? numb2 { get; set; }
+        public int numb2 { get; set; }
         public int numb3 { get; set; }
         public int numb4 { get; set; }
         public string dt { get; set; }
@@ -1602,10 +1879,14 @@ namespace ConsoleApp1
     public class Student2
 
     {
+        public long numb1 { get; set; }
+        public int numb2 { get; set; }
+
         public int a { get; set; }
         public int b { get; set; }
         public int? ba { get; set; }
         public DateTime dt { get; set; }
+        public DateTime? dt2 { get; set; }
 
         public List<Student2> student2s { get; set; }
     }

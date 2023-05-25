@@ -1,5 +1,7 @@
 ﻿using NLua;
+using NPinyin;
 using System;
+using System.Text;
 
 namespace ConsoleApp6
 {
@@ -12,10 +14,18 @@ namespace ConsoleApp6
             {
                 str += "S" + i+",";
             }
-
+            System.Text.Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);//注册编码对象
+            Encoding gb2312 = Encoding.GetEncoding("GB2312");
+            string strA = Pinyin.ConvertEncoding("好的", Encoding.UTF8, gb2312);
+            //首字母
+            string strB = Pinyin.GetInitials("好的");
+            //拼音 
+            string strC = Pinyin.GetPinyin("1");
 
             Lua lua = new Lua();
-            var ff3 = lua.DoString(@"return string.len('data')==4")[0];
+            string aa = "string.find('09.8100','81.0',1,true)==nil2";
+            var ff5 = lua.DoString(@$"return {aa}")[0];
+            var ff3 = lua.DoString(@$"return '{Pinyin.GetPinyin("1")}'=='{Pinyin.GetPinyin("1")}' ")[0];
             var result6 = (bool)lua.DoString("return string.find('A18.808+I32.0*','A18.808+I32.0*')~=nil2")[0];
             result6 = (bool)lua.DoString("return string.sub('A18.808+I32.0*',1,string.len('A18.808+I32.0*'))=='A18.808+I32.0*'")[0];
             var ff2 = lua.DoString(@"return ((os.time(20220104)-os.time(20220101))/(3600*24))")[0];
