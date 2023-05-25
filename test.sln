@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NluaDemo", "ConsoleApp6\Nlu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CeShi", "CeShi\CeShi.csproj", "{DE51DE61-1434-4E01-8412-2E344845148A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShiTuYinXing", "ShiTuYinXing\ShiTuYinXing.csproj", "{0A17FCF6-F898-4065-BBBF-DCB0684A0F27}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{DE51DE61-1434-4E01-8412-2E344845148A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE51DE61-1434-4E01-8412-2E344845148A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE51DE61-1434-4E01-8412-2E344845148A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A17FCF6-F898-4065-BBBF-DCB0684A0F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A17FCF6-F898-4065-BBBF-DCB0684A0F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A17FCF6-F898-4065-BBBF-DCB0684A0F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A17FCF6-F898-4065-BBBF-DCB0684A0F27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
