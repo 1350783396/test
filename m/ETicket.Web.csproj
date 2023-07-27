@@ -50,24 +50,19 @@
     <Reference Include="CKFinder">
       <HintPath>..\lib\CKFinder.dll</HintPath>
     </Reference>
-    <Reference Include="ETicket.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ETicket.BLL">
       <HintPath>C:\Users\lenovo\Desktop\新建文件夹\m\bin\ETicket.BLL.dll</HintPath>
     </Reference>
-    <Reference Include="ETicket.EFDAO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ETicket.EFDAO">
       <HintPath>C:\Users\lenovo\Desktop\新建文件夹\m\bin\ETicket.EFDAO.dll</HintPath>
     </Reference>
-    <Reference Include="ETicket.EFEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ETicket.EFEntity">
       <HintPath>C:\Users\lenovo\Desktop\新建文件夹\m\bin\ETicket.EFEntity.dll</HintPath>
     </Reference>
-    <Reference Include="ETicket.IDAO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ETicket.IDAO">
       <HintPath>C:\Users\lenovo\Desktop\新建文件夹\m\bin\ETicket.IDAO.dll</HintPath>
     </Reference>
-    <Reference Include="ETicket.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ETicket.Utility">
       <HintPath>C:\Users\lenovo\Desktop\新建文件夹\m\bin\ETicket.Utility.dll</HintPath>
     </Reference>
     <Reference Include="LitJson, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -79,8 +74,7 @@
       <HintPath>..\lib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NJiaSu.Libraries, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="NJiaSu.Libraries">
       <HintPath>C:\Users\lenovo\Desktop\新建文件夹\m\bin\NJiaSu.Libraries.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
@@ -437,7 +431,6 @@
     <Content Include="content\view-ticket.aspx" />
     <Content Include="content\view-line.aspx" />
     <Content Include="dingdan\index.aspx" />
-    <Content Include="dingdan\index2.aspx" />
     <Content Include="dingdan\index20230608.aspx" />
     <Content Include="dingdan\index20230609.aspx" />
     <Content Include="dingdan\index20230720.aspx" />
@@ -2173,13 +2166,6 @@
     <Compile Include="content\view-line.aspx.designer.cs">
       <DependentUpon>view-line.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dingdan\index2.aspx.cs">
-      <DependentUpon>index2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="dingdan\index2.aspx.designer.cs">
-      <DependentUpon>index2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2253,12 +2239,6 @@
       <DependentUpon>receive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="payapi\99bill\receive.aspx.designer.cs">
-      <DependentUpon>receive.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="payapi\99bill\send.aspx.designer.cs">
-      <DependentUpon>send.aspx</DependentUpon>
-    </Compile>
     <Compile Include="payapi\99bill\send_app.aspx.cs">
       <DependentUpon>send_app.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2267,15 +2247,9 @@
       <DependentUpon>send.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="payapi\99bill\send_app.aspx.designer.cs">
-      <DependentUpon>send_app.aspx</DependentUpon>
-    </Compile>
     <Compile Include="payapi\99bill\show.aspx.cs">
       <DependentUpon>show.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="payapi\99bill\show.aspx.designer.cs">
-      <DependentUpon>show.aspx</DependentUpon>
     </Compile>
     <Compile Include="payapi\alipay_direct\app_code\AlipayConfig.cs" />
     <Compile Include="payapi\alipay_direct\app_code\AlipayCore.cs" />
@@ -2311,9 +2285,6 @@
       <DependentUpon>notify_url.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="payapi\alipay_kj\notify_url.aspx.designer.cs">
-      <DependentUpon>notify_url.aspx</DependentUpon>
-    </Compile>
     <Compile Include="payapi\alipay_wap\app_code\AlipayConfig.cs" />
     <Compile Include="payapi\alipay_wap\app_code\AlipayCore.cs" />
     <Compile Include="payapi\alipay_wap\app_code\AlipayNotify.cs" />
@@ -2337,15 +2308,9 @@
       <DependentUpon>notify_url.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="payapi\alipay_wap\notify_url.aspx.designer.cs">
-      <DependentUpon>notify_url.aspx</DependentUpon>
-    </Compile>
     <Compile Include="payapi\alipay_wap\return_url.aspx.cs">
       <DependentUpon>return_url.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="payapi\alipay_wap\return_url.aspx.designer.cs">
-      <DependentUpon>return_url.aspx</DependentUpon>
     </Compile>
     <Compile Include="payapi\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

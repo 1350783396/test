@@ -29,11 +29,19 @@
             </div>
 
 
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="\business\partner\order_list.aspx.cs" Inherits="ETicket.Web.business.partner.order_list" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="/business/partner/order_list.aspx.cs" Inherits="ETicket.Web.business.partner.order_list" %>
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+        <script runat="server">
+
+            protected void repList_ItemCommand(object source, RepeaterCommandEventArgs e)
+            {
+
+            }
+</script>
+
+        <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
     <link rel="stylesheet" type="text/css" href="/business/style/theme.css" />
@@ -132,7 +140,7 @@
  <p>未验票： 2单（ 项目1+项目2+项目3+项目4+项目5 =8人）</p>
 
                 <h3><asp:Literal ID="lblCount" runat="server" /></h3>
-                <asp:Repeater ID="repList" runat="server">
+                <asp:Repeater ID="repList" runat="server" OnItemCommand="repList_ItemCommand">
                     <HeaderTemplate>
                         <table class="table" cellspacing="0" border="1">
                             <thead>
