@@ -1,0 +1,85 @@
+﻿<style type="text/css">
+<!--
+.STYLE1 {
+	color: #FF0000;
+	font-size: 16px;
+}
+.yudingdiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+	height: 40px; /*px*/
+        // left: 0;
+	bottom: 0;
+	margin: auto;
+	color: #FFFFFF;
+	background-color: #FF3300;
+    }
+.yudingdiv a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#detail img{
+display: block;
+height: auto;
+max-width: 100%;
+}
+
+
+-->
+</style>
+
+ <table width="100%" border="0" cellspacing="15" cellpadding="15">
+  <tr>
+    <td> <img width="110px" height="80px" alt="" src="{ImgUrl}" >
+                            </div></td>
+    <td>  {ProductName}<br>
+    <span class="STYLE1">￥{Price}</span></td>
+  </tr>
+</table>
+
+ 
+   <div class="ub ub-ac c-gra-d6 b-gra-a6 ubt">
+            <div class="ulev-app2 t-bla-28 b-blu-218 uinn-5">
+                                            景区信息
+            </div>
+</div>
+		     <div class="tx-l uinn ulev-4 t-gra-book ulh-rd1" id="ruleNote">
+                 <ul class="detail_media_content">
+                                <li class="w">
+                                    营业时:{OpenTime}
+                                </li>
+                                <li class="w">
+                                   景点电话:{Tel}
+                                </li>
+                                <li class="w">
+                                   景点地址:{Address}
+                                </li>
+               </ul>.
+        </div>
+   <div class="ub ub-ac c-gra-d6 b-gra-a6 ubt">
+            <div class="ulev-app2 t-bla-28 b-blu-218 uinn-5">
+                                            预订须知
+            </div>
+</div>
+        <div class="tx-l uinn ulev-4 t-gra-book ulh-rd1" id="ruleNote">
+          {RulesNote}
+        </div>
+        
+        <div class="ub ub-ac c-gra-d6 b-gra-a6 ubt">
+            <div class="ulev-app2 t-bla-28 b-blu-218 uinn-5">
+                                            详情介绍
+            </div>
+        </div>
+        <div class="tx-l uinn ulev-4 t-gra-book ulh-rd1" id="detail">
+          {Detail}<br />
+<br />
+<br />
+<br />
+
+	    </div>
+	<div class="yudingdiv"><a href="{BuyUrl}">立即预订</a></div>	
+ 

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>收货地址-美点商城</title>
+    <link type="text/css" rel="stylesheet" href="/wap/css/cp_style_v1.0.css" />
+    <link type="text/css" rel="stylesheet" href="/wap/css/buy_submit_v1.0.css" />
+
+    <link href="/wap/img/startup.png" rel="apple-touch-startup-image" />
+    <link href="/wap/img/apple-touch-icon-57x57-precomposed.png" sizes="57x57" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
+
+
+</head>
+<body>
+    <header class="index">
+        <div class="c-hd">
+            <section class="back">
+                <a href="javascript:history.go(-1);"><i></i></a>
+            </section>
+            <section class="hd-title">
+                收货地址
+            </section>
+            <section class="hd-nav"></section>
+        </div>
+    </header>
+
+    <div class="new-ct">
+        <form id="addressForm" method="post" action="updateOrderAddressTouch.action?sid=4bccd58ddc94c8e95adf12ce3a398741">
+
+            <div class="addr-add">
+                <a class="btn-addr" href="buy_adrr_edit.html">+添加收货地址</a>
+            </div>
+
+            <div style="display:block;color:red;margin-bottom:0.5em;margin-top:0.5em;" id="errorMessage" class="err_msg"></div>
+            <div class="addr-info">
+                <div class="addr-border">
+                    <div class="pd-tb10">
+                        <p>张理<span>&nbsp; 18977771310</span></p>
+                        <p class="text-f14-c6">广西南宁市青秀区城区民族大道85号1栋1单元2楼右</p>
+                    </div>
+                    <div class="bg-border3"></div>
+                    <div class="addr-btn">
+                        <span class="tbl-type">
+                            <span onmousedown="keyDown(-1)" class="tbl-cell">
+                                <!-- [D] 被选中状态时加 on -->
+                                <a style="width:100%" id="selSpan-1" name="selSpan" class="btn-chk on" href="javascript:void(0)"><span></span>送到这里去</a>
+                            </span>
+                            <span class="tbl-cell text-right">
+                                <a class="btn-update" href="/norder/editAddress.action?vtuanOrder=false&amp;addressId=-1&amp;sid=4bccd58ddc94c8e95adf12ce3a398741"><span></span>修改</a>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="addr-info">
+                <div class="addr-border">
+                    <div class="pd-tb10">
+                        <p>黄翠菊 <span>&nbsp; 18978863321</span>  </p>
+                        <p class="text-f14-c6">广西桂林市七星区城区石油部六公司A区3栋二单元二楼2-2-2号房</p>
+                    </div>
+                    <div class="bg-border3"></div>
+                    <div class="addr-btn">
+                        <span class="tbl-type">
+                            <span onmousedown="keyDown(17002347)" onclick="selectAddress('17002347')" class="tbl-cell">
+                                <!-- [D] 被选中状态时加 on -->
+                                <a style="width:100%" class="btn-chk" id="selSpan17002347" name="selSpan" href="javascript:void(0)"><span></span>送到这里去</a>
+                            </span>
+                            <span class="tbl-cell text-right">
+                                <a class="btn-update" href="/norder/editAddress.action?vtuanOrder=false&amp;addressId=17002347&amp;sid=4bccd58ddc94c8e95adf12ce3a398741"><span></span>修改</a>
+                                <a class="btn-del" href="javascript:confirmDel(&quot;17002347&quot;)"><span></span>删除</a>
+                                <a style="display:none" href="/norder/delAddress.action?addressId=17002347&amp;sid=4bccd58ddc94c8e95adf12ce3a398741" id="delHref17002347"></a>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" value="false" name="vtuanOrder">
+            <input type="hidden" value="" name="addressId" id="addressId">
+        </form>
+    </div>
+    
+
+</body>
+</html>

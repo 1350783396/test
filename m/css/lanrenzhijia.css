@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* 代码整理：懒人之家 www.lanrenzhijia.com */
+* {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+a, img {
+	border:0;
+}
+body {
+	font:12px/180% Arial, Helvetica, sans-serif, "宋体";
+	padding-top:20px;
+}
+#wrapper {
+	width:1000px;
+	margin:auto;
+	position:relative;
+}
+.lanrenzhijia_li {
+	position:absolute;
+	cursor:pointer;
+	vertical-align:bottom;
+	display:block;
+}
+.show_images_1 {
+	z-index:15;
+	top:1px;
+	left:200px;
+}
+.show_images_1 img {
+	width:599px;
+	height:353px;
+}
+.show_images_2 {
+	z-index:10;
+	top:20px;
+	left:0px;
+}
+.show_images_2 img {
+	width:527px;
+	height:310px;
+}
+.show_images_3 {
+	z-index:5;
+	top:20px;
+	left:459px;
+}
+.show_images_3 img {
+	width:527px;
+	height:310px;
+}
+.show_images_4 {
+	z-index:0;
+	top:20px;
+	left:200px;
+}
+.show_images_4 img {
+	width:527px;
+	height:310px;
+}
+#belt {
+	display:block;
+	height:122px;
+	left:200px;
+	line-height:99em;
+	overflow:hidden;
+	position:absolute;
+	top:1px;
+	width:149px;
+	z-index:100;
+}
+.btn {
+	width:101px;
+	height:25px;
+	margin:auto;
+	position:relative;
+	padding-top:350px;
+	z-index:999;
+}
+.btn a {
+	width:17px;
+	height:15px;
+	overflow:none;
+	display:block;
+	background:url(../images/btn.jpg) no-repeat;
+	cursor:pointer;
+	float:left;
+}
+.btn a.active {
+	background-position:-17px 0;
+}
+/* 代码整理：懒人之家 www.lanrenzhijia.com */

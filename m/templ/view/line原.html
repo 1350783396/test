@@ -1,0 +1,77 @@
+﻿
+
+
+            <div class="row">
+                <div class="span20 ">
+                    <div class="detail_media_bg basefix">
+                        <div id="js_photoviewer" class="detail_media_left">
+                            <div data-id="0" class="attraction_photo_big" id="js-preview-photo">
+                                <img width="400px" height="280px" alt="" src="{ImgUrl}" style="width:400px;height:280px;">
+                            </div>
+                        </div>
+                        <div class="detail_media_right">
+                            <h2 class="detail_media_title">
+                                {ProductName}
+                            </h2>
+                            <ul class="detail_media_content">
+                                <li class="w" style="text-decoration: line-through;">
+                                    <em>门市价</em>￥{PrimeCost}
+                                </li>
+                                <li class="w">
+                                    <em>发车时间</em>{StartTime}
+                                </li>
+                                <li class="w">
+                                    <em>上车地点</em>{StartAddress}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="price_bg">
+                           
+                            <div class="price_box">
+                                <dfn>¥</dfn>
+                                <span>{Price}</span>元起
+                            </div>
+                            <a data-targetid="ticket_package" class="btn_c goToAnchor" href="{BuyUrl}">立即预订</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span20">
+                    <div class="detail_product_div">
+                        <div class="detail_product_tab ">
+                            <a class="tabBtn cursor" href="#bookNote">预订须知</a>
+                            <a class="tabBtn" href="#productDetail">景区简介</a>
+                           
+                            <a data-targetid="ticket_package" class="btn_red_big goToAnchor" href="{BuyUrl}">立即预订</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span20">
+
+                    <div class="ticket_info no_border" id="bookNote" style="min-height:350px;">
+                        <div class="ticket_info_style">
+                            <span>预订须知</span>
+                            <i class="detail_icon1"></i>
+                            <b></b>
+                        </div>
+                        {RulesNote}
+                    </div>
+
+
+                    <div class="ticket_info" id="productDetail" style="min-height:350px;">
+                        <div class="ticket_info_style">
+                            <span>景区简介</span>
+                            <i class="detail_icon3"></i>
+                            <b></b>
+                        </div>
+                        {Detail}
+                    </div>
+
+                </div>
+            </div>
+      
+
+   

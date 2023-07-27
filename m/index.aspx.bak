@@ -1,0 +1,439 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;"/>
+<title>阳朔票票通</title>
+<meta name="keywords" content="阳朔景点门票,蝴蝶泉,图腾古道,遇龙河,金水岩,漓江漂流,漓江竹筏漂流,银子岩,银子岩专线,龙颈河漂流,阳朔,阳朔旅游,阳朔一日游，阳朔景点门票分销，阳朔旅游专线车，印象刘三姐,大榕树,阳朔电子票务,聚龙潭-奇石宫,阳朔网,阳朔智慧游 www.yangshuo.cm 阳朔景点门票网，0773-2300400" />
+<meta name="description" content="阳朔电子票务,阳朔景点门票，阳朔旅游咨询服务，"/>
+<script type="text/javascript" src="shouye/js/Jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="shouye/js/Phone/phone.js"></script>
+<script type="text/javascript" src="shouye/js/TouchSlide/TouchSlide.1.1.js"></script>
+<link href="shouye/css/style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="whole">
+
+	<div class="header">
+    	<div class="left-icon"></div>
+        <div class="center-title"><img src="shouye/image/logo80.png" /></div>
+        <div class="right-search"></div>
+        <div class="search">
+        	<input type="text" name="search" value="" oninput="upperCase.call(this)" placeholder="请输入您要搜索的关键词" />
+            <i class="empty"><img src="shouye/image/close-1.png" /></i>
+            <button type="button" name="sear"><img src="shouye/image/search.png" /></button>
+            <span class="close"><img src="shouye/image/close-1.png" /></span>
+        </div>
+        <script type="text/javascript">
+        	$(function(){
+				$(window).scroll(function(){		
+					if($(window).scrollTop()>=2){
+						$('.header').removeClass('header-search');
+					}
+				});	
+			})
+        </script>
+    </div>
+
+    
+    <div class="source">
+        <div id="imgs">
+          <div class="bg"><img src="wapimages/ad001.jpg" width="100%" /></div>
+          <div class="bg"><img src="wapimages/ad002.jpg" width="100%" /></div>
+          <div class="bg"><img src="wapimages/ad003.jpg" width="100%" /></div>
+        </div>
+    </div>
+    
+    <script>
+		//封装的对象接受所有图片的盒元素与触发切换的最小滑动距离作为参数
+		var ImageSwiper = function(imgs, minRange) {
+		  this.imgBox = imgs
+		  this.imgs = imgs.children
+		  this.cur_img = 1  //起始图片设为1 ,而非0,将在图片显示方法中作-1处理
+		  this.ready_moved = true  //判断每次滑动开始的标记变量
+		  this.imgs_count = this.imgs.length
+		  this.touchX  //触控开始的手指最初落点
+		  this.minRange = Number(minRange)
+		  this.fadeIn  //图片切换的方式,这里使用淡入淡出
+		  this.fadeOut
+		  this.bindTouchEvn() //初始化绑定滑动事件
+		  //this.showPic(this.cur_img) //显示图片方法,注意其中图片编号的-1处理
+		}
+		ImageSwiper.prototype.bindTouchEvn = function() {
+		  this.imgBox.addEventListener('touchstart', this.touchstart.bind(this), false)
+		  this.imgBox.addEventListener('touchmove', this.touchmove.bind(this), false)
+		  this.imgBox.addEventListener('touchend', this.touchend.bind(this), false)
+		  this.imgBox.addEventListener('click', this.touchend.bind(this), false)	
+		}
+		ImageSwiper.prototype.touchstart = function(e) {
+		  if (this.ready_moved) {
+			var touch = e.touches[0];
+			this.touchX = touch.pageX;
+			this.ready_moved = false;
+		  }
+		
+		}
+		
+		ImageSwiper.prototype.touchmove = function(e) {
+		  e.preventDefault();
+		  var minRange = this.minRange
+		  var touchX = this.touchX
+		  var imgs_count = this.imgs_count
+		  //console.log(this.imgs[0]);
+		  if (!this.ready_moved) {
+		
+			var release = e.changedTouches[0];
+			var releasedAt = release.pageX;
+			if (releasedAt + minRange < touchX) {
+			  this.ready_moved = true;
+			  if (this.cur_img > (imgs_count - 1)) {
+				this.cur_img = 0;
+			  }
+			  this.cur_img++;
+			  //this.showPic(this.cur_img);
+		
+			} else if (releasedAt - minRange > touchX) {
+			  if (this.cur_img <= 1) {
+				this.cur_img = imgs_count + 1
+			  }
+			  this.cur_img--;
+			  //this.showPic(this.cur_img);
+			  this.ready_moved = true;
+			}
+		  }
+		
+		}
+		
+		ImageSwiper.prototype.touchend = function(e) {
+		  e.preventDefault();
+		  img_append();
+		  var minRange = this.minRange
+		  var touchX = this.touchX
+		  var imgs_count = this.imgs_count
+		  if (!this.ready_moved) {
+			var release = e.changedTouches[0];
+			var releasedAt = release.pageX;
+			if (releasedAt + minRange < touchX) {
+			  this.ready_moved = true;
+			  if (this.cur_img > (imgs_count - 1)) {
+				this.cur_img = 0;
+			  }
+			  this.cur_img++;
+			  showPic(this.cur_img);
+		
+			} else if (releasedAt - minRange > touchX) {
+			  if (this.cur_img <= 1) {
+				this.cur_img = imgs_count + 1
+			  }
+			  this.cur_img--;
+			  showPic(this.cur_img);
+			  this.ready_moved = true;
+			}
+		  }
+		
+		}
+		//在样式表中设置好 .fadeIn 的透明度为0
+		ImageSwiper.prototype.fadeIn = function(e) {
+		  //e.classList.add("fadeIn");
+		  //e.classList.add("act");
+		}
+		
+		ImageSwiper.prototype.fadeOut = function(e) {
+		  Array.prototype.forEach.call(e, function(e) {
+			e.className = "bg";
+		  })
+		}
+		
+		//轮播点功能
+		//ImageSwiper.prototype.showPic = function(cur_img) {
+		  //this.hidePics(this.imgs)
+		//得到图片元素的真实索引
+		 // var index = cur_img - 1
+		
+		 // if (document.getElementsByClassName("active")[0]) {
+			//var active = document.getElementsByClassName("active")[0];
+			//active.classList.remove("active")
+		 // }
+		 // document.getElementById("dot_" + index).classList.add("active");
+		
+		 // this.fadeIn(this.imgs[index]);
+		
+		//}
+		ImageSwiper.prototype.hidePics = function(e) {
+		  this.fadeOut(e)
+		
+		}
+		//传参
+		var imgs = new ImageSwiper(document.getElementById('imgs'), 30)
+		
+		//自动轮播		
+		function play(){
+            timer=setInterval(function(e){
+				$("#imgs").click();
+            },4000);
+        }
+		
+		play();
+		
+		function img_append(){
+			var firstCard = $('#imgs').children('.bg').first();
+			firstCard.addClass('fadeIn');
+			$('#imgs').append(firstCard);
+			img_change();	
+		}
+		
+		function img_change(){
+			$(".bg").each(function(index, element) {
+				$(this).css({"z-index":-index,"margin-top":-(index*10)+'px',"width":(730-index*20)+'px',"margin-left":(index*10)+'px'});
+			});
+		}
+		img_change();
+		
+	</script>
+    
+    <!--头部轮播END-->
+    <!--分类-->
+    <div class="food-list">
+    	<div class="lists">
+        	<ul class="list">
+            	<a href="/news-10.html">
+                    <li>
+                        <span class="color-1"><img src="wapimages/tz.png" /></span>
+                        <p>通知公告</p>
+                    </li>
+                </a>
+                <a href="/news-2.html">
+                    <li>
+                        <span class="color-2"><img src="wapimages/zx.png" /></span>
+                        <p>旅游资讯</p>
+                    </li>
+                </a>
+                <a href="/news-9.html">
+                    <li>
+                        <span class="color-3"><img src="wapimages/gl.png" /></span>
+                        <p>旅游攻略</p>
+                    </li>
+                </a>
+                <a href="/news-6.html">
+                    <li>
+                        <span class="color-4"><img src="wapimages/ms.png" /></span>
+                        <p>旅游美食</p>
+                    </li>
+                </a>
+                <a href="/news-5.html">
+                    <li>
+                        <span class="color-5"><img src="wapimages/jt.png" /></span>
+                        <p>旅游交通</p>
+                    </li>
+                </a>
+                <a href="/about/index.html">
+                    <li>
+                        <span class="color-6"><img src="wapimages/wm.png" /></span>
+                        <p>关于我们</p>
+                    </li>
+                </a>
+            </ul>
+            <script>
+            	$(function(){
+					$(".list").addClass("active");
+					$(".list li").each(function (i) {
+						$(this).attr("style", "-webkit-transition-delay:" + i * 0.2 + "s;"
+								+ "-moz-transition-delay:" + i * 0.2 + "s;"
+								+ "-o-transition-delay:" + i * 0.2 + "s;"
+								+ "transition-delay:" + i * 0.2 + "s;");
+					});	
+				})
+            </script>
+        </div>  
+		           <!---最新订单滚动文字模块开始--->
+		        <div class="recommend">
+		        	<a class="titles" href="#">
+            	<span><img src="shouye/image/dd.png" /></span>
+                <span><marquee scrollAmount=2 width=530 height=25 direction=up><%=ETicket.Web.HtmlController.Instance.ListNewOrder(100,"/templ/index/new_order.html") %></marquee></span>
+			</div>
+           <!---最新订单滚动文字模块结束--->
+		    <!---抢购模块--->
+        <div class="snap">
+            <div id="countdown" class="countdown">
+            	<img src="shouye/image/home001.png" />
+                <div class="colockbox times" id="demo01">
+                    <!--<span class="dash day">-</span>-->
+					 <span>客服:0773-2300400</span>
+                </div>
+			</div>
+            <script type="text/javascript">
+				$(function(){
+					countDown("2017/5/1 23:59:59","#demo01 .day","#demo01 .hour","#demo01 .minute","#demo01 .second");
+				});
+				
+				function countDown(time,day_elem,hour_elem,minute_elem,second_elem){
+					//if(typeof end_time == "string")
+					var end_time = new Date(time).getTime(),//月份是实际月份-1
+					//current_time = new Date().getTime(),
+					sys_second = (end_time-new Date().getTime())/1000;
+					var timer = setInterval(function(){
+						if (sys_second > 0) {
+							sys_second -= 1;
+							//var day = Math.floor((sys_second / 3600) / 24);
+							var hour = Math.floor((sys_second / 3600));
+							var minute = Math.floor((sys_second / 60) % 60);
+							var second = Math.floor(sys_second % 60);
+							//day_elem && $(day_elem).text(day);//计算天
+							$(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+							$(minute_elem).text(minute<10?"0"+minute:minute);//计算分
+							$(second_elem).text(second<10?"0"+second:second);// 计算秒
+						} else { 
+							clearInterval(timer);
+						}
+					}, 1000);
+				}
+			</script>
+            
+            <div class="presell">
+            	<a class="presell-list" href="qianguqing/index.aspx"><img src="shouye/image/food-1.png" /></a>
+				<a class="presell-list" href="#"><img src="shouye/image/food-2.png" /></a>
+				</div>
+        </div>
+        <!---抢购模块END--->     
+        <!----门票推荐模块开始--->
+        <div class="recommend">
+        	<a class="titles" href="content/list-ticket.aspx">
+            	<span><img src="shouye/image/tj.png" /></span>
+                <span>门票推荐</span>
+                <span><img src="shouye/image/title-tips.png" /></span>
+                <span class="enter"><img src="shouye/image/enter.png" /></span>
+            </a>
+            <div class="content-list">
+            	<a href="/viewticket-13.html">
+                	<div class="recom-img">
+                    	<img src="/upfile/ProductTitleImg/18032436752_400$300_.jpg" width="240" height="197" />
+                        <div class="jian">
+                        	<img src="shouye/image/tuijian.png" />
+                        </div>
+                </div>
+                    <div class="recom-tit">
+                    	<span>银子岩门票</span>
+                        <p>￥50<i>抢</i></p>
+                    </div>
+                </a>
+                <a href="/viewticket-15.html">
+                	<div class="recom-img">
+                    	<img src="/upfile/ProductTitleImg/18032335590_400$300_.jpg" width="240" height="197" />
+                        <div class="jian">
+                        	<img src="shouye/image/tuijian.png" />
+                        </div>
+                    </div>
+                    <div class="recom-tit">
+                    	<span>图腾-漓水</span>
+                        <p>￥65<i>抢</i></p>
+                    </div>
+               
+                <a href="/viewticket-32.html">
+                	<div class="recom-img">
+                    	<img src="/upfile/ProductTitleImg/18032456239_400$300_.jpg" width="240" height="197" />
+                        <div class="jian">
+                        	<img src="shouye/image/tuijian.png" />
+                        </div>
+                    </div>
+                    <div class="recom-tit">
+                    	<span>印象刘三姐</span>
+                        <p>￥155<i>抢</i></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!----门票推荐模块结束--->
+		<!----线路推荐模块开始--->
+        <div class="recommend">
+        	<div>
+        	  <div align="center"><span>— 精选人气线路 —</span></div>
+       	  </div>
+        	<div class="content-list">
+            	<a href="/viewline-5.html">
+                	<div class="recom-img">
+                    	<img src="/upfile/ProductTitleImg/18032952085_220$130_.jpg" width="240" height="197" />
+                        <div class="jian">
+                         <img src="shouye/image/rexiao.png" />
+                        </div>
+                </div>
+                    <div class="recom-tit">
+                    	<span>银子岩专线</span>
+                        <p>￥80<i>抢</i></p>
+                    </div>
+                </a>
+                <a href="/viewline-53.html">
+                	<div class="recom-img">
+                    	<img src="/upfile/ProductTitleImg/18032429515_220$130_.jpg" width="240" height="197" />
+                        <div class="jian">
+        <!----相片上的推荐小图片代码<img src="shouye/image/tuijian.png" />---> 
+                        </div>
+                    </div>
+                    <div class="recom-tit">
+                    	<span>世外桃源专线</span>
+                        <p>￥80<i>抢</i></p>
+                    </div>
+               
+                <a href="/viewticket-32.html">
+                	<div class="recom-img">
+                    	<img src="/upfile/ProductTitleImg/18032456239_400$300_.jpg" width="240" height="197" />
+                        <div class="jian">
+        <!----相片上的推荐小图片代码<img src="shouye/image/tuijian.png" />---> 
+                        </div>
+                    </div>
+                    <div class="recom-tit">
+                    	<span>印象刘三姐</span>
+                        <p>￥155<i>抢</i></p>
+                    </div>
+                </a>
+            </div>
+</div>
+        <!----线路推荐模块结束--->
+       <!---底部广告图片开始--->             
+ <!---
+		  <div class="content">
+        	<div class="con-img">
+            	<img src="shouye/image/im-1.jpg" />
+            </div> 
+ --->  
+          <!---底部广告图片结束--->  
+ 
+
+		         <!---底部广告图片2开始--->             
+        <div class="content">
+        	<div class="con-img">
+            	<img src="shouye/image/im-2.jpg" />
+            </div>
+          <!---底部广告图片2结束--->   
+         <!---底部导航开始--->
+        <div class="footer">
+        	<ul>
+            	<li>
+                	<a href="index.aspx">
+                    	<p><img src="shouye/image/home.png" /></p>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li>
+                	<a href="content/list-ticket.aspx">
+                    	<p><img src="shouye/image/store-1.png" /></p>
+                        <p>门票</p>
+                    </a>
+                </li>
+                <li>
+                	<a href="content/list-line.aspx">
+                    	<p><img src="shouye/image/shopcar.png" /></p>
+                        <p>线路</p>
+                    </a>
+                </li>
+                <li>
+                	<a href="business/partner.aspx">
+                    	<p><img src="shouye/image/my.png" /></p>
+                        <p>我的</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!---底部导航结束--->
+</body>
+</html>

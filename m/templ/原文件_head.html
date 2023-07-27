@@ -1,0 +1,68 @@
+﻿ <%=ETicket.Web.HtmlController.Instance.TopBarHtml("/templ/topbar/index.html","color:#4c4c4c") %>
+<div id="logo" class="container" style="height:115px;">
+    <div style="width:100px;height:75px;float:left;padding-top:20px;">
+        <a href="/index.html">
+            <img src="/bootstrap/logo/head-logo.png" alt="阳朔智慧游" height="75" width="100" />
+        </a>
+    </div>
+    <div style="width:400px; float: left; padding-top: 30px; margin-left:50px;">
+        <form action="/search.html" method="get">
+            <table>
+                <tr>
+                    <td style="padding-top: 10px; line-height: 30px;">
+                        <select style="width:80px;height:35px;" name="type">
+                            <option value="line">专线</option>
+                            <option value="ticket">景区</option>
+                            <option value="news">资讯</option>
+                        </select>
+                    </td>
+                    <td style="padding-top: 10px; line-height: 30px;">
+                        <input type="text" name="content" style="height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="submit" value="搜索" style="z-index: 9; position: relative; background-color:#FF8600; border: 0 none; color: #FFFFFF; cursor: pointer; font-size: 16px; height: 35px; padding: 2px 0; width: 90px;">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div style="width: 350px; height: 75px; float: left; padding-top: 20px; margin-left: 20px;">
+        <img src="/bootstrap/logo/head-info-2.png" alt="阳朔智慧游" height="75" width="350" />
+    </div>
+    <div style="clear:both"></div>
+</div>
+<div style="background-color: #017ddf;">
+    <div class="container">
+        <div class="row">
+            <div class="span20">
+                <div class="navbar navbar-inverse navbar-fixed-top" style="position:inherit;margin:0 0; padding:0 0; ">
+                    <div class="navbar-inner navbar-mybg">
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li class="active"><a href="/index.html">首页</a></li>
+                                <li><a href="/line.html">专线线路</a></li>
+                                <li><a href="/ticket.html">景区门票</a></li>
+                                <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(10) %>">通知公告</a></li>
+                                <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(2) %>">旅游资讯</a></li>
+                                <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(9) %>">游记攻略</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">旅游指南 <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(3) %>">阳朔概况</a></li>
+                                        <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(4) %>">阳朔购物</a></li>
+                                        <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(5) %>">阳朔交通</a></li>
+                                        <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(6) %>">特产美食</a></li>
+                                        <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(7) %>">休闲娱乐</a></li>
+                                        <li><a href="<%=ETicket.BLL.RewriteMapBLL.Instance.ListUrl(8) %>">自驾车线路</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="app.aspx">客户端</a></li>
+                                <%=ETicket.Web.HtmlController.Instance.IndexMenu() %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

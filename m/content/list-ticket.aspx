@@ -1,0 +1,44 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="list-ticket.aspx.cs" Inherits="ETicket.Web.content.list_ticket" %>
+
+<!DOCTYPE html>
+<title>智慧游</title>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/ui-box.css">
+        <link rel="stylesheet" href="/css/ui-base.css">
+        <link rel="stylesheet" href="/css/ui-color.css">
+        <link rel="stylesheet" href="/css/appcan.icon.css">
+        <link rel="stylesheet" href="/css/appcan.control.css">
+    </head>
+    <body class="um-vp " ontouchstart>
+
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa fa-angle-left fa-2x" onclick="window.open('/');"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">景区门票</h1>
+                <div class="nav-btn nav-bt" id="nav-right">
+                    <div class="ub-img icon-refresh umw2 umh4" onclick="window.open('#');"></div>
+                </div>
+            </div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+  <%=ETicket.Web.HtmlController.Instance.ListProduct("ticket",50,"/templ/index/product.html") %>
+            </div>
+            <!--content结束-->
+
+  
+
+    </body>
+</html>

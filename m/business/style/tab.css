@@ -1,0 +1,44 @@
+﻿      
+ul, ol {
+    list-style: none outside none;
+}
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.tab_select {
+    background: url("images/select.jpg") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    float: left;
+    font-family: 'Microsoft Yahei','黑体';
+    font-size: 13px;
+    font-weight: bold;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    width: 104px;
+    cursor:pointer;
+}
+.tab_unselect {
+    background: url("images/unselect.jpg") no-repeat scroll 0 0 transparent;
+    color: #8E8E8E;
+    float: left;
+    font-family: 'Microsoft Yahei','黑体';
+    font-size: 13px;
+    font-weight: bold;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    width: 103px;
+    cursor:pointer;
+}
+
+.tab_interval{
+    background: none repeat scroll 0 0 #883D00;
+    font-size: 1px;
+    height: 3px;
+}

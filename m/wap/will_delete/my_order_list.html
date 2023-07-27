@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>商城</title>
+    <link href="/wap/css/cp_style_v1.0.css" rel="stylesheet" type="text/css" />
+
+    <link href="/wap/img/startup.png" rel="apple-touch-startup-image" />
+    <link href="/wap/img/apple-touch-icon-57x57-precomposed.png" sizes="57x57" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
+
+  
+    <script src="http://d2.lashouimg.com/wap/js/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="http://d2.lashouimg.com/wap/js/lazyload-20130627.js" type="text/javascript"></script>
+    <script src="http://d2.lashouimg.com/wap/js/login/login_out-20121224.js" type="text/javascript"></script>
+    <script src="http://d2.lashouimg.com/wap/js/common/common20141022.min.js" type="text/javascript"></script>
+    
+</head>
+<body>
+    <script type="text/javascript">
+        var ors = 2;
+
+        $(function () {
+            $(".myorder-ors").children("p").removeClass("pw-btn");
+            $("#ors_" + ors).parent("p").addClass("pw-btn");
+        })
+
+    </script>
+    <!--header-->
+    <header class="index">
+        <div class="c-hd">
+            <section class="back">
+                <a href="my_index.html"><i></i></a>
+            </section>
+            <section class="hd-title">
+                我的订单
+            </section>
+            <section class="hd-nav"></section>
+        </div>
+    </header>
+    <!--content-->
+    <div class="content">
+        <!--article-->
+        <div class="v4">
+            <div class="myorder-ors">
+                <p class=""><a id="ors_1" href="my_order_list.html?ors=1">未付款</a></p>
+                <p class="pw-btn"><a id="ors_2" href="my_order_list.html?ors=2">已付款</a></p>
+                <p class=""><a id="ors_4" href="my_order_list.html?ors=4">已取消</a></p>
+                <p class=""><a id="ors_5" href="my_order_list.html?ors=5">已退款</a></p>
+            </div>
+            <!--未付款-->
+            <!--未付款结束-->
+            <!--已付款-->
+            <ul class="mycode">
+                <li>
+                    <a class="syover" href="/orderDetail.php?trade_no=7623653a743e073366">
+                        <div class="mygo-list">
+                            <h2>德州牛扒单人套餐一份</h2>
+                            <p>数量 2</p>
+                            <p>总价 ￥39.8</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="mycode">
+                <li>
+                    <a class="syover" href="/orderDetail.php?trade_no=6780612ac924b42548">
+                        <div class="mygo-list">
+                            <h2>小南国古城店欢乐午餐1份</h2>
+                            <p>数量 1</p>
+                            <p>总价 ￥58</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <!--已付款-结束-->
+            <!--已取消-->
+            <!--已取消结束-->
+            <!--已退款-->
+            <!--已退款结束-->
+        </div>
+    </div>
+    <!--交行积分乐园-->
+    <footer class="footer">
+        <section class="footer-t">
+            <p class="user-info">
+                <span class="user"><a style="white-space: nowrap;" href="javascript:void(0)">jaronzhang</a></span>
+                <span><a class="logout_button" href="javascript:void(0)">退出</a></span>
+            </p>
+            <p class="foot-city">
+                <span>南宁</span>
+                <a href="/changeCity.php">切换城市</a>
+            </p>
+        </section>
+        <section class="footer-sort">
+            <ul class="com-footitem">
+                <li><a href="/"><span class="com_icon"></span>首页</a></li>
+                <li><a href="/mylashou.php"><span class="com_icon"></span>我的拉手</a></li>
+                <li><a href="/?vt=2">标准版</a></li>
+                <li><a href="http://nanning.lashou.com?from=wap">PC版</a></li>
+                <li><a href="/exect.php">客户端</a></li>
+            </ul>
+        </section>
+        <section class="footer-service">客服（<b><a href="tel:4000517317">4000-517-317</a></b>&#12288;8:00-22:00）</section>
+        <section class="footer-copyright"><span>&copy; 2015 拉手网</span></section>
+    </footer>
+    <!-- 以下是百度统计所用 -->
+
+    <script type="text/javascript">
+        (function () {
+            setTimeout(function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = 'http://stats.g.doubleclick.net/dc.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            }, 10);
+        })();
+    </script>
+
+
+</body>
+</html>

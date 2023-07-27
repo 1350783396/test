@@ -1,0 +1,20 @@
+﻿ <div onClick="window.open('{ViewUrl}');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr >
+    <td width="30%" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CCCCCC;"> <a href="{ViewUrl}" target="_blank">
+        <img class="media-object" src="{ImgUrl}" style="width: 110px; height:80px;" alt="64x64" data-src="holder.js/220x130">
+    </a></td>
+    <td width="60%" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CCCCCC;">    <div style="width: 220px;">
+	<a href="{ViewUrl}" target="_blank">
+        
+    </a>
+        <span style="width:100%;float:left;line-height:30px; text-decoration:none;">{ProductName}<br>票价：<strong style="color:red">￥{Price}</strong></span>
+    </div>
+</td>
+    <td width="10%" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CCCCCC;"><a href="{ViewUrl}" style="text-decoration:none; color: #333333" target="_blank">&gt;</a></td>
+  </tr>
+</table>
+</div>
+ 
+ 
+
+

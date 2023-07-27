@@ -1,0 +1,24 @@
+//var siteUrl="http://192.168.2.105";
+var siteUrl="http://www.tianshuntour.com";
+var pageSize=20;
+var md5Key="21232f297a57a5a743894a0e4a801fc3";
+var softVersion="20.00.1008";
+var chkVersion=3;
+
+var partnerID = "2088911417154461";
+var sellerID = "3082251794@qq.com";
+var privateKey="MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANHvHWskHeiqHqqHNjgsbN/6xvLzx1kpjbcso2Ter104mp2O0QF1XGg/Wh6ddXmRfg59VdMCpjqsPOrYbu4FGNCjlO89gDHSM0KsDF7g6ES9uHeOT4nyh1dQHxxQQgHL4pdB8hJJI3JO8Sperti1SQ7+RKXn716W/w82jB4tb1TRAgMBAAECgYACdCcF35Ax7fsZxybNFUfYflfg8xR7aE7tuynVvfySvFyiRs8Ok06XMVZeUTzURO0SQkjEhJ1oxiaYIBt70Ldvg2nOeouHjFNPY0kbQck3nt6/0vEMDk2lie/4saOcGIs8wnJDTovvwDcW2rjYpWGl4RCEumj1uq1usKvUjMmZgQJBAPv2uucRLk6UEywsrUe2P6IynHtQg7mAnSKXPSd4QDOgdNBokpySTnntkIhU2bdHwRF7LHIuRkH9SyqCQ9o4+JkCQQDVTAbEt9bHgzVQ64szcGFRik15o8mdYwUtscU4univ4ByIlvMJuntXvbqm/qKtB5EyKyGWnEk/OsqyTEkS/sj5AkEAn57I/QVnXqR0GPIcvGd6nJiPhZeWO3h9E6LYPR7zHUGzfywgZUxSpu+XNqb6Xh/48cgkehlSrQ94BPANaDvbUQJABr2DTT4d/GoKCkeXO4XmnWQIdLqXSXDynfILMHK8E5q6bBqRDZKmCSzGtDZBv8QIc5RnWFISAnyCIUZF3OLOSQJBAMdF/NKDrm64UwyRMgb6i4mNbA9NwkIHqB+Oi2PespEP1iWpiUMH3HSOW8hV47ZfjPorUD6soICMR73bCoQd/LQ=";
+var publicKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDR7x1rJB3oqh6qhzY4LGzf+sby88dZKY23LKNk3q9dOJqdjtEBdVxoP1oenXV5kX4OfVXTAqY6rDzq2G7uBRjQo5TvPYAx0jNCrAxe4OhEvbh3jk+J8odXUB8cUEIBy+KXQfISSSNyTvEqXq7YtUkO/kSl5+9elv8PNoweLW9U0QIDAQAB";
+
+var notifyUrl = siteUrl+"/payapi/alipay_kj/notify_url.aspx";
+
+document.write('<script src="'+siteUrl+'/api_h/app.ext.js"> <\/script>');
+function getKFPhone(){
+	if(typeof(kfPhone) == "undefined"||kfPhone=="")
+	{
+		return "07738885688";
+	}
+	else{
+		return kfPhone;
+	}
+}

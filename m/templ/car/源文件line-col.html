@@ -1,0 +1,23 @@
+﻿
+<tr style="height:40px;">
+    <td class="title">
+        发车时间：
+    </td>
+    <td>
+        <select id="startDate" name="startDate" style="width:120px;" onchange="sysLoadStock()">
+            {startDate}
+        </select>
+        <select id="startTime" name="startTime" style="width:120px;" onchange="sysLoadStock()">
+            {startTime}
+        </select>
+        <input type="hidden" id="hiddenStartTime" name="hiddenStartTime" value=""/>
+        <label id="forStartTime" class="error" for="hiddenStartTime" style="margin: 0 0; display: inline; "></label>
+    </td>
+</tr>
+<tr>
+    <td class="title">上车地点：</td>
+        <td>
+            {address}
+            <label class="error" for="startAddress" style="margin: 0 0; display: inline; "></label>
+     </td>
+</tr>

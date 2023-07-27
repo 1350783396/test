@@ -1,0 +1,34 @@
+﻿
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="/css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="/css/app.css"/>
+
+	</head>
+	<body>
+
+	<div class="mui-content new-min-quan">
+		 <a href="{ViewUrl}" class="aui-flex">
+            <ul>
+                
+            	<li>
+                	<div class="left">
+                    <div class="rtdian"></div><div class="rbdian"></div>
+                    <div class="padding">
+                    	<img src="{ImgUrl}" width="120" height="40">
+                    	<div class="tit">{ProductName} </div>
+                    </div>
+                    </div>
+                	<div class="right bg2">
+                    <div class="ltdian"></div><div class="lbdian"></div>
+                    <div class="padding">
+                    	<div class="price">￥<i>{Price}</i></div>
+                        <div class="btn"><button class="use">去购买</button></div>
+                    </div>
+                    </div>
+                </li>
+                
+            </ul>
+		</div>
+	

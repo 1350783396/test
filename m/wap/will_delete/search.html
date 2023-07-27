@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>美点商城</title>
+
+    <link type="text/css" rel="stylesheet" href="/wap/css/common/common_v9.1.css" />
+    <link href="/wap/img/startup.png" rel="apple-touch-startup-image"/>
+    <link href="/wap/img/apple-touch-icon-57x57-precomposed.png" sizes="57x57" rel="apple-touch-icon-precomposed"/>
+    <link href="/wap/img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed"/>
+    <link href="/wap/img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed"/>
+    
+</head>
+<body>
+    <div id="wrap">
+        <header class="index">
+            <div class="c-hd s-hd">
+                <section class="cancel">
+                    <a href="index.html" class="arrowleft atop">
+                        <label id="searchdynamic" onclick="location.href = 'index.html'; return false;">取消</label>
+                    </a>
+                </section>
+                <section class="input-select">
+                    <form id='searchForm' action="/search.php" method="post">
+                        <div class="search-form">
+                            <div class="c-form-search">
+                                <em></em>
+                                <input type="text" name="q" class="c-input-txt" autocomplete="off" id="search_input" value="自助餐">
+                            </div>
+                            <div class="c-form-btn">
+                                <input type="submit" class="searchbtn" name="dosearch" value="">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </header>
+        <div id="wrap">
+            <!--搜索历史词-->
+            <div class="search-asslist" style="display: none">
+                <ul id='search_history_ul' class="search-meat search-history"></ul>
+            </div>
+            <!-- 搜索热词(联想词) -->
+
+            <div class="search-suggest" style="display: block;" id="search_hot">
+                <ul class="search-hots">
+                    <li><a onclick="putInHistoryKeywords('蛋糕')" href="/search.php?q=蛋糕&fr=0">蛋糕<div class="title"></div></a></li>
+                    <li><a onclick="putInHistoryKeywords('美食')" href="/search.php?q=美食&fr=0">美食<div class="title"></div></a></li>
+                    <li><a onclick="putInHistoryKeywords('自助餐')" href="/search.php?q=自助餐&fr=0">自助餐<div class="title"></div></a></li>
+                    <li><a onclick="putInHistoryKeywords('火锅')" href="/search.php?q=火锅&fr=0">火锅<div class="title"></div></a></li>
+                    <li><a onclick="putInHistoryKeywords('电影票')" href="/search.php?q=电影票&fr=0">电影票<div class="title"></div></a></li>
+                    <li><a onclick="putInHistoryKeywords('ktv')" href="/search.php?q=ktv&fr=0">ktv<div class="title"></div></a></li>
+                    <li><a onclick="putInHistoryKeywords('艺术照')" href="/search.php?q=艺术照&fr=0">艺术照<div class="title"></div></a></li>
+                    <li><a onclick="putInHistoryKeywords('美发')" href="/search.php?q=美发&fr=0">美发<div class="title"></div></a></li>
+                </ul>
+            </div>
+            <div class="search-suggest" id="search-suggest" style="display: none;">
+                <ul class="search-meat" id="search_meat"></ul>
+            </div>
+        </div>
+        <!--交行积分乐园-->
+        <footer class="footer">
+            <section class="footer-t">
+                <p class="user-info">
+                    <span><a id="login_foot" href="/login.php">登录</a></span>
+                    <span><a id="register_foot" href="/registerMobile.php">注册</a></span>
+                </p>
+                <p class="foot-city">
+                    <span>南宁</span>
+                    <a href="/changeCity.php">切换城市</a>
+                </p>
+            </section>
+            <section class="footer-sort">
+                <ul class="com-footitem">
+                    <li><a href="/"><span class="com_icon"></span>首页</a></li>
+                    <li><a href="/mylashou.php"><span class="com_icon"></span>我的拉手</a></li>
+                    <li><a href="/?vt=2">标准版</a></li>
+                    <li><a href="http://nanning.lashou.com?from=wap">PC版</a></li>
+                    <li><a href="/exect.php">客户端</a></li>
+                </ul>
+            </section>
+            <section class="footer-service">客服（<b><a href="tel:4000517317">4000-517-317</a></b>　8:00-22:00）</section>
+            <section class="footer-copyright"><span>&copy; 2015拉手网</span></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="http://d2.lashouimg.com/wap/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="http://d2.lashouimg.com/wap/js/lazyload-20130627.js"></script>
+    <script type="text/javascript" src="http://d2.lashouimg.com/wap/js/login/login_out-20121224.js"></script>
+    <script type="text/javascript" src="http://d2.lashouimg.com/wap/js/common/common20141022.min.js"></script>
+    <script>hotword = "自助餐";</script>
+    <script type="text/javascript" src="http://d2.lashouimg.com/wap/js/search-20141023.min.js"></script>
+    <script type="text/javascript" src="http://d2.lashouimg.com/wap/js/lazyimg-20140709.min.js"></script>
+
+</body>
+</html>

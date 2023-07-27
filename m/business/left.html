@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+$(function(){	
+	//导航切换
+	$(".menuson li").click(function(){
+		$(".menuson li.active").removeClass("active")
+		$(this).addClass("active");
+	});
+	
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('ul').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('ul').slideUp();
+		}else{
+			$(this).next('ul').slideDown();
+		}
+	});
+})	
+</script>
+
+
+</head>
+
+<body style="background:#f0f9fd;">
+	<div class="lefttop"><span></span>阳朔电子票务分销系统</div>
+    
+    <dl class="leftmenu">
+        
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico01.png" /></span>系统设置
+    </div>
+    	<ul class="menuson">
+        <li><cite></cite><a href="art/view_list.aspx" target="rightFrame">通知公告</a><i></i></li>
+        <li class="active"><cite></cite><a href="partner/account_query_list.aspx" target="rightFrame">积分余额</a><i></i></li>
+        <li><cite></cite><a href="partner/partner_edit.aspx" target="rightFrame">修改资料</a><i></i></li>
+        <li><cite></cite><a href="user_chgpass.aspx" target="rightFrame">修改密码</a><i></i></li>
+        </ul>    
+    </dd>
+        
+    
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>产品预订
+    </div>
+    <ul class="menuson">
+	    <li><cite></cite><a href="partner/plist_ticket.aspx" target="rightFrame">预订门票</a><i></i></li>
+		<li><cite></cite><a href="partner/plist_line.aspx" target="rightFrame">预订线路</a><i></i></li>
+	    <li><cite></cite><a href="partner/plist_hotel.aspx" target="rightFrame">预订酒店</a><i></i></li>
+        </ul>     
+    </dd> 
+    
+    
+    <dd><div class="title"><span><img src="images/leftico04.png" /></span>订单管理</div>
+    <ul class="menuson">
+	    <li><cite></cite><a href="partner/order_list.aspx" target="rightFrame">订单列表</a><i></i></li>
+	    <li><cite></cite><a href="partner/tongji_buy_detail.aspx" target="rightFrame">订单明细表</a><i></i></li>
+		<li><cite></cite><a href="partner/order_refund_list.aspx" target="rightFrame">退款订单</a><i></i></li>
+    </ul>    
+    </dd>  
+	
+	
+	    <dd><div class="title"><span><img src="images/leftico01.png" /></span>短信管理</div>
+    <ul class="menuson">
+	    <li><cite></cite><a href="partner/order_sms_list.aspx" target="rightFrame">短信管理</a><i></i></li>
+    </ul>    
+    </dd>  
+	
+	<dd><div class="title"><span><img src="images/leftico01.png" /></span>打印</div>
+    <ul class="menuson">
+	    <li><cite></cite><a href="partner/order_sale_report.aspx" target="rightFrame">报表打印</a><i></i></li>
+	    <li><cite></cite><a href="partner/order_print_list.aspx" target="rightFrame">小票打印</a><i></i></li>		
+    </ul>    
+    </dd>  
+    
+    
+    <dd><div class="title"><span><img src="images/leftico03.png" /></span>销售明细</div>
+    <ul class="menuson">
+	    <li><cite></cite><a href="partner/tongji_buy_count.aspx" target="rightFrame">购买统计表</a><i></i></li>
+        <li><cite></cite><a href="partner/tongji_buy_detail.aspx" target="rightFrame">购买明细表</a><i></i></li>
+        <li><cite></cite><a href="partner/tongji_order_count.aspx" target="rightFrame">订单统计表</a><i></i></li>
+    </ul>
+    </dd>   
+     <!--	
+	<dd><div class="title"><span><img src="images/leftico01.png" /></span>微信店铺</div>
+    <ul class="menuson">
+	    <li><cite></cite><a href="partner/myqr_code_shop.aspx" target="rightFrame">店铺二维码</a><i></i></li>
+	    <li><cite></cite><a href="partner/myqr_code_line.aspx" target="rightFrame">线路二维码</a><i></i></li>		
+	    <li><cite></cite><a href="partner/myqr_code_ticket.aspx" target="rightFrame">门票二维码</a><i></i></li>	
+	    <li><cite></cite><a href="partner/set_price_line_list.aspx" target="rightFrame">线路价格设置</a><i></i></li>	
+	    <li><cite></cite><a href="partner/set_price_ticket_list.aspx" target="rightFrame">门票价格设置</a><i></i></li>	
+    </ul>    
+    </dd> 
+ -->   
+    </dl>
+    
+</body>
+</html>

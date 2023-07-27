@@ -1,0 +1,225 @@
+﻿#main {
+    background: none repeat scroll 0 0 #FFFFFF; /*ECF6FF*/
+    min-height: 750px;
+    padding: 10px 0 0 0 !important;
+}
+
+#header_logo {
+    width: 100%;
+    height: 110px;
+    /*background-image: url('img/bg_full.png') !important;
+            background-repeat: repeat-x;*/
+    background-color: #fff;
+    position: relative;
+    border: none;
+}
+
+#logo b {
+    background: url("") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 75px;
+    left: 110px;
+    position: absolute;
+    top: 13px;
+    width: 350px;
+}
+
+#header_logo_container {
+    margin: 0 auto;
+    width: 940px;
+    height: 110px;
+    background-image: url('img/head-logo.jpg') !important;
+    background-repeat: no-repeat;
+}
+
+#header_msg {
+    height: 110px;
+    margin-left: 140px;
+    position: relative;
+}
+
+#header_logo_right {
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    height: 110px;
+    width: 420px;
+    border: none;
+    background-image: url('img/bg_header_right.png');
+}
+
+
+.navbar-inverse .navbar-mybg {
+    background-image: none;
+    background-color: #017DDF;
+    /*background-image:url('img/nav_t_bg.jpg');*/
+    background-repeat: repeat-x;
+    border: none;
+    border-color: none;
+}
+
+
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+    background-image: none;
+    background-color: #017BB8;
+}
+
+.navbar-inverse .brand, .navbar-inverse .nav > li > a:hover {
+    color: #FF6600;
+}
+
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle, .navbar-inverse .nav li.dropdown.active > .dropdown-toggle, .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: #017BB8;
+    color: #FFFFFF;
+}
+
+#header_msg_left {
+    float: left;
+    height: 80px;
+    width: 50%;
+    padding-top: 30px;
+}
+
+    #header_msg_left h2 {
+        font-family: "微软雅黑";
+        font-size: 16px;
+        line-height: 22px;
+        color: #808080;
+    }
+
+        #header_msg_left h2 b {
+            color: #FF6600;
+            font-size: 20px;
+        }
+
+#header_msg_right {
+    float: right;
+    height: 110px;
+    width: 50%;
+    text-align: right;
+    position: relative;
+    z-index: 9999;
+}
+
+#header_nav_item {
+    height: 30px;
+}
+
+    #header_nav_item ul li {
+        list-style: none;
+    }
+
+    #header_nav_item ul li {
+        float: right;
+        width: auto;
+        margin-left: 8px;
+    }
+
+        #header_nav_item ul li a {
+            display: block;
+        }
+
+            #header_nav_item ul li a:hover {
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+#searchBox {
+    margin-top: 40px;
+}
+
+#foot {
+    width: 100%;
+    padding-top: 10px;
+}
+
+#foot_container {
+    margin: 0 auto;
+    width: 940px;
+}
+
+.footbar {
+    border: 1px solid #78df86;
+    border-radius: 5px;
+    line-height: 30px;
+    padding: 10px;
+}
+
+.footinfo {
+    line-height: 30px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.dl-title-bg {
+    border: none;
+    background-image: url('/bootstrap/img/title_bg.jpg');
+    padding-left: 60px;
+    color: #000;
+    margin: 0px 0px;
+    padding: 4px 4px 10px 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.left_container {
+    border: 1px solid #DFDFDF;
+}
+
+.left_title_bg {
+    margin: 0 0;
+    height: 35px;
+    background-color: #e0e0e0;
+}
+
+.cTab {
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0 10px;
+}
+
+.cTabSel {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0 10px;
+    border-top: 2px solid #FB8E00;
+}
+
+.cTabCon {
+    display: none;
+}
+
+.cTabConSel {
+    display: block;
+}
+
+#scrollDiv {
+    width: 235px;
+    height: 220px;
+    min-height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+}
+
+ #scrollDiv li {
+        height: 25px;
+        padding-left: 10px;
+}
+
+#foot .unstyled li {
+    line-height: 30px;
+    font-size: 12px;
+}
+
+#foot .unstyled li strong {
+        font-size: 16px;
+}

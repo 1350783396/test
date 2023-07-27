@@ -1,0 +1,160 @@
+﻿.empty-sign {
+    background: url("/wap/img/sign-empty-cart.png") no-repeat scroll center center / 100px 100px rgba(0, 0, 0, 0);
+    height: 110px;
+    margin-top: 33px;
+}
+
+.empty-warning-text {
+    color: #999;
+    font-size: 14px;
+    line-height: 18px;
+    min-height: 50px;
+    text-align: center;
+}
+.empty-btn-wrapper {
+    margin-top: 15px;
+    text-align: center;
+}
+.btn-jd-red.btn-large, .btn-jd-gray.btn-large, .btn-jd-darkred.btn-large {
+    font-size: 14px;
+    padding: 12px 40px;
+}
+.empty-btn-wrapper .btn-large {
+    margin: 0 10px;
+}
+.btn-jd-darkred {
+    background: none repeat scroll 0 0 #c00000;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    line-height: 1.2em;
+}
+
+
+/*
+.common-items .common-item .item-content {
+    -moz-box-flex: 1;
+    line-height: 24px;
+    text-align: right;
+    vertical-align: middle;
+}
+*/
+
+.item-content {
+    -moz-box-flex: 1;
+    line-height: 24px;
+
+    /*
+    text-align: right;
+    margin-right:40px;
+    */
+
+    vertical-align: middle;
+}
+
+.shp-cart-icon-remove {
+    background: url("/wap/img/icon-shp-cart-remove.png") no-repeat scroll 0 0 / 50px 50px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    height: 23px;
+    margin-right: 15px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-indent: -1000px;
+    width: 23px;
+}
+
+input[type="text"]:not(.selectbox), input[type="number"], input[type="password"] {
+    outline-style: none;
+}
+.pro-numsele .buy_input {
+    border-radius: 3px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0;
+    width: 70px;
+}
+.buy_input {
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+.pro-numsele .control_amount_add, .pro-numsele .amount_do {
+    background: none repeat scroll 0 0 #ff4c06;
+    color: #fff;
+}
+.pro-numsele button {
+    border: 1px solid #e3e1e1;
+    font-size: 18px;
+    text-align:center;
+    vertical-align:middle;
+    height: 28px;
+    width: 28px;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+    ime-mode: disabled;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    line-height: normal;
+}
+button, input, select, textarea {
+    font-family: inherit;
+    margin: 0;
+}
+
+/*固定在底部*/
+#flow_buybox {
+    bottom: 0;
+    box-sizing: border-box;
+    margin: 15px 0 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10004;
+}
+.section-buybox {
+    background: none repeat scroll 0 0 #fff;
+    border-top: 1px solid #e3e3e3;
+    box-sizing: border-box;
+    display: -moz-box;
+    overflow: hidden;
+    padding: 10px;
+    width: 100%;
+}
+.deal-buyatt {
+    -moz-box-flex: 1;
+    height: 30px;
+    line-height: 30px;
+}
+.deal-buybtn {
+    background: none repeat scroll 0 0 #ff4c06;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 15px;
+    text-align: center;
+
+    width:100px;
+}
+.deal-buybtn a {
+    color: #fff;
+    font-size: 16px;
+}
+.deal-buyatt .price b {
+    font-size: 22px;
+}
+.deal-buyatt .price font {
+    color: #ff4c06;
+}
+.deal-buyatt .price {
+    line-height: 100%;
+}
+
+

@@ -1,0 +1,36 @@
+CPNPC.DLL为SERVER端COM 组件，支持ASP,PHP调用，组件提供的方法同ChinaPay.dll，请参照商户接入手册开发
+
+
+netpay.dll 是普通WIN32原生DLL chinapay.dll 和 CPNPC.DLL 是COM 组件，其中chinapay.dll 支持客户端调用， CPNPC.DLL 支持SERVER端脚本调用，如ASP,PHP. CPNPC.DLL 依赖另外两个DLL
+使用时请把3个DLL文件放在一个目录下，然后用 regsvr32 命令注册 Chinapay.dll 和 CPNPC.DLL。
+
+调用示例代码
+ASP:
+
+<%
+
+  Dim ChkValue
+
+  set npc = Server.CreateObject("CPNPC.NPC")
+
+  ChkValue = npc.sign("808080290000001","0000000010000001","000000000001","156","20080813","0001")
+
+  Response.Write ChkValue
+
+%>
+
+
+PHP:
+
+<?
+
+  $npc = new COM("CPNPC.NPC");
+
+  $chkvalue = npc.sign("808080290000001","0000000010000001","000000000001","156","20080813","0001");
+
+  echo $chkvalue;
+
+?>
+
+
+

@@ -1,0 +1,42 @@
+﻿.tb-prop div{display:block;width:100%;float:left}
+.tb-prop a {
+    float: left;
+    background-color: #fff;
+    white-space: nowrap;
+    width: auto!important;
+    min-width: 10px;
+    padding: 0 9px;
+    text-align: center;
+
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    margin: 0 4px 4px 0;
+    line-height: 20px;
+    vertical-align: middle;
+    line-height: 28px;
+    cursor:pointer;
+}
+.td {
+    border: 1px solid #b8b7bd;
+}
+
+.tb-prop span {
+    float:left;
+    vertical-align: middle;
+    line-height: 28px;
+    margin-right:5px;
+}
+.tb-prop  a:hover, .tb-prop .tb-selected a, .tb-prop .tb-selected a:hover{
+    border: 1px solid #FF0036;
+    
+}
+.notd {
+    border: 1px solid #b8b7bd;
+}
+.tb-selected {
+    background-image:url('/images/selected.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+    border: 1px solid #FF0036;
+}

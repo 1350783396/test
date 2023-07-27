@@ -1,0 +1,106 @@
+﻿
+
+
+<div class="ub ub-ver uinn-a1 ub-f1">
+    <div class="ulev-3 t-gra-infor uinn-infor1 c-gra-infor">
+        {ProductName}
+        <input type="hidden" name="hiddenProductID" id="hiddenProductID" value="{ProductID}">
+    </div>
+    <div class="uba bc-border c-wh">
+        {line-col}
+        <ul ontouchstart="appcan.touch('btn-act')" class="ubb ub bc-border bc-text ub-ac uinn-a9">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                单价
+            </li>
+            <li class="ub-f1 tx-r ulev-app1">
+                <span class="t-red1 ufm1">￥<span id="unitPrice">{unitPrice}</span></span>
+            </li>
+        </ul>
+        <ul class="ubb ub bc-border bc-text ub-ac uinn-a9">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                购买数量
+            </li>
+            <li class="ub-f1 ulev-app1">
+                <!--
+                <div class="uinput uinn4">
+                    <input value="1" type="text" class="tx-r " onkeyup="keyCal()" id="buyNum">
+                </div>-->
+                <div class="ub ub-pe ub-f1">
+                    <div class="uwh-pSC1 tx-c uba bc-border uc-a-app1 t-bla mar-ar1" id="btnNumJian">-</div>
+                    <div class="uba uc-a-app1 bc-border uinput uwh-pSC2 mar-ar1 c-wh">
+                        <input value="1" type="text" class="uinn-pSC3 t-bla tx-c" onkeyup="keyCal()" id="buyNum" />
+                    </div>
+                    <div class="uwh-pSC1 tx-c uba bc-border uc-a-app1 t-bla" id="btnNumJia">+</div>
+                </div>
+            </li>
+        </ul>
+        <ul ontouchstart="appcan.touch('btn-act')" class="ubb ub bc-border bc-text ub-ac uinn-a9">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                总价
+            </li>
+            <li class="ub-f1 tx-r ulev-app1">
+                <span class="t-red1 ufm1">￥<span id="totalPrice">0</span></span>
+            </li>
+        </ul>
+        <ul ontouchstart="appcan.touch('btn-act')" class="ubb ub bc-border bc-text ub-ac uinn-a9" id="divCenter">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                支付方式
+            </li>
+            <li class="ub-f1 ulev-app1">
+                <div class="select uba bc-border bc-text" id="divPayType">
+                    <div class="text">
+                        {payTypeFrist}
+                    </div>
+                    <div class="icon"></div>
+                    <select id="selPayType" selectedindex="0">
+                        {payType}
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <ul ontouchstart="appcan.touch('btn-act')" class="ubb ub bc-border bc-text ub-ac uinn-a9">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                取票方式
+            </li>
+            <li class="ub-f1 tx-r ulev-app1">
+                二维码
+                <input type="hidden" name="selValidType" id="selValidType" value="二维码">
+            </li>
+        </ul>
+        <ul ontouchstart="appcan.touch('btn-act')" class="ubb ub bc-border bc-text ub-ac uinn-a9">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                姓名
+            </li>
+            <li class="ub-f1 ulev-app1">
+                <div class="uinput uinn4">
+                    <input placeholder="必填，门票使用人姓名" type="text" class="tx-r " id="realName">
+                </div>
+            </li>
+        </ul>
+        <ul ontouchstart="appcan.touch('btn-act')" class="ubb ub bc-border bc-text ub-ac uinn-a9">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                手机号
+            </li>
+            <li class="ub-f1 ulev-app1">
+                <div class="uinput uinn4">
+                    <input placeholder="必填，二维码接收号码" type="text" class="tx-r " id="phone">
+                </div>
+            </li>
+        </ul>
+        <ul ontouchstart="appcan.touch('btn-act')" class="ubb ub bc-border bc-text ub-ac uinn-a9">
+            <li class="uw-infor ut-s sc-text  umar-r-infor ulev-app1">
+                备注
+            </li>
+            <li class="ub-f1 ulev-app1">
+                <div class="uinput uinn4">
+                    <input placeholder="选填、订单备注" type="text" class="tx-r " id="txtMemo">
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="ubt bc-border ub sc-bg uinn">
+    <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1 ub-f1" style="min-height: 1.8em;" id="btnSubmit">
+        提交订单
+    </div>
+</div>

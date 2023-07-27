@@ -1,0 +1,151 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.Master.cs" Inherits="ETicket.Web.home.home" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>顺和嘉票务网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-ie6.css">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href=../bootstrap/css/ie.css">
+    <![endif]-->
+
+    <style type="text/css">
+        /*body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }*/
+        #main {
+            background: none repeat scroll 0 0 #F0F8FF;
+            min-height: 750px;
+            padding: 0px 0 !important;
+        }
+    </style>
+    <link href="../business/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../business/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../business/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../business/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../business/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../business/assets/ico/favicon.png">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        #header_bg {
+            background-image:url('img/bg_full.png') !important;
+            background-repeat:repeat-x;
+            position:relative;
+            border:none;
+        }
+        #header_right {
+            top:0px;
+            right:0px;
+            position:absolute;
+            height:110px;
+            width:420px;
+            border:none;
+            background-image:url('img/bg_header_right.png');
+        }
+        #bar_msg {
+            width:100%;
+            height:35px;
+            background:#B2D86A;
+        }
+        #msg_content {
+            width:940px;
+            margin:0 auto;
+        }
+        #msg_content p {
+            line-height:28px;
+            color:#FFFFFF;
+            font-size:14px;
+            padding-top:5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="height:110px; position: inherit; margin: 0 0; padding: 0 0;background:none">
+        <div id="header_bg" style="height:110px;" class="navbar-inner">
+            <div  style="height:110px;" class="container">                
+                <%-- <div style="margin:68px auto;" class="nav-collapse collapse">
+                      <ul class="nav">
+                          <li class="active"><a href="#">首页</a></li>
+                          <li><a href="#about">专线线路</a></li>
+                          <li><a href="#contact">景区门票</a></li>
+                          <li><a href="#contact">阳朔风光</a></li>
+                          <li><a href="#contact">旅游资讯</a></li>
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">旅游指南 <b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="#">桂林概况</a></li>
+                                  <li><a href="#">桂林购物</a></li>
+                                  <li><a href="#">桂林交通</a></li>
+                                  <li><a href="#">特产美食</a></li>
+                                  <li><a href="#">休闲娱乐</a></li>
+                                  <li><a href="#">自驾车线路</a></li>
+                                  <li><a href="#">游记攻略</a></li>
+
+
+                              </ul>
+                          </li>
+                      </ul>                   
+                  </div><!--/.nav-collapse -->--%>
+            </div>
+            <div id="header_right"></div>
+
+        </div>
+    </div>
+
+   <div id="bar_msg">
+       <div  id="msg_content">
+           <p>公告：为使游客有更好的旅游体验，..............................，请您预订前来电咨询，谢谢！</p>
+       </div>
+   </div>
+    <div id="main">
+        <div class="container" style="background-color: #FFFFFF;">
+            <asp:ContentPlaceHolder ID="ContentPlaceMain" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- /container -->
+    </div>
+    <hr>
+    <footer>
+        <p>© Company 2012</p>
+    </footer>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/kefu.js"></script>
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="../js/bootstrap-ie.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        (function ($) {
+            $(document).ready(function () {
+                if ($.isFunction($.bootstrapIE6)) $.bootstrapIE6($(document));
+            });
+        })(jQuery);
+    </script>
+</body>
+</html>

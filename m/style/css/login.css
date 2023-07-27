@@ -1,0 +1,90 @@
+@charset "gb2312";
+/* CSS Document */
+
+body{font:12px/24px "\5B8B\4F53",arial;font-family:"ËÎÌå"; text-align:left;color:#333; background:#f9f9f9;}
+body,div,ul,ol,li,dl,dt,dd,span,p,h1,h2,h3,h4,h5,h6,img,form,table,tr,td,th,label{margin:0;padding:0;}
+img{border:none; padding:0; margin:0;}
+ul,ol,li{list-style-type:none;}
+.fa{font-family:arial;}    .fw{font-family:"Î¢ÈíÑÅºÚ"} 
+.fl{float:left;}        .fr{float:right;}
+.blank{clear:both;height:10px;overflow:hidden;}
+.blank15{clear:both;height:10px;overflow:hidden;}
+select,input,label,textarea,img/{vertical-align:middle;font-size:12px;color:#555;}
+a{color:#333;text-decoration:none;}
+a:hover{color:#f00;text-decoration:underline;}
+.cl{clear:both;}
+.ovh{overflow:hidden; zoom:1;}
+.w980{width:980px; margin:0 auto;} 
+.mr25{margin-right:25px;}
+
+
+.header{height:80px; display:block; background:#fff;}
+.logo{padding:8px 0;}
+.menu{width:380px; font-size:18px; padding:20px 0;}
+.menu li{float:left; line-height:40px; height:40px; margin-left:35px; display:inline;}
+.menu li a{padding-left:15px; display:block;}
+.menu li a:hover,.menu .hover a{background:url(img/in_06.png) 3px center no-repeat; color:#ff6600; text-decoration:none;}
+
+.banner{ display:block; height:420px;}
+.banner_js {POSITION: relative; WIDTH: 100%; HEIGHT: 420px; overflow:hidden; zoom:1; display:block;}
+.banner_js li{ width:100%; display:none;}
+.banner_js li a{ width:980px; margin:0 auto; height:420px; display:block; overflow:hidden; zoom:1;}
+
+.jsNav {POSITION: absolute; WIDTH: 225px; BOTTOM: 40px; HEIGHT: 14px; left: 47%; }
+.jsNav A {TEXT-ALIGN: center; LINE-HEIGHT: 14px; HEIGHT:14px; WIDTH: 14px; FLOAT: left; VERTICAL-ALIGN: middle; background:url(img/b_but.png) no-repeat; filter: Alpha(Opacity=50); opacity: 0.5; margin:0 5px; display:inline; display:block; overflow:hidden; zoom:1;}
+a.imgSelected { background:url(img/b_but.png) no-repeat; COLOR: #fff;filter: Alpha(Opacity=100); opacity:1.0;}
+
+
+.login{position:relative; height:0px; z-index:999;}
+.login_main{position:absolute; width:274px; height:300px; background:url(img/login_bg.png) no-repeat; display:block; right:0; top:43px; z-index:1000;}
+.login_main dt{font-family:"Î¢ÈíÑÅºÚ"; font-size:18px; height:56px; line-height:56px; color:#fff; padding-left:22px;}
+.login_main dd{padding: 0 0 0 22px; height:33px; line-height:33px; display:block; float:left; width:252px;}
+.login_main dd label{line-height:33px; color:#fff;}
+.name,.password{background:url(img/login_name.png) left center no-repeat #fff; border:none; height:21px; line-height:21px; padding:5px 6px 5px 38px; width:180px; color:#666;}
+.password{background:url(img/login_password.png) left center no-repeat #fff;}
+.login_main .dd_but{padding-top:25px; display:block;}
+.login_main .dd_but input{ background:url(img/login_but.png) no-repeat; border:none; width:224px; height:40px; text-align:center; color:#fff; font-size:18px; cursor:pointer;}
+.login_main .text{padding:15px 0 0 22px;}
+.login_main .text a{ text-align:center; width:112px; display:block; float:left; line-height:24px; color:#fff;}
+
+.main{ display:block;zoom:1; overflow:hidden; padding-bottom:35px;}
+.main_top{margin:35px 0 25px; background:url(img/in_15.jpg) bottom repeat-x; display:block; overflow:hidden; zoom:1;}
+.mian_dl{height:92px; display:block; width:1005px;}
+.mian_dl dl{width:310px; display:inline; float:left;font-family:"Î¢ÈíÑÅºÚ"; height:158px; overflow:hidden; margin-right:25px;}
+.mian_dl dl dt{float:left; width:92px; }
+.mian_dl dl dd{ float:left; width:218px; font-size:16px; padding:22px 0; height:48px; display:block;}
+.mian_dl dl dd span{display:block; font-size:18px; color:#577d24;}
+
+.footer{background:url(img/in_29.png) top repeat-x #ededed; display:block; padding:25px 0 15px; zoom:1;}
+.footer .s1{margin-bottom:14px; display:block; overflow:hidden; zoom:1;}
+.footer .s1 .fr{width:943px; overflow:hidden;}
+.footer .s1 .fr ul{width:954px;}
+.footer .s1 li{float:left; margin:0 11px 11px 0; background:#fff; border:1px solid #ddd; display:block; cursor:pointer; width:82px; height:42px; overflow:hidden; zoom:1; position:relative;}
+.footer .s1 li span,.footer .s1 .img_off span{ position:absolute; left:1px; top:1px;}
+.footer .s1 .img_on{border:2px solid #acacac; width:80px; height:40px;}
+.footer .s1 .img_on span{top:-40px; left:0px;}
+
+.footer .text{text-align:center; background:url(img/in_41.png) top repeat-x; padding:15px 0 0 0; color:#666;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+﻿ div.msg-div{ padding: 10px; }
+ div.msg-div p{ padding: 0px; margin:5px 0 0 0; }
+ div.msg-div .field{ padding: 0px; }
+ div.msg-div .field textarea{ width: 90%; height: 50px; resize:none; font-size:12px; }
+ .errorBlock{ background-color: #FFC6A5; border: solid 1px #ff0000; color: #ff0000; margin: 10px 10px 0 10px; padding:7px; font-weight: bold; }

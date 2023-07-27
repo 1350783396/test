@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>编辑收货人信息-美点商城</title>
+    <link type="text/css" rel="stylesheet" href="/wap/css/cp_style_v1.0.css" />
+    <link type="text/css" rel="stylesheet" href="/wap/css/buy_submit_v1.0.css" />
+
+    <link href="/wap/img/startup.png" rel="apple-touch-startup-image" />
+    <link href="/wap/img/apple-touch-icon-57x57-precomposed.png" sizes="57x57" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
+
+
+</head>
+<body>
+    <header class="index">
+        <div class="c-hd">
+            <section class="back">
+                <a href="javascript:history.go(-1);"><i></i></a>
+            </section>
+            <section class="hd-title">
+                编辑收货人信息
+            </section>
+            <section class="hd-nav"></section>
+        </div>
+    </header>
+
+    <div class="new-ct shouhuo">
+        <div class="title">收货人地址</div>
+        <div class="info-list">
+            <div class="info pd">
+                <div class="tbl-type">
+                    <span class="tbl-cell w80"><span>收货人姓名：</span></span>
+                    <span class="tbl-cell"><span><input type="text" style="width:100%;" value="" id="address_name" name="address.name" class="new-input" maxlength="20"></span></span>
+                </div>
+            </div>
+            <div id="nameErrorMsg" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1); display: none;" class="info pd">
+                <div class="tbl-type">
+                    <span class="tbl-cell w80"><span style="color:red">收货人姓名不能为空</span></span>
+                </div>
+            </div>
+            <div  class="info pd">
+                <div class="tbl-type">
+                    <span class="tbl-cell w100"><span>收货人手机号：</span></span>
+                    <span class="tbl-cell"><span><input type="text" style="width:100%;" value="" id="address_mobile" name="address.mobile" class="new-input" maxlength="11"></span></span>
+                </div>
+            </div>
+            <div id="mobileErrorMsgDiv" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1); display: none;" class="info pd">
+                <div class="tbl-type">
+                    <span class="tbl-cell w80"><span id="mobileErrorMsg" style="color:red">电话号码不能为空</span></span>
+                </div>
+            </div>
+            <div class="info border-b-none pd">
+                <div class="tbl-type">
+                    <span class="tbl-cell w70" style="vertical-align:top;"><span>地址信息：</span></span>
+                    <span class="tbl-cell"><span><label id="address_label"></label><textarea id="address_where" name="address.where" class="new-input" type="text" style="height:auto;width:100%;" rows="2"></textarea></span></span>
+                </div>
+            </div>
+            <div id="addressErrorMsg" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1); display:none;" class="info pd">
+                <div class="tbl-type">
+                    <span class="tbl-cell w80"><span style="color:red">地址信息不能为空</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!--[D] 默认时加  new-abtn-default 把a标签换成span-->
+        <a class="new-abtn-type mgn" href="javascript:submitEditAddressForm()">下一步</a>
+    </div>
+    
+
+</body>
+</html>

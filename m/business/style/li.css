@@ -1,0 +1,26 @@
+﻿#ulsp
+{
+    position: absolute;
+    top:95px;
+    left:155px;
+    z-index: 9999;
+    list-style-type: none;
+    border-right:1px solid #8DB2E3;
+    border-left:1px solid #8DB2E3;
+    border-top:1px solid #8DB2E3;
+    padding:0px;  
+    
+}
+#ulsp li
+{
+    text-decoration:none;
+    padding:2px;
+    border-bottom:1px solid #8DB2E3;
+    background-color:#E8F7FA;    
+}
+#ulsp li:hover
+{
+      color:#B20893;
+      background-color:#B4AFFA;  
+      cursor:pointer; 
+    }

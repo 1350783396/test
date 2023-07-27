@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>选择支付及配送方式-美点商城</title>
+    <link type="text/css" rel="stylesheet" href="/wap/css/cp_style_v1.0.css" />
+    <link type="text/css" rel="stylesheet" href="/wap/css/buy_submit_v1.0.css" />
+
+    <link href="/wap/img/startup.png" rel="apple-touch-startup-image" />
+    <link href="/wap/img/apple-touch-icon-57x57-precomposed.png" sizes="57x57" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
+
+</head>
+<body>
+    <header class="index">
+        <div class="c-hd">
+            <section class="back">
+                <a href="javascript:history.go(-1);"><i></i></a>
+            </section>
+            <section class="hd-title">
+                选择支付及配送方式
+            </section>
+            <section class="hd-nav"></section>
+        </div>
+    </header>
+    
+    <div class="new-ct">
+
+        <div class="title">支付方式</div>
+        <div class="info-addr2">
+            <div onclick="javascript:choosePayType('4');" class="info-addr">
+                <a class="btn-radio on" id="payType4" name="payTypeList"></a>
+                <span>在线支付</span>
+            </div>
+
+            <div onclick="javascript:choosePayType('1');" class="info-addr">
+                <a class="btn-radio" id="payType1" name="payTypeList"></a>
+                <span>货到付款</span>
+            </div>
+           
+            <!--[D] 默认时加  new-abtn-default 把a标签换成span-->
+        </div>
+
+        <div class="title">配送方式</div>
+        <div class="info-addr2">
+            <div onclick="javascript:choosePayType('1');" class="info-addr">
+                <a class="btn-radio on" id="sendType1" name="sendTypeList"></a>
+                <span>美点配送</span>
+            </div>
+            <div onclick="javascript:choosePayType('4');" class="info-addr">
+                <a class="btn-radio " id="sendType2" name="sendTypeList"></a>
+                <span>上门自提</span>
+            </div>
+            <!--[D] 默认时加  new-abtn-default 把a标签换成span-->
+        </div>
+
+        <div class="title">配送门店</div>
+        <div class="info-addr2">
+            <div class="info-addr">
+
+
+                <div class="select_style">
+                    <select name="select">
+                        <option>美点总部</option>
+                        <option>澳门店</option>
+                        <option selected>万达店</option>
+                        <option>东葛店</option>
+                    </select>
+                </div> 
+
+            </div>
+        </div>
+        <div class="title">配送时间</div>
+        <div class="info-addr2">
+            <div class="info-addr">
+                <div class="select_style" >
+                    <select name="select" name="sendDate">
+                        <option>2015-01-08</option>
+                        <option>2015-01-09</option>
+                        <option>2015-01-10</option>
+                    </select>
+                </div> 
+
+                <br />
+                <div class="select_style">
+                    <select name="select" name="sendTime">
+                        <option>17:00</option>
+                        <option>22:00</option>
+                        <option>23:00</option>
+                    </select>
+                </div>
+
+              
+            </div>
+          </div>
+       </div>
+
+        <a class="new-abtn-type mgn" href="javascript:submitForm()">确认</a>
+        <input type="hidden" value="4" id="idPaymentType" name="idPaymentType">
+        <input type="hidden" value="" name="flowType">
+
+
+
+
+
+   </div>
+</body>
+</html>

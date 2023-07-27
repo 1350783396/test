@@ -1,0 +1,12 @@
+.right .adprice h3 { background:#eee; color:red; line-height:28px; padding-left:18px; margin-left:-20px; width:748px; }
+.right .adprice p { text-indent:0; font-size:14px; }
+.right .adprice ul { overflow:hidden; margin-bottom:12px; }
+.right .adprice li { float:left; width:177px; line-height:18px; }
+.right .adprice li a { color:#900; font-weight:bold; }
+.ad_img_warp { text-align:center; }
+#kefu { background:url(./images/zixun-bg.gif) no-repeat 0 0; width:115px; height:179px; position:absolute; top:100px; right:0; }
+#kefu h2{ margin:50px 0 0; text-align:center; font-size:14px;}
+#kefu #ggym{ height:46px; width:113px;}
+#kefu #ggym span{ display:block; float:left; font-size:12px; width:56px; text-align:center; line-height:22px;}
+#kefu #kfqq{ padding-top:1px; clear:both;}
+#kefu #kfqq a{ margin-bottom:1px;}

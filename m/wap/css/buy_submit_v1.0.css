@@ -1,0 +1,308 @@
+﻿.new-ct {
+    background-color: #fff;
+    min-height: 300px;
+}
+
+.title {
+    background: none repeat scroll 0 0 #f1f1f5;
+    border-bottom: 1px solid #c8c7cc;
+    color: #666;
+    font-size: 14px;
+    padding: 13px 10px 7px;
+}
+.info {
+    border-bottom: 1px solid #c8c7cc;
+    position: relative;
+}
+.info a {
+    display: block;
+    padding: 13px 30px 12px 10px;
+}
+
+.info .text {
+    color: #333;
+    display: block;
+    font-size: 16px;
+}
+
+.info .text2 {
+    color: #666;
+    display: block;
+    font-size: 14px;
+    overflow: hidden;
+    padding-top: 3px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.info .text4 {
+    color: #c00;
+    font-size: 14px;
+}
+
+.icon-arr {
+    background: url("/wap/img/order/icon_order.png") no-repeat scroll 0 0 / 100px 100px rgba(0, 0, 0, 0);
+    height: 15px;
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    width: 10px;
+}
+
+/*运费 总计*/
+.totle {
+    color: #333;
+    font-size: 14px;
+    padding: 15px 0;
+}
+.bg-border {
+    background: url("/wap/img/order/bg_line2.png") repeat-x scroll 0 0 / 6px 1px rgba(0, 0, 0, 0);
+    display: block;
+    height: 2px;
+    position: relative;
+}
+.bg-border .icon {
+    background: url("/wap/img/order/icon_order.png") no-repeat scroll -17px 0 / 100px 100px rgba(0, 0, 0, 0);
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: -8px;
+    width: 30px;
+}
+.totle-cont {
+    padding: 10px 30px;
+}
+.tbl-type {
+    display: table;
+    width: 100%;
+}
+.tbl-cell {
+    display: table-cell;
+}
+.tbl-cell {
+    display: table-cell;
+}
+.text-right {
+    text-align: right;
+}
+.text-red {
+    color: #c00;
+}
+
+.bg-border2 {
+    background: url("/wap/img/order/bg_line.png") repeat-x scroll 0 0 / 10px 7px rgba(0, 0, 0, 0);
+    display: block;
+    height: 7px;
+}
+
+.mgn {
+    margin: 15px 10px;
+}
+.new-abtn-type, .new-abtn-type2, .new-abtn-type3, .new-abtn-type4 {
+    background-color: #ff4c06;
+    border-radius: 2px;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    padding: 8px;
+    text-align: center;
+}
+
+textarea.common-input {
+    display: block;
+    height: 60px;
+    width:100%;
+}
+.common-input {
+    
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #c8c8c8 inset;
+    font-size: 1em;
+    line-height: 18px;
+
+    vertical-align: text-top;
+}
+
+/*收货地址选择*/
+.addr-add {
+    border-bottom: 1px solid #c8c7cc;
+    padding: 20px 10px;
+}
+
+.btn-addr {
+    border: 1px solid #e4393c;
+    color: #e4393c;
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+}
+.addr-info {
+    background: none repeat scroll 0 0 #f1f1f5;
+    padding-top: 20px;
+}
+
+.addr-border {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px solid #c8c7cc;
+    border-top: 1px solid #c8c7cc;
+    padding: 10px;
+}
+
+.pd-tb10 {
+    padding-bottom: 10px;
+}
+.addr-border p:first-child {
+    color: #333;
+}
+.addr-border p:last-child {
+    color: #666;
+    font-size: 14px;
+}
+.bg-border3 {
+    background: url("/wap/img/order/bg_line3.png") repeat-x scroll 0 0 / 6px 1px rgba(0, 0, 0, 0);
+    display: block;
+    height: 2px;
+}
+.addr-btn {
+    padding: 5px 0 0;
+}
+.tbl-type {
+    display: table;
+    width: 100%;
+}
+
+.tbl-cell {
+    display: table-cell;
+}
+.text-right {
+    text-align: right;
+}
+.addr-info .btn-chk, .addr-info .btn-update, .addr-info .btn-del {
+    color: #666;
+    display: inline-block;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+}
+.addr-info .btn-chk.on span {
+    background-position: 0 -54px;
+}
+
+.addr-info .btn-chk span, .addr-info .btn-update span, .addr-info .btn-del span {
+    background: url("/wap/img/order/icon_order.png") no-repeat scroll -28px -54px / 100px 100px rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 25px;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 25px;
+}
+
+.addr-info .btn-chk span, .addr-info .btn-update span, .addr-info .btn-del span {
+    display: inline-block;
+    height: 25px;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 25px;
+}
+
+.addr-info .btn-chk, .addr-info .btn-update, .addr-info .btn-del {
+    color: #666;
+    display: inline-block;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+}
+.addr-info .btn-update span {
+    background-position: -50px 0;
+}
+.addr-info .btn-del span {
+    background-position: -76px 0;
+}
+.addr-info .btn-chk span, .addr-info .btn-update span, .addr-info .btn-del span {
+    display: inline-block;
+    height: 25px;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 25px;
+}
+
+/*编辑收货*/
+.shouhuo .tbl-cell {
+    vertical-align: middle;
+}
+.w70 
+{
+    width: 70px;
+}
+.w80 {
+    width: 90px;
+}
+.w100 {
+    width: 100px;
+}
+.tbl-cell {
+    display: table-cell;
+}
+.shouhuo .tbl-cell:first-child span {
+    color: #999;
+    font-size: 14px;
+}
+.shouhuo .tbl-cell:last-child span {
+    color: #333;
+    font-size: 14px;
+}
+.shouhuo .new-input {
+    color: #333;
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+.new-input {
+    background: none repeat scroll 0 0 #fff;
+    border: 0 none;
+    border-radius: 0;
+    font-weight: normal;
+    height: 30px;
+    line-height: 24px;
+    text-indent: 10px;
+    vertical-align: top;
+}
+.shouhuo .pd {
+    padding: 5px 10px 4px;
+}
+
+/*支付方式选择*/
+
+.info-addr2 {
+    border-bottom: 1px solid #c8c7cc;
+    padding-left: 10px;
+}
+
+.info-addr {
+    border-bottom: 1px solid #c8c7cc;
+    padding: 13px 10px 12px;
+}
+
+.btn-radio {
+    background: url("/wap/img/order/icon_order.png") no-repeat scroll -79px -50px / 100px 100px rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 22px;
+    padding: 0;
+    vertical-align: -5px;
+    width: 22px;
+}
+.btn-radio.on {
+    background-position: -55px -50px;
+}
+
+.select_style {
+    width:240px; height:30px; overflow:hidden; background:url(/wap/img/common/arrow.png) no-repeat 215px;
+    border:1px solid #ccc;
+    -moz-border-radius: 5px; /* Gecko browsers */
+    -webkit-border-radius: 5px; /* Webkit browsers */
+    border-radius:5px;
+}
+.select_style select { 
+    padding:5px; background:transparent; width:268px; font-size: 16px; border:none; height:30px;
+    -webkit-appearance: none; /*for Webkit browsers*/
+}

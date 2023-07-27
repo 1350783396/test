@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script language="javascript">
+$(function(){	
+	//导航切换
+	$(".imglist li").click(function(){
+		$(".imglist li.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})	
+})	
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+<style type="text/css">
+<!--
+.STYLE1 {
+	color: #009900;
+	font-weight: bold;
+	font-size: 14px;
+}
+-->
+</style>
+</head>
+
+
+<body>
+<div class="rightinfo">
+  <table class="imgtable">
+    
+    <tbody>
+      <tr>
+        <td width="90"><div align="center" class="STYLE6 STYLE7 STYLE1">{ProductName}</div></td>
+        <td width="79"><div align="center">{Tel}</div></td>
+        <td width="20"><div align="center"><strong>
+          </strong>
+            <div align="center"><strong><span style="float:right;font:24px;color:red">￥{Price}</span></strong></div>
+        <strong></strong></div></td>
+        <td width="298"><div align="center"><strong>{Memo}</strong></div></td>
+        <td width="73"><div align="center"><strong>
+          <div align="center"><a href="{url}" target="_blank" style="font-size:12px;"><strong><span class="STYLE5"><img src="/bootstrap/img/buybtn.png" /></span></strong></a> </div>
+        </strong></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    
+    <script type="text/javascript">
+	$('.imgtable tbody tr:odd').addClass('odd');
+	</script>
+    
+</body>
+
+</html>

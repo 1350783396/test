@@ -1,0 +1,48 @@
+﻿<title>阳朔票票通</title>
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/ui-box.css">
+        <link rel="stylesheet" href="/css/ui-base.css">
+        <link rel="stylesheet" href="/css/ui-color.css">
+        <link rel="stylesheet" href="/css/appcan.icon.css">
+        <link rel="stylesheet" href="/css/appcan.control.css">
+    </head>
+    <body class="um-vp " ontouchstart>
+
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left">
+                    <div class="fa fa-angle-left fa-2x" onClick="window.open('/');"></div>
+                </div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">关于我们</h1>
+                <div class="nav-btn nav-bt" id="nav-right">
+                    <div class="ub-img icon-refresh umw2 umh4" onClick="window.open('#');"></div>
+                </div>
+            </div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+            <!--header结束--><!--content开始-->
+    <div id="content" class="ub-f1 tx-l"><div class="con">
+      <p  style=" text-indent:0;"><span style="float:left; padding:5px 10px;"><img src="img/webpic.jpg" width="132" height="129" /></span></p>
+      <p style="color:#146DC7; font-weight:bold; font-size:14px; ">分销平台，离你生活更近</p>
+      <p>阳朔电子票务平台是历时近三年投入巨资打造，面向桂林阳朔旅游景区提供一体化电子商务服务的智慧旅游O2O技 术支撑云平台；能够帮助旅游景区轻松构建基于互联网营销系统，实现景区渠道扁平化全网分销/管控、财务结算管理、营销数据分析等综合功能。 平台致力于搭建权威、公正、可信的智慧旅游第三方开放平台，提供安全、高效、稳定的平台服务。</p>
+      <p  style="color:#146DC7; font-weight:bold; font-size:14px; text-indent:0; color: #F6680A; ">欢迎您加入阳朔电子票务分销系统！ </p>
+	  <p>阳朔电子票务： <strong>供应商咨询：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=530678888&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:530678888:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></strong> 
+	    </p>
+	    </p>
+	  <p>服务热线：0773-2300400 手机182-7838-4444 </p>
+
+	  <p>地址：广西省桂林市阳朔县阳朔镇神山路一巷44号</p>
+    </div></div>
+            <!--content结束-->
+</body>
+</html>

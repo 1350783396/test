@@ -1,0 +1,74 @@
+﻿*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	color: #444444;
+	font-family: "宋体" ,Arail,verdana;
+	font-size: 12px;
+	line-height: 1.5em;
+	margin: 0 auto;
+}
+
+img
+{
+	border: medium none;
+}
+
+a:link, a:visited
+{
+	color: #005EA7;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+
+.align_Center
+{
+	text-align: center;
+}
+
+.tip_3
+{
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	background: #EBF4FB none repeat scroll 0 0;
+	border-color: #AACDED;
+	border-style: solid;
+	border-width: 2px 1px 1px;
+	padding: 15px;
+}
+
+.tip_4
+{
+	font-size: 14px;
+	line-height: 2em;
+	padding: 20px 10px;
+}
+.banks
+{
+	overflow: hidden;
+	zoom: 1;
+	margin-bottom: 15px;
+}
+.banks dd
+{
+	float: left;
+	width: 24.9%;
+	text-align: center;
+	margin-bottom: 0px;
+	height: 65px;
+	overflow:hidden;
+}
+.banks dt
+{
+	clear: both;
+	margin-bottom: 10px;
+}

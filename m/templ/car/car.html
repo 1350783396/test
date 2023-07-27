@@ -1,0 +1,99 @@
+﻿<style type="text/css">
+<!--
+.STYLE2 {color: #006600}
+.STYLE4 {color: #FF6600}
+.yudingdiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+	height: 40px; /*px*/
+        // left: 0;
+	bottom: 0;
+	margin: auto;
+	color: #FFFFFF;
+	background-color: #FF3300;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+    }
+.dingdandiv {
+	background-color: #FFFFFF;
+	width: 95%;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-bottom: 5px;
+	margin-left: auto;
+	border: 1px solid #CCCCCC;
+}
+.dingdandiv tr{
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+	height: 25px;
+}
+.dingdandiv td{
+	padding: 5px;
+}
+.yudingdiv a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+body {
+	background-color: #E4E4E4;
+}
+--> 
+</style>
+
+	
+<table width="100%" border="0" cellpadding="10" class="dingdandiv">
+ <tr>
+    <td colspan="2" style="background-color:#999999; font-size:16px; color:red; line-height:30px;"><div align="center">{ProductName}</div></td>
+ </tr>
+ <tr>
+                <td colspan="2"><div class="tb-prop">{Properties}</div></td>
+            </tr>
+ {line-col}
+  <tr>
+    <td>单价:</td>
+	 <td>￥<span id="unitPrice">{unitPrice}</span></td>
+  </tr>
+  <tr>
+    <td>购买数量:</td>
+	 <td><input id="buyNum" name="buyNum" type="text" style="width:50%" value="1" onkeyup="keyCal()"  />库存：<span id="stockNum">{stock}</span></td>
+  </tr>
+  <tr>
+    <td width="30%">总价:</td>
+	 <td><h4 style="color:red"> ￥<span id="totalPrice">{unitPrice}</span>&nbsp;&nbsp;&nbsp;&nbsp; <span id="rebateInfo" style="font-size:14px;"></span>
+            <input name="hidden" type="hidden" id="rebateUnit" style="width: 93%" value="{rebateUnit}" />
+    </h4></td>
+  </tr>
+  <tr>
+    <td>姓名:</td>
+		 <td><input id="realName" name="realName" type="text" style="width: 93%"  value="" onkeyup="keyCal()"  />
+        <label class="error" for="realName" style="margin: 0 0; display: inline; "></label></td>
+  </tr>
+  <tr>
+    <td>手机号码:</td>
+	 <td><input id="phone" name="phone" type="text" style="width: 93%"  value="" onkeyup="keyCal()"  /><label class="error" for="phone" style="margin: 0 0; display: inline; "></label></td>
+  </tr>
+  <tr>
+    <td>支付方式:</td>
+	 <td><select name="selPayType" style="width: 93%"  id="selPayType">{payType}</select><label class="error" for="selPayType" style="margin: 0 0; display: inline; "></label></td>
+  </tr>
+  <tr>
+    <td>取票方式:</td>
+	 <td><select id="selValidType" style="width: 93%"  name="selValidType">{selValidType}</select></td>
+  </tr>
+  <tr>
+    <td>备注:  </td>
+	 <td width="70%"><input name="txtMemo" type="text" style="width: 93%"  value="" onkeyup="keyCal()"  /></td>
+  </tr>
+
+</table><br />
+<br />
+
+<button class="yudingdiv" type="submit">立即预订</button>

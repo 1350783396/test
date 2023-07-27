@@ -464,11 +464,227 @@ namespace ConsoleApp1
             students1.Add(new Student() { numb1 = 3, numb2 = 3 });
             return students1;
         }
+
+        public class KeLong
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+            public int shijian { get; set; }
+            public void Jiansuo()
+            {
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+                Thread.Sleep(shijian * 1000);
+                sw.Stop();
+                Console.WriteLine($"{this.name}书籍找到啦用时{sw.Elapsed.TotalMilliseconds}");
+            }
+            public KeLong Clone()
+            {
+                return (KeLong)MemberwiseClone();
+            }
+        }
+        public static string obj = "obj";
+        /// <summary>
+        /// 表达式进行拆分，包括括号内的逻辑表达式以及没有括号的直接判断方法
+        /// </summary>
+        /// <param name="str">需要判断的表达式字符串</param>
+        /// <returns></returns>
+        public static Boolean ExpressionSplit(string str)
+        {
+            Boolean result = false;
+            //首先判断括号，有多少个
+            string[] parentheses = str.Split('(');
+            //创建表达式判断函数
+            DataTable dt = new DataTable();
+            //有括号的情况
+            if (parentheses.Length > 1)
+            {
+                //先判断括号里面的
+                for (int parenthesesIndex = 1; parenthesesIndex < parentheses.Length; parenthesesIndex++)
+                {
+                    //括号里面的内容
+                    string ParenthData = parentheses[parenthesesIndex].Split(')')[0];
+                    //进行替换
+                    string reParenth = "(" + ParenthData + ")";
+                    str = str.Replace(reParenth, LogicExpression(ParenthData).ToString());
+                }
+                //判断完括号里面后，在进行外部的判断
+                string[] logicExData = Regex.Split(str, @"\|\||&&", RegexOptions.IgnoreCase);
+                if (logicExData.Length >= 1)
+                {
+                    string logicStr = "||";
+                    for (int logicExIndex = 0; logicExIndex < logicExData.Length; logicExIndex++)
+                    {
+                        if (logicExIndex != 0)
+                        {
+                            logicStr = str.Substring(str.IndexOf(logicExData[logicExIndex - 1]) + logicExData[logicExIndex - 1].Length, 2);
+                        }
+                        Boolean re = (Boolean)dt.Compute(logicExData[logicExIndex], "");
+                        result = LogicEx(result, re, logicStr);
+                    }
+                }
+            }
+            else
+            {
+                //没括号的情况，直接判断
+                string[] logicExData = Regex.Split(str, @"\|\||&&", RegexOptions.IgnoreCase);
+                if (logicExData.Length > 1)
+                {
+                    string logicStr = "||";
+                    for (int logicExIndex = 0; logicExIndex < logicExData.Length; logicExIndex++)
+                    {
+                        if (logicExIndex != 0)
+                        {
+                            logicStr = str.Substring(str.IndexOf(logicExData[logicExIndex - 1]) + logicExData[logicExIndex - 1].Length, 2);
+                        }
+                        Boolean re = (Boolean)dt.Compute(logicExData[logicExIndex], "");
+                        result = LogicEx(result, re, logicStr);
+                    }
+                }
+                else
+                {
+                    result = (Boolean)dt.Compute(logicExData[0], "");
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// 判读逻辑表达式
+        /// </summary>
+        /// <param name="str">需要判断的逻辑表达式字符串</param>
+        /// <returns></returns>
+        public static Boolean LogicExpression(string str)
+        {
+            Boolean result = false;
+            DataTable dt = new DataTable();
+            string[] logicExData = Regex.Split(str, @"\|\||&&", RegexOptions.IgnoreCase);
+            string logicStr = "||";
+            for (int logicExIndex = 0; logicExIndex < logicExData.Length; logicExIndex++)
+            {
+                if (logicExIndex != 0)
+                {
+                    logicStr = str.Substring(str.IndexOf(logicExData[logicExIndex - 1]) + logicExData[logicExIndex - 1].Length, 2);
+                }
+                Boolean re = (Boolean)dt.Compute(logicExData[logicExIndex], "");
+                result = LogicEx(result, re, logicStr);
+            }
+            return result;
+        }
+        public static Boolean LogicEx(Boolean a1, Boolean a2, string re)
+        {
+            Boolean result = false;
+            switch (re)
+            {
+                case "&&": result = a1 && a2; break;
+                case "||": result = a1 || a2; break;
+            }
+            return result;
+        }
+
+
         static void Main(string[] args)
         {
-            var result666 = Email.MailSystem163.SendMail("1979097305@qq.com", "早", "早上好。");
+            int t88 = 0;
+            int.TryParse("12", out t88);
+
+            string add661 = Math.Round(-3/5m,4).ToString("P");
+            var qqgy = Regex.Match("12个（3*8M）门板", @"\d+").Value;
+            var saff123 = "afs af".Substring(2, 2);
+            var converttt = Convert.ToInt32("2.1".Substring(0, "2.1".IndexOf(".")));
 
 
+            List<Student2> students88 = new List<Student2>();
+            List<Student2> students99 = new List<Student2>();
+            for (int i = 0; i < 10; i++)
+            {
+                Student2 student77 = new Student2();
+                student77.a = 4;
+                student77.str1 = "3";
+                students88.Add(student77);
+                student77.a = 5;
+                student77.str1 = "6";
+                students99.Add(student77);
+            }
+
+
+
+
+            //DataTable dto99 = new DataTable();
+
+            //var o99 = dto99.Compute("1>3","");
+            string stro99 = "(true && false)";
+            Boolean resulto99 = ExpressionSplit(stro99);
+
+
+
+            dynamic niming = new
+            {
+                name = "小明",
+                xb = "男"
+            };
+
+            Console.WriteLine($"开始");
+
+            Stopwatch sw55 = new Stopwatch();
+            sw55.Start();
+            List<KeLong> keLongs = new List<KeLong>()
+            {
+                {new KeLong(){ id=1, name="红楼梦", shijian=1 } },
+                {new KeLong(){ id=1, name="西游记", shijian=2 } },
+                {new KeLong(){ id=1, name="四大名著", shijian=3 } },
+                {new KeLong(){ id=1, name="哈哈", shijian=2 } },
+                {new KeLong(){ id=1, name="水浒传", shijian=1 } },
+                {new KeLong(){ id=1, name="不知道", shijian=1 } }
+            };
+            keLongs.AddRange(keLongs);
+            keLongs.AddRange(keLongs);
+            keLongs.AddRange(keLongs);
+            keLongs.AddRange(keLongs);
+            keLongs.AddRange(keLongs);
+            var ijjj = 0;
+            Parallel.For(0, 10000, u =>
+            {
+                lock (obj)
+                {
+                    ijjj++;
+
+                }
+            });
+            //List<Task> tasks1 = new List<Task>();
+
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    tasks1.Add(Task.Run(() =>
+            //    {
+            //        ijjj++;
+            //    }));
+            //}
+            //Task.WaitAll(tasks1.ToArray());
+
+
+            //List<Task> tasks1 = new List<Task>();
+            //foreach (var item in keLongs)
+            //{
+            //    tasks1.Add(Task.Run(() =>
+            //    {
+            //        item.Jiansuo();
+            //    }));
+            //}
+            //Task.WaitAll(tasks1.ToArray());
+            sw55.Stop();
+            Console.WriteLine(ijjj);
+            Console.WriteLine($"总用时{sw55.Elapsed.TotalMilliseconds}");
+
+
+            KeLong kelong = new KeLong();
+            kelong.id = 1;
+            kelong.name = "小强";
+            var kelong2 = kelong.Clone();
+            kelong2.id = 2;
+            kelong2.name = "小强王";
+
+            Console.WriteLine(kelong.id + kelong.name);
+            Console.WriteLine(kelong2.id + kelong2.name);
 
 
 
@@ -655,7 +871,7 @@ namespace ConsoleApp1
 
             string str1312 = "111";
             string str312 = "111";
-          
+
 
 
 
@@ -1881,7 +2097,7 @@ namespace ConsoleApp1
     {
         public long numb1 { get; set; }
         public int numb2 { get; set; }
-
+        public string str1 { get; set; }
         public int a { get; set; }
         public int b { get; set; }
         public int? ba { get; set; }

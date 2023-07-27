@@ -1,0 +1,7 @@
+1.先用 regsvr32 命令注册 Chinapay.dll 和 CPNPC.DLL
+  在运行那里：regsvr32 文件路径/Chinapay.dll
+              regsvr32 文件路径/CPNPC.DLL
+
+2、在VS中引用这个两个com
+
+3、vs2010中，选中项目中引入的dll，鼠标右键，选择属性，把“嵌入互操作类型”设置为False。

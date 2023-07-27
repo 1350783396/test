@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>填写订单-美点商城</title>
+    <link type="text/css" rel="stylesheet" href="/wap/css/cp_style_v1.0.css" />
+    <link type="text/css" rel="stylesheet" href="/wap/css/buy_submit_v1.0.css" />
+
+    <link href="/wap/img/startup.png" rel="apple-touch-startup-image" />
+    <link href="/wap/img/apple-touch-icon-57x57-precomposed.png" sizes="57x57" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed" />
+    <link href="/wap/img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
+
+    
+</head>
+<body>
+    <header class="index">
+        <div class="c-hd">
+            <section class="back">
+                <a href="javascript:history.go(-1);"><i></i></a>
+            </section>
+            <section class="hd-title">
+                填写订单
+            </section>
+            <section class="hd-nav"></section>
+        </div>
+    </header>
+
+    <form id="orderForm" action="/norder/submit.action?sid=2bb66820bc84dddd8927241a1719f016" method="post">
+        <div id="parent1Content" style="height:100%;width:100%;float:left;" class="new-ct">
+
+            <div class="title">收货人信息</div>
+            <div class="info">
+                <a href="buy_adrr_mgr.html" id="addressLink">
+                    <span class="text">张力 <span style="margin-left:5px;" class="phone-num">18977771111</span></span>
+                    <span class="text2">广西南宁市青秀区城区民族大道85号1栋1单元2楼右</span>
+                </a>
+                <span class="icon-arr"></span>
+            </div>
+
+            <div class="title">支付及配送信息</div>
+            <div class="info">
+                <a href="buy_paysend_sel.html">
+                    <span class="text">支付方式：货到付款</span>
+                    <span class="text">配送方式：美点配送</span>
+                    <span class="text">配送店面：美点饼业教育店</span>
+                    <span class="text">配送时间：2015-1-24 14:49</span>
+                </a>
+                <span class="icon-arr"></span>
+            </div>
+
+            <div class="title">订单备注</div>
+            <div class="info" style=" padding: 13px 30px 12px 10px;">
+                <textarea maxlength="300" name="content" class="common-input"></textarea>
+                <span class="text4">订单备注，可选择填写。如购买蛋糕上所需要写的祝福语：蛋糕写上文字“祝小明生日快乐”</span>
+               
+            </div>
+
+            <!--合计-->
+            <div id="yunfei" class="totle">
+                <span class="bg-border"><span class="icon"></span></span>
+                <div class="totle-cont">
+                    <div class="tbl-type">
+                        <span class="tbl-cell">商品金额</span><span class="tbl-cell text-right">￥1699.00</span>
+                    </div>
+                    <div class="tbl-type">
+                        <span class="tbl-cell">运<span class="w10"></span>费</span><span class="tbl-cell text-right">￥0.00</span>
+                    </div>
+                    <div class="tbl-type">
+                        <span class="tbl-cell">应付金额</span><span class="tbl-cell text-right"><span class="text-red">￥1699.00</span></span>
+                    </div>
+                </div>
+                <span class="bg-border2"></span>
+                <input type="hidden" value="false" id="showPayPassword">
+                <input type="hidden" value="true" id="userPayPassword">
+            </div>
+
+            <!--[D] 默认时加  new-abtn-default 把a标签换成span-->
+            <span class="new-abtn-type mgn" id="submiOrder" onclick="submitOrder()">提交订单</span>
+            <input type="hidden" value="2bb66820bc84dddd8927241a1719f016" id="sid">
+            <input type="hidden" value="" id="wareId">
+            <input type="hidden" value="false" id="isIdTown">
+
+        </div>
+    </form>
+
+</body>
+</html>

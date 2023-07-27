@@ -1,0 +1,169 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="help.aspx.cs" Inherits="ETicket.Web.help" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>帮助中心-阳朔电子票务</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css2/bootstrap.css">
+
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css2/bootstrap-ie6.css">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/ie.css">
+    <![endif]-->
+
+    <style type="text/css">
+       
+        #logo
+        {
+            float: none;
+            margin: 0;
+            padding: 10px 0;
+            position: relative;
+        }
+        #logo b 
+        {
+            background: url("/bootstrap/logo/head-info-2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+            height: 75px;
+            left: 110px;
+            position: absolute;
+            top: 13px;
+            width: 350px;
+        }
+        .error{
+            color:red;
+        }
+        td.title {
+            vertical-align: middle;
+           line-height:40px;
+        }
+        .menu_title_primary {
+    border-bottom: 1px solid #e5e5e5;
+    line-height: 32px;
+    padding: 10px 5px 5px;
+    position: relative;
+}
+
+
+    
+ 
+  .tab_nav {
+    height:5px;
+    background-color: #6aa84f;
+}
+  .tab_nav span
+  {
+     color: #fff;
+     display: block;
+     font-size: 16px;
+     padding: 0 20px;
+     line-height:40px;
+  }
+  .unstyled li{
+      line-height:25px; font-size: 14px;
+  }
+  .leftbar{
+      border-right:1px solid #c5c5c5;border-bottom:1px solid #c5c5c5;background:none repeat scroll 0 0 #f9f9f9;margin-left:0px;padding-left:15px;height:100%
+  }
+    </style>
+
+    <script  type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+   
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body style="background-color: #ededf0;">
+    <%=ETicket.Web.HtmlController.Instance.TopBarHtml("/templ/topbar/help.html","color:#4c4c4c") %>
+    <div class="container">
+         <!--头部-->
+         <div id="head">
+              <div id="logo">
+                <a href="/index.aspx">
+                <img src="/style/images/logo.png" alt="阳朔电子票务" height="67" width="230" />                </a></div>
+         </div>
+         <!--内容-->
+         <form id="regform" runat="server" method="post">
+            <div class="row tab_nav">
+                <span>--</span>
+            </div>
+            
+            <div  class="row" style="background-color: #fff;">
+                <div class="span3 leftbar">
+                    
+                    <div class="menu_title_primary">
+                        <strong>订购方式</strong>
+                    </div>
+                    <ul class="unstyled">
+                        <%=ETicket.Web.HtmlController.Instance.ListHelpTitle(1,0) %>
+                    </ul>
+                    <div class="menu_title_primary">
+                        <strong>配送方式</strong>
+                    </div>
+                    <ul class="unstyled">
+                        <%=ETicket.Web.HtmlController.Instance.ListHelpTitle(2,0) %>
+                    </ul>
+                    <div class="menu_title_primary">
+                        <strong>支付方式</strong>
+                    </div>
+                    <ul class="unstyled">
+                       <%=ETicket.Web.HtmlController.Instance.ListHelpTitle(3,0) %>
+                    </ul>
+                    <div class="menu_title_primary">
+                        <strong>账户安全</strong>
+                    </div>
+                    <ul class="unstyled">
+                        <%=ETicket.Web.HtmlController.Instance.ListHelpTitle(4,0) %>
+                       
+                    </ul>
+                    <div class="menu_title_primary">
+                        <strong>售后服务</strong>
+                    </div>
+                    <ul class="unstyled">
+                        <%=ETicket.Web.HtmlController.Instance.ListHelpTitle(5,0) %>
+                    </ul>
+                    <div class="menu_title_primary">
+                        <strong>常见问题</strong>
+                    </div>
+                    <ul class="unstyled">
+                       <%=ETicket.Web.HtmlController.Instance.ListHelpTitle(6,0) %>
+                    </ul>
+                    </div>
+               
+                <div class="span15" >
+                    <%=ETicket.Web.HtmlController.Instance.ListHelpCotent(1) %>
+                    <%=ETicket.Web.HtmlController.Instance.ListHelpCotent(2) %>
+                    <%=ETicket.Web.HtmlController.Instance.ListHelpCotent(3) %>
+                    <%=ETicket.Web.HtmlController.Instance.ListHelpCotent(4) %>
+                    <%=ETicket.Web.HtmlController.Instance.ListHelpCotent(5) %>
+                    <%=ETicket.Web.HtmlController.Instance.ListHelpCotent(6) %>
+                </div>
+            </div>
+         </form>
+         <!--尾部-->
+         <div id="foot">
+            <p style="text-align:center;">Copyright©2012-2016 <a href="http://www.yangshuo.cm" style="color:blue;">阳朔电子票务</a> 版权所有</p>
+        </div>
+    </div><!-- /container -->
+  
+   
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="/js/bootstrap-ie.js"></script>
+    <![endif]-->
+    
+</body>
+</html>
