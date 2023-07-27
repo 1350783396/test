@@ -36,7 +36,7 @@ namespace ETicket.Web.business.partner
                 #endregion
 
 
-               #region 绑定属性
+                #region 绑定属性
                 IEnumerable<EFEntity.Properties1> propertiesList = BLL.Properties1BLL.Instance.GetEntities();
                 ddlProperties.Items.Clear();
                 ddlProperties.Items.Add(new ListItem("不限", "0"));
@@ -65,8 +65,8 @@ namespace ETicket.Web.business.partner
                     if (lblPKID != null)
                     {
                         int id = int.Parse(lblPKID.Text);
-                        string msg= BLL.OrderSheetBLL.Instance.DeleteSheet(id);
-                        if(msg=="")
+                        string msg = BLL.OrderSheetBLL.Instance.DeleteSheet(id);
+                        if (msg == "")
                         {
                             deleteSucc++;
                         }
@@ -74,7 +74,7 @@ namespace ETicket.Web.business.partner
                 }
             }
 
-            if (deleteSucc>0)
+            if (deleteSucc > 0)
             {
                 //AspNetPager1.CurrentPageIndex = 1;
                 LoadData(AspNetPager1.CurrentPageIndex, AspNetPager1.PageSize);
@@ -109,7 +109,7 @@ namespace ETicket.Web.business.partner
                 var order = e.Item.DataItem as EFEntity.OrderSheet;
 
                 CheckBox chkItem = e.Item.FindControl("chkItem") as CheckBox;
-                chkItem.Enabled = false;    
+                chkItem.Enabled = false;
 
                 HyperLink hyDetail = e.Item.FindControl("hyDetail") as HyperLink;
                 HyperLink hyPay = e.Item.FindControl("hyPay") as HyperLink;
@@ -125,14 +125,14 @@ namespace ETicket.Web.business.partner
                 hyDetail.NavigateUrl = "#";
                 hyDetail.Attributes.Add("onclick", PubFun.TabNav("od_" + order.OrderID, order.ProductName, detailUrl));
 
-                var bll=BLL.OrderSheetBLL.Instance;
+                var bll = BLL.OrderSheetBLL.Instance;
                 if (bll.IsDoCancel(order))
                 {
                     hyCancel.Visible = true;
                     hyCancel.NavigateUrl = "#";
                     hyCancel.Attributes.Add("onclick", PubFun.TabNav("od_" + order.OrderID, order.ProductName, detailUrl));
                 }
-                if(bll.IsDoPay(order))
+                if (bll.IsDoPay(order))
                 {
                     hyPay.Visible = true;
                     hyPay.Target = "_blank";
@@ -140,13 +140,13 @@ namespace ETicket.Web.business.partner
                 }
 
                 //-------2016-06-10 微信支付不显示网站支付
-                if(order.ClientType=="weixin")
+                if (order.ClientType == "weixin")
                 {
                     hyPay.Visible = false;
                 }
                 //------------end------------
 
-                if(bll.IsDoRefundRequest(order))
+                if (bll.IsDoRefundRequest(order))
                 {
                     hyBack.Visible = true;
                     hyBack.Target = "_blank";
@@ -208,7 +208,7 @@ namespace ETicket.Web.business.partner
             }
 
             //产品属性
-            if(ddlProperties.SelectedValue.ToString()!="0" || txtProperties.Text.ToString()!="")
+            if (ddlProperties.SelectedValue.ToString() != "0" || txtProperties.Text.ToString() != "")
             {
                 sb.AppendFormat("{0}", new ETicket.BLL.ProductBLL().GetProperties_sql(ddlProperties.SelectedValue.ToString(), txtProperties.Text.ToString()));
             }
@@ -219,7 +219,7 @@ namespace ETicket.Web.business.partner
                 sb.AppendFormat(" and it.OrderTime>=DATETIME'{0} 00:00:00'", txtOrderTime1.Text.Trim());
             }
 
-           //订单时间 txtPalyDate
+            //订单时间 txtPalyDate
             if (txtPalyDate.Text.Trim() != "")
             {
                 sb.AppendFormat(" and it.palydate=DATETIME'{0} 00:00:00'", txtPalyDate.Text.Trim());
@@ -246,6 +246,43 @@ namespace ETicket.Web.business.partner
             this.lblCount.Text = string.Format("共{0}条记录，共{1}页/当前第{2}页", pi.RecordCount, AspNetPager1.PageCount, currentPage);
             this.repList.DataSource = pi.List;
             this.repList.DataBind();
+            //order.PayState = ETicket.Utility.PayStateEnum.未支付.ToString();
+            //sheet.OrderStatus = ETicket.Utility.OrderStatusEnum.已验票.ToString();
+            //单（ 项目1+项目2+项目3+项目4+项目5 =172人）
+            //ProductName
+            this.zongdanliang.Text = pi.RecordCount + "";
+            this.zongrenshu.Text = pi.List.Sum(u => u.NUM) + "";
+            var yiyanpiao = pi.List.Where(u => u.OrderStatus == "已验票");
+            var weiyanpiao = pi.List.Where(u => u.OrderStatus == "已支付");
+            var quanpiao = pi.List.Where(u => u.OrderStatus == "已验票" || u.OrderStatus == "已支付");
+            var yiyanpiaoXx = "0单";
+            var weiyanpiaoXx = "0单";
+            var quanpiaoXx = "0单";
+            if (yiyanpiao.Count() > 0)
+            {
+                yiyanpiaoXx = yiyanpiao.Count()+"单(";
+                foreach (var item in yiyanpiao.GroupBy(u => u.ProductName))
+                    yiyanpiaoXx += item.Key + item.Sum(u => u.NUM) + "+";
+                yiyanpiaoXx = yiyanpiaoXx.TrimEnd('+') + "="+yiyanpiao.Sum(u => u.NUM)+"人)";
+            }
+            if (weiyanpiao.Count() > 0)
+            {
+                weiyanpiaoXx = weiyanpiao.Count()+ "单(";
+                foreach (var item in weiyanpiao.GroupBy(u => u.ProductName))
+                    weiyanpiaoXx += item.Key + item.Sum(u => u.NUM) + "+";
+                weiyanpiaoXx = weiyanpiaoXx.TrimEnd('+') + "=" + weiyanpiao.Sum(u => u.NUM) + "人)"; 
+            }
+            if (quanpiao.Count() > 0)
+            {
+                quanpiaoXx = quanpiao.Count() + "单(";
+                foreach (var item in quanpiao.GroupBy(u => u.ProductName))
+                    quanpiaoXx += item.Key + item.Sum(u => u.NUM) + "+";
+                quanpiaoXx = quanpiaoXx.TrimEnd('+') + "=" + quanpiao.Sum(u => u.NUM) + "人)"; 
+            }
+            this.yiyanpiao.Text = yiyanpiaoXx;
+            this.weiyanpiao.Text = weiyanpiaoXx;
+            this.quanpiao.Text = quanpiaoXx;
+
         }
         public string GetProperties(string ids)
         {

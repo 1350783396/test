@@ -131,10 +131,10 @@
                     <br />
                 </div>
 
- <p>共36单 ；共180人 </p>
- <p>全票： 项目1+项目2+项目3+项目4+项目5 =180人</p>
- <p>已验票：34单（ 项目1+项目2+项目3+项目4+项目5 =172人）</p>
- <p>未验票： 2单（ 项目1+项目2+项目3+项目4+项目5 =8人）</p>
+ <p>共 <asp:Literal ID="zongdanliang" runat="server"></asp:Literal>单 ；共 <asp:Literal ID="zongrenshu" runat="server"></asp:Literal>人 </p>
+ <p>全票：<asp:Literal ID="quanpiao" runat="server"></asp:Literal></p>
+ <p>已验票：<asp:Literal ID="yiyanpiao" runat="server"></asp:Literal></p>
+ <p>未验票： <asp:Literal ID="weiyanpiao" runat="server"></asp:Literal></p>
 
                 <h3><asp:Literal ID="lblCount" runat="server" /></h3>
                 <asp:Repeater ID="repList" runat="server"  OnItemCommand="repList_ItemCommand">
