@@ -1,87 +1,88 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="shopcar.aspx.cs" Inherits="ETicket.Web.shopcar" %>
+
 <title>智慧游</title>
 
 <!DOCTYPE html>
 <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
-    <head>
-        <title></title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="/css/ui-box.css">
-        <link rel="stylesheet" href="/css/ui-base.css">
-        <link rel="stylesheet" href="/css/ui-color.css">
-        <link rel="stylesheet" href="/css/appcan.icon.css">
-        <link rel="stylesheet" href="/css/appcan.control.css">
-		    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ui-box.css">
+    <link rel="stylesheet" href="/css/ui-base.css">
+    <link rel="stylesheet" href="/css/ui-color.css">
+    <link rel="stylesheet" href="/css/appcan.icon.css">
+    <link rel="stylesheet" href="/css/appcan.control.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
     <style type="text/css">
-       
-        #logo
-        {
+        #logo {
             float: none;
             margin: 0;
             padding: 10px 0;
             position: relative;
         }
-        #logo b 
-        {
-            background: url("/bootstrap/logo/head-info-2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-            height: 75px;
-            left: 110px;
-            position: absolute;
-            top: 13px;
-            width: 350px;
+
+            #logo b {
+                background: url("/bootstrap/logo/head-info-2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+                height: 75px;
+                left: 110px;
+                position: absolute;
+                top: 13px;
+                width: 350px;
+            }
+
+        .error {
+            color: red;
         }
-        .error{
-            color:red;
-        }
+
         td.title {
             vertical-align: middle;
-           line-height:40px;
+            line-height: 40px;
         }
     </style>
 
-    <script  type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-    <script  type="text/javascript" src="/js/common.js"></script>
-    <script  type="text/javascript" src="/js/btnReSubmit.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/btnReSubmit.js"></script>
 
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/Car.css">
-	<script type="text/javascript" src="/js/Car.js"></script>
-    </head>
-    <body class="um-vp " ontouchstart>
-        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
-            <!--header开始-->
-			<div id="header" class="uh bc-text-head ub bc-head">
-			    <div class="nav-btn" id="nav-left">
-                    <div class="fa fa-angle-left fa-2x" onClick="window.open('/');"></div>
+    <script type="text/javascript" src="/js/Car.js"></script>
+</head>
+<body class="um-vp " ontouchstart>
+    <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+        <!--header开始-->
+        <div id="header" class="uh bc-text-head ub bc-head">
+            <div class="nav-btn" id="nav-left">
+                <div class="fa fa-angle-left fa-2x" onclick="window.open('/');"></div>
+            </div>
+            <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">下单预订</h1>
+            <div class="nav-btn ">
+                <div class=" nav-bt" id="nav-right">
+                    <!--<div class="ub-img icon-home umw2 umh4"></div>-->
                 </div>
-			    <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">下单预订</h1>
-			    <div class="nav-btn ">
-			        <div class=" nav-bt" id="nav-right">
-			            <!--<div class="ub-img icon-home umw2 umh4"></div>-->
-			        </div>
-			        <!--
+                <!--
 			        <div class=" nav-bt" id="nav-right1">
 			            <div class="ub-img icon-call umw2 umh4"></div>
 			
 			        </div>
 			        -->
-			    </div>
-			</div>
-            <!--header结束-->
-            <!--content开始-->
-            <div id="content" class="ub-f1 tx-l">
-         <form id="car" runat="server" method="post">
-            <input type="hidden" id="txtProductID" name="txtProductID" value="<%=NJiaSu.Libraries.PubFun.QueryInt("id") %>" />
-            
-            <%=ETicket.Web.HtmlController.Instance.Car() %>
-         </form>
             </div>
-            <!--content结束-->
-
         </div>
-<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+        <!--header结束-->
+        <!--content开始-->
+        <div id="content" class="ub-f1 tx-l">
+            <form id="car" runat="server" method="post">
+                <input type="hidden" id="txtProductID" name="txtProductID" value="<%=NJiaSu.Libraries.PubFun.QueryInt("id") %>" />
+
+                <%=ETicket.Web.HtmlController.Instance.Car() %>
+            </form>
+        </div>
+        <!--content结束-->
+
+    </div>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
     <!--[if lte IE 6]>
     <script type="text/javascript" src="/bootstrap/js/bootstrap-ie.js"></script>
     <![endif]-->
@@ -91,7 +92,7 @@
                 if ($.isFunction($.bootstrapIE6)) $.bootstrapIE6($(document));
             });
         })(jQuery);
-         
+
         $(function () {
             //计算总价
             keyCal();
@@ -99,7 +100,7 @@
             sysLoadStock();
 
             //验证
-            jQuery.validator.addMethod( function (value, element) {
+            jQuery.validator.addMethod(function (value, element) {
                 return this.optional(element) || /^[\u4E00-\u9FA5]+$/.test($.trim(value));
             }, "姓名只能为中文");
 
@@ -116,34 +117,40 @@
                 return this.optional(element) || (length == 11 && mobile.test(value));
             }, "请正确填写手机号码");
 
-            
+            $("#znjx").on("click", function () {
+                var jxtext = $("#znjxstr").val();
+                var xingming = jxtext.replace(/\d/g, "");
+                var shouji = jxtext.replace(/[^0-9]/ig, "");
+                console.log(xingming);
+                console.log(shouji);
+                $("#realName").val(xingming);
+                $("#phone").val(shouji);
+            })
             jQuery.validator.addMethod("overStock", function (value, element) {
                 var stockStr = $("#stockNum").html();
                 if (stockStr == "有票") {
                     return true;
                 }
-                else{
+                else {
                     var stock = parseInt(stockStr);
                     value = parseInt(value);
                     return stock >= value;
                 }
             }, "购买数量超出库存");
-            
+
 
             jQuery.validator.addMethod("overAccount", function (value, element) {
-                if (value == "积分支付")
-                {
+                if (value == "积分支付") {
                     var total = parseFloat($("#totalPrice").html());
                     var account = parseFloat($("#txtAccount").val());
-                    if(total>account)
-                    {
+                    if (total > account) {
                         return false;
                     }
                     else {
                         return true;
                     }
                 }
-                else{
+                else {
                     return true;
                 }
             }, "积分不足支付");
@@ -161,7 +168,7 @@
                 },
                 ignore: "",
                 rules: {
-                    
+
                     hiddenStartTime: {
                         remote: {
                             type: "post",
@@ -173,23 +180,23 @@
                                 "startTime": function () {
                                     return $("#startTime").val();
                                 },
-                                "id":function () {
+                                "id": function () {
                                     return $("#txtProductID").val();
                                 }
                             }
                         }
                     },
-                    startAddress:{
+                    startAddress: {
                         required: true
                     },
                     buyNum: {
                         required: true,
-                        isNum:true,
-                        overStock:true
+                        isNum: true,
+                        overStock: true
                     },
-                    selPayType:{
+                    selPayType: {
                         required: true,
-                        overAccount:true
+                        overAccount: true
                         /*
                         remote: {
                             type:"post",
@@ -203,7 +210,7 @@
                     },
                     realName: {
                         required: true,
-                        isName:true
+                        isName: true
                     },
                     /*
                     idCard: {
@@ -213,20 +220,20 @@
                     */
                     phone: {
                         required: true,
-                        isMobile:true
+                        isMobile: true
                     }
                 },
                 messages: {
                     hiddenStartTime: {
-                        remote:"已超最后下单时间，无法购买"
+                        remote: "已超最后下单时间，无法购买"
                     },
-                    startAddress:{
+                    startAddress: {
                         required: "上车地点不能为空"
                     },
                     buyNum: {
                         required: "请输入购买数量"
                     },
-                    selPayType:{
+                    selPayType: {
                         required: "请选择支付方式",
                         overAccount: "积分不足，当前为" + $("#txtAccount").val()
                     },
@@ -238,7 +245,7 @@
                         required: "请输入身份证号"
                     },
                     */
-                    phone:{
+                    phone: {
                         required: "请输入手机号码"
                     }
                 }
@@ -278,7 +285,7 @@
                     return false;
                 }
             }
-            else{
+            else {
                 return false;
             }
             return true;
@@ -292,13 +299,13 @@
             if (intDay < 1 || intDay > 31)
                 return false;
             if ((intMonth == 4 || intMonth == 6 || intMonth == 9 || intMonth == 11)
-    			&& (intDay > 30))
+                && (intDay > 30))
                 return false;
             if (intMonth == 2) {
                 if (intDay > 29)
                     return false;
                 if ((((intYear % 100 == 0) && (intYear % 400 != 0)) || (intYear % 4 != 0))
-    				&& (intDay > 28))
+                    && (intDay > 28))
                     return false;
             }
             return true;
@@ -349,15 +356,14 @@
         }
         */
         //计算总价
-        function keyCal()
-        {
+        function keyCal() {
             var unit = $("#unitPrice").html();
             var num = parseInt($("#buyNum").val());
             if (!isNaN(num) || num > 0) {
                 $("#totalPrice").html(parseFloat(unit) * num);
 
                 var rebate = parseFloat($("#rebateUnit").val() * num);
-                if(rebate>0){
+                if (rebate > 0) {
                     $("#rebateInfo").html("支付后返积分：" + rebate);
                 }
             }
@@ -377,22 +383,21 @@
         }
         */
         //根据选择的发车时间，加载库存
-        function sysLoadStock()
-        {
+        function sysLoadStock() {
             //选择日期时候，清空
             $("#forStartTime").html("");
-            
+
             var startDate = $("#startDate").val();
             var startTime = $("#startTime").val();
             var productID = $("#txtProductID").val();
-            
+
             $("#hiddenStartTime").val(startDate + " " + startTime);
 
             $.ajax({
                 type: 'POST', url: "/ajax/chk_stock.ashx",
                 dataType: "text",
                 data: { saleDate: startDate, saleTime: startTime, id: productID },
-                error: function () {},
+                error: function () { },
                 success: function (data) {
                     $("#stockNum").html(data);
                     $("#forBuyNum").html("");
@@ -402,7 +407,7 @@
         }
     </script>
 
-    </body>
+</body>
 
 </html>
 

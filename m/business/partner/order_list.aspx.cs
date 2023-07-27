@@ -260,24 +260,24 @@ namespace ETicket.Web.business.partner
             var quanpiaoXx = "0单";
             if (yiyanpiao.Count() > 0)
             {
-                yiyanpiaoXx = yiyanpiao.Count()+"单(";
+                yiyanpiaoXx = yiyanpiao.Count() + "单(";
                 foreach (var item in yiyanpiao.GroupBy(u => u.ProductName))
-                    yiyanpiaoXx += item.Key + item.Sum(u => u.NUM) + "+";
-                yiyanpiaoXx = yiyanpiaoXx.TrimEnd('+') + "="+yiyanpiao.Sum(u => u.NUM)+"人)";
+                    yiyanpiaoXx += item.Key + ":" + item.Sum(u => u.NUM) + "+";
+                yiyanpiaoXx = yiyanpiaoXx.TrimEnd('+') + "=" + yiyanpiao.Sum(u => u.NUM) + "人)";
             }
             if (weiyanpiao.Count() > 0)
             {
-                weiyanpiaoXx = weiyanpiao.Count()+ "单(";
+                weiyanpiaoXx = weiyanpiao.Count() + "单(";
                 foreach (var item in weiyanpiao.GroupBy(u => u.ProductName))
-                    weiyanpiaoXx += item.Key + item.Sum(u => u.NUM) + "+";
-                weiyanpiaoXx = weiyanpiaoXx.TrimEnd('+') + "=" + weiyanpiao.Sum(u => u.NUM) + "人)"; 
+                    weiyanpiaoXx += item.Key + ":" + item.Sum(u => u.NUM) + "+";
+                weiyanpiaoXx = weiyanpiaoXx.TrimEnd('+') + "=" + weiyanpiao.Sum(u => u.NUM) + "人)";
             }
             if (quanpiao.Count() > 0)
             {
                 quanpiaoXx = quanpiao.Count() + "单(";
                 foreach (var item in quanpiao.GroupBy(u => u.ProductName))
-                    quanpiaoXx += item.Key + item.Sum(u => u.NUM) + "+";
-                quanpiaoXx = quanpiaoXx.TrimEnd('+') + "=" + quanpiao.Sum(u => u.NUM) + "人)"; 
+                    quanpiaoXx += item.Key + ":" + item.Sum(u => u.NUM) + "+";
+                quanpiaoXx = quanpiaoXx.TrimEnd('+') + "=" + quanpiao.Sum(u => u.NUM) + "人)";
             }
             this.yiyanpiao.Text = yiyanpiaoXx;
             this.weiyanpiao.Text = weiyanpiaoXx;

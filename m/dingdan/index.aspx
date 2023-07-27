@@ -181,7 +181,7 @@
                           <asp:CheckBox ID="chkItem" runat="server" BorderStyle="None" BorderWidth="0px" /></td>-->
 
 							<td bgcolor="#00CC00">
-                               <br/>  <%# Eval("palyDate") %> <br/> 
+                               <br/>  <%# Eval("palyDate","{0:d}") %> <br/> 
 							   <br/>  <%# Eval("startTime") %> <br/> 
                             </td>
 							<td>    
