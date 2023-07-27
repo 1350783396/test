@@ -15,6 +15,7 @@ namespace ETicket.Web.business.partner
         protected void Page_Load(object sender, EventArgs e)
         {
             this.repList.ItemDataBound += repList_ItemDataBound;
+            this.repList.ItemCommand += repList_ItemCommand;
             this.AspNetPager1.PageChanged += AspNetPager1_PageChanged;
             this.btnQuery.Click += btnQuery_Click;
             this.btnRefrech.Click += btnRefrech_Click;
@@ -157,7 +158,18 @@ namespace ETicket.Web.business.partner
                 }
             }
         }
+        protected void repList_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            int orderID = Convert.ToInt32(e.CommandArgument);
+            EFEntity.OrderSheet sheet = BLL.OrderSheetBLL.Instance.GetEntity(p => p.OrderID == orderID);
+            sheet.ValidTime = DateTime.Now;
+            sheet.OrderStatus = ETicket.Utility.OrderStatusEnum.已验票.ToString();
+            BLL.OrderSheetBLL.Instance.UpdateObject(sheet);
+            btnQuery_Click(source, e);
+            ////验票成功后续
+            //BLL.ValidNotifyEventBLL.Instance.ValidNotify(sheet);
 
+        }
         string Where()
         {
             EFEntity.CookiesUser cookiesUser = BLL.UserBLL.Instance.GetLoginModel();

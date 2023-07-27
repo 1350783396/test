@@ -35,10 +35,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <script runat="server">
 
-            protected void repList_ItemCommand(object source, RepeaterCommandEventArgs e)
-            {
-
-            }
+           
 </script>
 
         <html xmlns="http://www.w3.org/1999/xhtml">
@@ -140,7 +137,7 @@
  <p>未验票： 2单（ 项目1+项目2+项目3+项目4+项目5 =8人）</p>
 
                 <h3><asp:Literal ID="lblCount" runat="server" /></h3>
-                <asp:Repeater ID="repList" runat="server" OnItemCommand="repList_ItemCommand">
+                <asp:Repeater ID="repList" runat="server"  OnItemCommand="repList_ItemCommand">
                     <HeaderTemplate>
                         <table class="table" cellspacing="0" border="1">
                             <thead>
@@ -231,7 +228,7 @@
 
                             <td align="left">                          
 							 							   <br/> <asp:Literal ID="litReset" runat="server"></asp:Literal>
-							   <asp:LinkButton ID="lbtnReset" runat="server" onclientclick="return sys_confirm('确认要对此订单进行核销？');" >核销</asp:LinkButton><br/> 		
+							   <asp:LinkButton ID="lbtnReset" CommandArgument='<%# Eval("orderid") %>' runat="server" onclientclick="return sys_confirm('确认要对此订单进行核销？');" >核销</asp:LinkButton><br/> 		
 							 <a href="/dingdan/order_detail.aspx?orderid=<%# Eval("orderid") %>">
 <span class="STYLE3"> <br/>详情<br/></span></a> 
                             
