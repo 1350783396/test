@@ -119,12 +119,45 @@
 
             $("#znjx").on("click", function () {
                 var jxtext = $("#znjxstr").val();
-                var xingming = jxtext.replace(/\d/g, "");
-                var shouji = jxtext.replace(/[^0-9]/ig, "");
-                console.log(xingming);
-                console.log(shouji);
-                $("#realName").val(xingming);
-                $("#phone").val(shouji);
+                //姓名:韩姊遥
+
+                if (jxtext.length > 5) {
+                    if (jxtext.indexOf("姓名:") > 0) {
+                        var res = jxtext.substring(jxtext.indexOf("姓名:") + 3, jxtext.indexOf("姓名:") + 6)
+                        $("#realName").val(res);
+
+                    }
+                    //if (jxtext.indexOf("人") > 0) {
+                    //    var renshu = jxtext.split("人")[0];
+                    //    var renshu2 = renshu.substring(renshu.length - 2)
+                    //    $("#buyNum").val(renshu2);
+                    //}
+                }
+                //var str = jxtext;
+                //var tempStr = "";
+                //var lastArr = [];
+                //for (var i = 0; i < str.length; i++) {
+                //    if (str.charAt(i).match(/[\u4e00-\u9fa5]/g)) {
+                //        tempStr = tempStr + str.charAt(i);
+                //        if (str.charAt(i + 1).match(/[\u4e00-\u9fa5]/g)) {
+
+                //        } else {
+                //            console.log("tempStr=====", tempStr);
+                //            tempStr = '';
+                //        }
+                //    } 
+                //}
+                //求出里面符合要求的11位数
+                var est = /\d{11}/g;
+                var string2 = jxtext.match(est);
+                // 求string2里面符合要求的数
+                for (var i = 0; i < string2.length; i++) {
+                    //判断是否符合要求   ^[1]是从1开始的意思  [358]表示符合这3个数的的第二位数 \d$ 表示以数字结尾 {9}表示出现9次
+                    var cox = /^[1][358]\d{9}$/;
+                    if (cox.test(string2[i]) == true) {
+                        $("#phone").val(string2[i]);
+                    }
+                }
             })
             jQuery.validator.addMethod("overStock", function (value, element) {
                 var stockStr = $("#stockNum").html();
