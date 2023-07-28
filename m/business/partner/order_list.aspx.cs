@@ -250,41 +250,44 @@ namespace ETicket.Web.business.partner
             //sheet.OrderStatus = ETicket.Utility.OrderStatusEnum.已验票.ToString();
             //单（ 项目1+项目2+项目3+项目4+项目5 =172人）
             //ProductName
-            this.zongdanliang.Text = pi.RecordCount.IntTextColor();
-            this.zongrenshu.Text = pi.List.Sum(u => u.NUM).GetValueOrDefault(0).IntTextColor();
+            this.zongdanliang.Text = IntTextColor(pi.RecordCount);
+            this.zongrenshu.Text = IntTextColor(pi.List.Sum(u => u.NUM).GetValueOrDefault(0));
             var yiyanpiao = pi.List.Where(u => u.OrderStatus == "已验票");
             var weiyanpiao = pi.List.Where(u => u.OrderStatus == "已支付");
             var quanpiao = pi.List.Where(u => u.OrderStatus == "已验票" || u.OrderStatus == "已支付");
-            var yiyanpiaoXx = 0.IntTextColor() + "单";
-            var weiyanpiaoXx = 0.IntTextColor() + "单";
-            var quanpiaoXx = 0.IntTextColor() + "单";
+            var yiyanpiaoXx = IntTextColor(0) + "单";
+            var weiyanpiaoXx = IntTextColor(0) + "单";
+            var quanpiaoXx = IntTextColor(0) + "单";
             if (yiyanpiao.Count() > 0)
             {
-                yiyanpiaoXx = yiyanpiao.Count().IntTextColor() + "单(";
+                yiyanpiaoXx = IntTextColor(yiyanpiao.Count()) + "单(";
                 foreach (var item in yiyanpiao.GroupBy(u => u.ProductName))
-                    yiyanpiaoXx += item.Key + ":" + item.Sum(u => u.NUM).GetValueOrDefault(0).IntTextColor() + "+";
-                yiyanpiaoXx = yiyanpiaoXx.TrimEnd('+') + "=" + yiyanpiao.Sum(u => u.NUM).GetValueOrDefault(0).IntTextColor() + "人)";
+                    yiyanpiaoXx += item.Key + ":" + IntTextColor(item.Sum(u => u.NUM).GetValueOrDefault(0)) + "+";
+                yiyanpiaoXx = yiyanpiaoXx.TrimEnd('+') + "=" + IntTextColor(yiyanpiao.Sum(u => u.NUM).GetValueOrDefault(0)) + "人)";
             }
             if (weiyanpiao.Count() > 0)
             {
-                weiyanpiaoXx = weiyanpiao.Count().IntTextColor() + "单(";
+                weiyanpiaoXx = IntTextColor(weiyanpiao.Count()) + "单(";
                 foreach (var item in weiyanpiao.GroupBy(u => u.ProductName))
-                    weiyanpiaoXx += item.Key + ":" + item.Sum(u => u.NUM).GetValueOrDefault(0).IntTextColor() + "+";
-                weiyanpiaoXx = weiyanpiaoXx.TrimEnd('+') + "=" + weiyanpiao.Sum(u => u.NUM).GetValueOrDefault(0).IntTextColor() + "人)";
+                    weiyanpiaoXx += item.Key + ":" + IntTextColor(item.Sum(u => u.NUM).GetValueOrDefault(0)) + "+";
+                weiyanpiaoXx = weiyanpiaoXx.TrimEnd('+') + "=" + IntTextColor(weiyanpiao.Sum(u => u.NUM).GetValueOrDefault(0)) + "人)";
             }
             if (quanpiao.Count() > 0)
             {
-                quanpiaoXx = quanpiao.Count().IntTextColor() + "单(";
+                quanpiaoXx = IntTextColor(quanpiao.Count()) + "单(";
                 foreach (var item in quanpiao.GroupBy(u => u.ProductName))
-                    quanpiaoXx += item.Key + ":" + item.Sum(u => u.NUM).GetValueOrDefault(0).IntTextColor() + "+";
-                quanpiaoXx = quanpiaoXx.TrimEnd('+') + "=" + quanpiao.Sum(u => u.NUM).GetValueOrDefault(0).IntTextColor() + "人)";
+                    quanpiaoXx += item.Key + ":" + IntTextColor(item.Sum(u => u.NUM).GetValueOrDefault(0)) + "+";
+                quanpiaoXx = quanpiaoXx.TrimEnd('+') + "=" + IntTextColor(quanpiao.Sum(u => u.NUM).GetValueOrDefault(0)) + "人)";
             }
             this.yiyanpiao.Text = yiyanpiaoXx;
             this.weiyanpiao.Text = weiyanpiaoXx;
             this.quanpiao.Text = quanpiaoXx;
 
         }
-
+        public string IntTextColor(int srt)
+        {
+            return "<span style='color:red;'>" + srt + "</span>";
+        }
         public string GetProperties(string ids)
         {
             string ret = "";
