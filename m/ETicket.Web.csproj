@@ -2412,7 +2412,6 @@
     <Compile Include="shopcar_pre.aspx.designer.cs">
       <DependentUpon>shopcar_pre.aspx</DependentUpon>
     </Compile>
-    <Compile Include="stringHelper.cs" />
     <Compile Include="test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
