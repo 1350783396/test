@@ -40,7 +40,7 @@
     <script type="text/javascript" src="/css/jidiao/jquery.touchSlider.js"></script>
     <script type="text/javascript" src="/css/jidiao/topflash.js"></script>
     <script type="text/javascript" src="/css/jidiao/clipboard.min.js"></script>
-
+    <script type="text/javascript" src="/plugin/My97DatePicker/WdatePicker.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=EULqYtfkmgppOaPGiDHPQBpL&amp;services=&amp;t="></script>
 
 
@@ -226,9 +226,31 @@
            </span>
         </div>
         <div id="sxbox" style="padding: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
+            <span style="display: inline-block">产品类型
+                <asp:DropDownList CssClass="pubtxt" ID="sx_th" runat="server" Width="100">
+                </asp:DropDownList>
+            </span>
+            <span style="display: inline-block">订单状态
+            <asp:DropDownList CssClass="pubtxt" ID="sx_ykyes" runat="server" Width="100">
+            </asp:DropDownList>
+            </span>
+            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
+            <span style="display: inline-block">下单人级别
+                <asp:DropDownList CssClass="pubtxt" ID="ddlUserLevel" runat="server" Width="100">
+                </asp:DropDownList>
+            </span>
+            <span style="display: inline-block">分销商
+            <asp:DropDownList CssClass="pubtxt" ID="txtSelValue" runat="server" Width="100">
+            </asp:DropDownList>
+            </span>
+            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
             关键字<input type="text" id="sx_tckey" runat="server" class="pubtxt" style="width: 170px" placeholder="套餐/手机号/姓名/订单号" /><span id="tc1" class="cmd tckey" style="width: 40px">观众</span><span id="tc2" class="cmd tckey" style="width: 40px">贵宾</span><span id="tckeycls" class="cmd" style="width: 40px; background-color: #f63">清空</span>
             <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-            入园日期
+
+            <span style="display: inline-block">
+                <asp:DropDownList CssClass="selectsight" ID="riQiLx" runat="server" Width="100">
+                </asp:DropDownList>
+            </span>
             <input type="text" id="sx_date1" runat="server" class="pubtxt" style="width: 100px" placeholder="起始日期" readonly="" />
             - 
            
@@ -236,91 +258,37 @@
             <br />
             <span id="cmdyestoday" class="cmd" style="width: 50px">昨日</span><span id="cmdtoday" class="cmd" style="width: 50px">今日</span><span id="cmdtomorrow" class="cmd" style="width: 50px">明日</span>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            景区选择 <span id="selectsightbox">
-                <div class="selectsight" dataid="0">全部景区</div>
-            </span><span id="sel_sight" class="sxmore" data="" style="display: none">全部景区</span>
+            <span style="display: inline-block">产品名称
+                <asp:DropDownList CssClass="pubtxt" ID="txtProductName" runat="server" Width="100">
+                </asp:DropDownList>
+            </span>
+            <span style="display: inline-block">票类
+            <asp:DropDownList CssClass="pubtxt" AutoPostBack="true" ID="ddlProperties" runat="server" Width="100">
+            </asp:DropDownList>
+            </span>
+            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
+            <span style="display: inline-block">场次
+            <asp:DropDownList CssClass="pubtxt" ID="txtProperties" runat="server" Width="100">
+            </asp:DropDownList>
+            </span>
+            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
+            发车时间
+            <input type="text" id="txtStartTime1" runat="server" class="pubtxt" style="width: 100px" placeholder="起始日期" readonly="" />
+            - 
+           
+            <input type="text" id="txtStartTime2" runat="server" class="pubtxt" style="width: 100px" placeholder="终止日期" readonly="" />
+            - 
+            <input type="text" id="txtStartHM" runat="server" class="pubtxt" style="width: 50px" placeholder="时间" readonly="" />
+            <br />
+
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            套餐选择 <span id="sel_tcid" class="sxmore" data="">全部套餐</span>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-            <%-- <input type="text" id="sx_tel" class="pubtxt" style="width: 150px" placeholder="手机号/游客姓名" />
-            <span id="telcls" class="cmd" style="width: 40px; background-color: #f63">清空</span>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-            <input type="text" id="sx_note" class="pubtxt" style="width: 150px" placeholder="备注查询" />
-            <span id="notecls" class="cmd" style="width: 40px; background-color: #f63">清空</span>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>--%>
-            演出场次 <span id="sel_playtime"></span>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-            <div style="display: none">
-                <input type="text" id="sx_cckey" class="pubtxt" style="width: 200px" placeholder="场次包含关键字" />
-            </div>
-
-            <!--       
-        <div style="overflow:hidden;height:3px;font-size:0px"></div>
-        包含套餐 <span id="sel_tcid1"></span> 
-        <div style="overflow:hidden;height:3px;font-size:0px"></div>
-        演出场次 <span id="sel_playtime1"></span> 
-        -->
-            <div id="sxline_users">
-                <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-                用户组　 <span id="sel_users" class="sxmore" data="">全部</span>
-            </div>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-
-            <div id="sxline_bdname" style="display: none;">
-                <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-                报单者　 <span id="sel_bdname" class="sxmore" data="">全部</span>
-            </div>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-            <span id="sxline_sale" style="display: none;">包含转售
-            <select class="pubtxt" id="sx_sale" style="width: 100px">
-                <option>全部</option>
-                <option value="unsale">不包含转售</option>
-                <option value="sale">只统计转售</option>
-            </select>
-            </span>
-            <!--<div style="overflow:hidden;height:3px;font-size:0px"></div>-->
-            <span id="sxline_pay" style="display: none;">包含结算
-            <select class="pubtxt" id="sx_pay" style="width: 100px">
-                <option>全部</option>
-                <option value="unpay">不统计已结算</option>
-                <option value="pay">只统计已结算</option>
-            </select>
-            </span>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-            <span style="display: inline-block">报单来源
-            <select class="pubtxt" id="sx_th" style="width: 100px">
-                <option>全部</option>
-                <option value="th">来自同行</option>
-                <option value="notth">不含同行</option>
-            </select>
-            </span>
-
-            <!--<div style="overflow:hidden;height:3px;font-size:0px"></div>-->
-            <span style="display: inline-block">游客验证
-            <select class="pubtxt" id="sx_ykyes" style="width: 100px">
-                <option>全部</option>
-                <option value="yes">已验证</option>
-                <option value="no">未验证</option>
-            </select>
-            </span>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
-            <span style="display: inline-block">是否取票
-            <select class="pubtxt" id="sx_dyout" style="width: 100px">
-                <option>全部</option>
-                <option value="yes">已取票</option>
-                <option value="no">未取票</option>
-            </select>
-            </span>
-            <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            <div style="text-align: center; padding: 8px; border-top: 1px solid #ddd">
+            <div style="text-align: center; padding-top: 3px; border-top: 1px solid #ddd">
                 <asp:Button ID="btnQuery" CssClass="cmd" Text="查询" Width="70" runat="server" CausesValidation="false" />
                 <asp:Button ID="btnRefrech" BackColor="#F90" Text="刷新" Width="70px" runat="server" CausesValidation="false"
                     CssClass="cmd" />
             </div>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
         </div>
-        <div class="spacing" style="box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px"></div>
-        <div id="divlist" style="box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px"></div>
         <div style="padding-left: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
             <p>
                 共
@@ -333,7 +301,7 @@
         </div>
         <h3 style="padding-left: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
             <asp:Literal ID="lblCount" runat="server" /></h3>
-        <div style="overflow: scroll;padding-left: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
+        <div style="overflow: scroll; padding-left: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
             <asp:Repeater ID="repList" runat="server" OnItemCommand="repList_ItemCommand">
                 <HeaderTemplate>
                     <table class="table" style="width: 600px" cellspacing="0" border="1">
