@@ -72,6 +72,10 @@ namespace ETicket.Web
                 {
                     Response.Redirect(PubFun.ApplicationPath + "/business/partner.aspx");
                 }
+                else if (user.UserCategory == "operator")//计调
+                {
+                    Response.Redirect(PubFun.ApplicationPath + "/business/jiDiaoMain.aspx");
+                }
                 else if (user.UserCategory == "admin")
                 {
                     Response.Redirect(PubFun.ApplicationPath + "/business/main.aspx");
