@@ -240,7 +240,7 @@
                 // 求string2里面符合要求的数
                 for (var i = 0; i < string2.length; i++) {
                     //判断是否符合要求   ^[1]是从1开始的意思  [358]表示符合这3个数的的第二位数 \d$ 表示以数字结尾 {9}表示出现9次
-                    var cox = /^[1][358]\d{9}$/;
+                    var cox = /^[1][2345678]\d{9}$/;
                     if (cox.test(string2[i]) == true) {
                         $("#phone").val(string2[i]);
                     }
