@@ -45,7 +45,7 @@
 body {
 	background-color: #E4E4E4;
 }
---> 
+-->
 </style>
 
 	
@@ -63,7 +63,15 @@ body {
 	</tr>
 	<tr>
 		<td>购买数量:</td>
-		<td><input id="buyNum" name="buyNum" type="text" style="width:50%" value="1" onkeyup="keyCal()" />库存：<span id="stockNum">{stock}</span></td>
+		<td>
+			<ul class="count">
+				<li><span id="num-jian" class="num-jian">-</span></li>
+				<li><input  id="buyNum" name="buyNum" type="text" class="input-num" onkeyup="keyCal()" value="1" /></li>
+				<li><span id="num-jia" class="num-jia">+</span></li>
+				<li class="kucun">库存：<span id="stockNum">{stock}</span></li>
+			</ul>
+			<!--<input id="buyNum" name="buyNum" type="text" style="width:50%" value="1" onkeyup="keyCal()" />-->
+		</td>
 	</tr>
 	<tr>
 		<td width="30%">总价:</td>

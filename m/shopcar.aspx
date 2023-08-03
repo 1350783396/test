@@ -23,14 +23,88 @@
             position: relative;
         }
 
-            #logo b {
-                background: url("/bootstrap/logo/head-info-2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-                height: 75px;
-                left: 110px;
-                position: absolute;
-                top: 13px;
-                width: 350px;
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0
+        }
+
+        ul,
+        li {
+            list-style: none;
+              display: inline-block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+            a:hover {
+                cursor: pointer;
+                text-decoration: none;
             }
+
+            a:link {
+                text-decoration: none;
+            }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .btn-numbox {
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+            .btn-numbox li {
+                float: left;
+            }
+
+                .btn-numbox li .number,
+                .kucun {
+                    display: inline-block;
+                    font-size: 12px;
+                    color: #808080;
+                    vertical-align: sub;
+                }
+
+            .count {
+                overflow: hidden;
+                margin: 0 16px 0 -20px;
+            }
+
+        .count .num-jian,
+        .input-num,
+        .num-jia {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+            border: 1px solid #e6e6e6;
+        }
+
+         .count .input-num {
+            width: 58px;
+            height: 26px;
+            color: #333;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        #logo b {
+            background: url("/bootstrap/logo/head-info-2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+            height: 75px;
+            left: 110px;
+            position: absolute;
+            top: 13px;
+            width: 350px;
+        }
 
         .error {
             color: red;
@@ -92,7 +166,24 @@
                 if ($.isFunction($.bootstrapIE6)) $.bootstrapIE6($(document));
             });
         })(jQuery);
+        var num_jia = document.getElementById("num-jia");
+        var num_jian = document.getElementById("num-jian");
+        var input_num = document.getElementById("buyNum");
 
+        num_jia.onclick = function () {
+            input_num.value = parseInt(input_num.value) + 1;
+            keyCal();
+        }
+
+        num_jian.onclick = function () {
+            if (input_num.value <= 1) {
+                input_num.value = 1;
+            } else {
+
+                input_num.value = parseInt(input_num.value) - 1;
+            }
+            keyCal();
+        }
         $(function () {
             //计算总价
             keyCal();
@@ -124,7 +215,7 @@
                 console.log("asd");
                 var jxtext = $("#znjxstr").val();
                 jxtext = jxtext.replace("时间", "").replace("印象刘", "").replace("印象", "").replace("席位", "").replace("千古情", "")
-                    .replace("贵宾席","");
+                    .replace("贵宾席", "");
                 var ximing = "";
                 for (var i = 0; i < jxtext.length; i++) {
                     if (danXx.indexOf(jxtext[i]) > 0) {
