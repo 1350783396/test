@@ -360,7 +360,8 @@ namespace ETicket.Web
                         }
                         else
                         {
-                            Response.Redirect(PubFun.ApplicationPath + "/business/jiDiaoMain.aspx");
+                            PubFun.ShowMsgRedirect(this, "支付成功", PubFun.ApplicationPath + "/business/jiDiaoMain.aspx");
+                            //Response.Redirect(PubFun.ApplicationPath + "/business/jiDiaoMain.aspx");
                         }
                         //Response.Redirect("pay_account.aspx?id=" + orderID);
                     }
