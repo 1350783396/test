@@ -436,7 +436,7 @@ namespace ETicket.Web
             carTempl = carTempl.Replace("{rebateUnit}", rebateUnit.ToString());
 
             //支付方式
-            if (userModel.UserCategory == "partner")
+            if (userModel.UserCategory == "partner"|| userModel.UserCategory == "operator")
             {
                 string payList = "";
                 if (userModel.EnableOnlinePay.Value)

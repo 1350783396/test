@@ -339,7 +339,30 @@ namespace ETicket.Web
                     }
                     else if (selPayType == "积分支付")
                     {
-                        Response.Redirect("pay_account.aspx?id=" + orderID);
+
+                        var sheetModel = BLL.OrderSheetBLL.Instance.GetEntity(p => p.OrderID == orderID);
+                        if (sheetModel.PayType != "积分支付")
+                        {
+                            PubFun.ShowMsg(this, "你提交的订单不是使用积分支付");
+                            return;
+                        }
+                        var user = BLL.UserBLL.Instance.GetEntity(p => p.UserID == cookiesUser.UserID);
+                        if (user.Account < sheetModel.TotalPrice)
+                        {
+                            PubFun.ShowMsg(this, string.Format("目前账号积分{0}不足支付订单金额{1}", user.Account, sheetModel.TotalPrice));
+                            return;
+                        }
+                        string msg = BLL.OrderSheetBLL.Instance.PayAccount(orderID, user.UserID);
+                        if (msg != "")
+                        {
+                            PubFun.ShowMsg(this.Page, msg);
+                            return;
+                        }
+                        else
+                        {
+                            Response.Redirect(PubFun.ApplicationPath + "/business/jiDiaoMain.aspx");
+                        }
+                        //Response.Redirect("pay_account.aspx?id=" + orderID);
                     }
                     else if (selPayType == "现金支付")
                     {
