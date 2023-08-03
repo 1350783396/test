@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace ETicket.Web.business.jidiao
 {
-    public partial class index : System.Web.UI.Page
+    public partial class index : jiDiaoBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -159,18 +159,52 @@ namespace ETicket.Web.business.jidiao
                 CheckBox checkALL = e.Item.FindControl("chkAll") as CheckBox;
                 checkALL.Attributes.Add("onclick", string.Format("javascript:FormSelectAllEnable('{0}','chkItem',this);", this.form1.ClientID));
             }
+            //if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            //{
+            //    var sheet = e.Item.DataItem as EFEntity.OrderSheet;
+            //    var sms = BLL.SMSSendOrderBLL.Instance.GetEntity(p => p.OrderID == sheet.OrderID);
+            //    LinkButton lbtnReset = e.Item.FindControl("lbtnDuanXin") as LinkButton;
+            //    if (sms != null && sms.SendStatus == ETicket.Utility.SMSSendStatusEnum.发送中.ToString())
+            //    {
+            //        lbtnReset.Text = "发送中";
+            //    }
+            //    else
+            //    {
+            //        lbtnReset.Text = "短信重发";
+            //        lbtnReset.CommandArgument = sheet.OrderID.ToString();
+            //        lbtnReset.CommandName = "reset";
+            //    }
+            //}
         }
         protected void repList_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            int orderID = Convert.ToInt32(e.CommandArgument);
-            EFEntity.OrderSheet sheet = BLL.OrderSheetBLL.Instance.GetEntity(p => p.OrderID == orderID);
-            sheet.ValidTime = DateTime.Now;
-            sheet.OrderStatus = ETicket.Utility.OrderStatusEnum.已验票.ToString();
-            BLL.OrderSheetBLL.Instance.UpdateObject(sheet);
-            btnQuery_Click(source, e);
-            ////验票成功后续
-            //BLL.ValidNotifyEventBLL.Instance.ValidNotify(sheet);
 
+            if (e.CommandName == "reset")
+            {
+                int orderID = Convert.ToInt32(e.CommandArgument);
+                var sms = BLL.SMSSendOrderBLL.Instance.GetEntity(p => p.OrderID == orderID);
+                if (sms != null)
+                {
+                    sms.SendStatus = ETicket.Utility.SMSSendStatusEnum.发送中.ToString();
+                    sms.SendNum = sms.SendNum + 1;
+                    sms.SendIsRead = false;
+                    BLL.SMSSendOrderBLL.Instance.UpdateObject(sms);
+                }
+                LoadData(AspNetPager1.CurrentPageIndex, AspNetPager1.PageSize);
+
+            }
+            else
+            {
+                int orderID = Convert.ToInt32(e.CommandArgument);
+                EFEntity.OrderSheet sheet = BLL.OrderSheetBLL.Instance.GetEntity(p => p.OrderID == orderID);
+                sheet.ValidTime = DateTime.Now;
+                sheet.OrderStatus = ETicket.Utility.OrderStatusEnum.已验票.ToString();
+                BLL.OrderSheetBLL.Instance.UpdateObject(sheet);
+                //btnQuery_Click(source, e);
+                LoadData(AspNetPager1.CurrentPageIndex, AspNetPager1.PageSize);
+                ////验票成功后续
+                //BLL.ValidNotifyEventBLL.Instance.ValidNotify(sheet);
+            }
         }
 
         string Where()
@@ -228,7 +262,7 @@ namespace ETicket.Web.business.jidiao
                 sb.AppendFormat("or it.SheetID like '%{0}%')", this.sx_tckey.Value.Trim());
             }
             //产品属性
-            if (ddlProperties.SelectedValue.ToString() != "0" || txtProperties.SelectedValue.ToString() != "不限")
+            if (ddlProperties.SelectedValue.ToString() != "0" && txtProperties.SelectedValue.ToString() != "不限")
             {
                 sb.AppendFormat("and it.Properties='{0}'", txtProperties.SelectedValue.ToString());
             }

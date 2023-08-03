@@ -23,7 +23,7 @@
 
 
     <link href="/css/jidiao/css.css?ver=1.2" type="text/css" rel="stylesheet" />
-
+    <link rel="stylesheet" type="text/css" href="/business/style/theme.css" />
     <style type="text/css">
         .newlist {
             overflow: hidden;
@@ -222,7 +222,7 @@
         <input type="text" class="txtcopy" />
         <input type="hidden" id="hid_my" value="" />
         <div class="indextop" style="position: fixed; left: 0px; top: 0px; width: 100%; z-index: 99999; background-color: #008AB0">
-            <span class="logo"><i class="fa fa-line-chart"></i>报单统计 
+            <span class="logo">报单统计 
            </span>
         </div>
         <div id="sxbox" style="padding: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
@@ -256,17 +256,17 @@
            
             <input type="text" id="sx_date2" runat="server" class="pubtxt" style="width: 100px" placeholder="终止日期" readonly="" />
             <br />
-            <span id="cmdyestoday" class="cmd" style="width: 50px">昨日</span><span id="cmdtoday" class="cmd" style="width: 50px">今日</span><span id="cmdtomorrow" class="cmd" style="width: 50px">明日</span>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            <span style="display: inline-block">产品名称
+             <span style="display: inline-block">产品名称
                 <asp:DropDownList CssClass="pubtxt" ID="txtProductName" runat="server" Width="100">
                 </asp:DropDownList>
             </span>
+            <span id="cmdyestoday" class="cmd" style="width: 50px;margin-left:20px">昨日</span><span id="cmdtoday" class="cmd" style="width: 50px">今日</span><span id="cmdtomorrow" class="cmd" style="width: 50px">明日</span>
+            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
             <span style="display: inline-block">票类
             <asp:DropDownList CssClass="pubtxt" AutoPostBack="true" ID="ddlProperties" runat="server" Width="100">
             </asp:DropDownList>
             </span>
-            <div style="overflow: hidden; height: 1px; font-size: 0px"></div>
             <span style="display: inline-block">场次
             <asp:DropDownList CssClass="pubtxt" ID="txtProperties" runat="server" Width="100">
             </asp:DropDownList>
@@ -283,28 +283,32 @@
 
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
             <div style="text-align: center; padding-top: 3px; border-top: 1px solid #ddd">
-                <asp:Button ID="btnQuery" CssClass="cmd" Text="查询" Width="70" runat="server" CausesValidation="false" />
-                <asp:Button ID="btnRefrech" BackColor="#F90" Text="刷新" Width="70px" runat="server" CausesValidation="false"
+              <asp:Button ID="btnQuery"  BackColor="#009933"  CssClass="cmd" Text="查询" Width="70" runat="server" CausesValidation="false" />
+                <asp:Button ID="btnRefrech" BackColor="#000F90" Text="刷新" Width="70px" runat="server" CausesValidation="false"
                     CssClass="cmd" />
-            </div>
+             </div>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
         </div>
         <div style="padding-left: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
-            <p>
-                共
-                <asp:Literal ID="zongdanliang" runat="server"></asp:Literal>单 ；共
+            <div>
+                <span style="font-size:12px;font-weight:700">共</span>
+                <asp:Literal ID="zongdanliang" runat="server"></asp:Literal>单 ；
+                <span style="font-size:12px;font-weight:700">共</span>
                 <asp:Literal ID="zongrenshu" runat="server"></asp:Literal>人
-            </p>
-            <p>全票：<asp:Literal ID="quanpiao" runat="server"></asp:Literal></p>
-            <p>已验票：<asp:Literal ID="yiyanpiao" runat="server"></asp:Literal></p>
-            <p>未验票：<asp:Literal ID="weiyanpiao" runat="server"></asp:Literal></p>
+            </div>
+            <div style="overflow: hidden; height: 5px; font-size: 0px"></div>
+            <div ><span style="font-size:12px;font-weight:700">全票：</span><asp:Literal ID="quanpiao" runat="server"></asp:Literal></div>
+            <div style="overflow: hidden; height: 5px; font-size: 0px"></div>
+            <div><span style="font-size:12px;font-weight:700">已验票：</span><asp:Literal ID="yiyanpiao" runat="server"></asp:Literal></div>
+            <div style="overflow: hidden; height: 5px; font-size: 0px"></div>
+            <div ><span style="font-size:12px;font-weight:700">未验票：</span><asp:Literal ID="weiyanpiao" runat="server"></asp:Literal></div>
         </div>
         <h3 style="padding-left: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
             <asp:Literal ID="lblCount" runat="server" /></h3>
         <div style="overflow: scroll; padding-left: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
             <asp:Repeater ID="repList" runat="server" OnItemCommand="repList_ItemCommand">
                 <HeaderTemplate>
-                    <table class="table" style="width: 600px" cellspacing="0" border="1">
+                    <table class="table" style="width: 800px" cellspacing="0" border="1">
                         <thead>
                             <tr>
                                 <!-- <th>
@@ -338,11 +342,10 @@
                     <tr>
                         <td>
                             <%# Eval("palyDate","{0:d}") %>
-                            <br />
                             <%# Eval("startTime") %>
                         </td>
                         <td>
-                            <span class="STYLE3"><%# GetProperties(Eval("Properties").ToString()) %></span><br />
+                            <span class="STYLE3"><%# GetProperties(Eval("Properties").ToString()) %></span>
                         </td>
                         <td>
                             <%# Eval("ProductName") %>
@@ -366,11 +369,10 @@
                         </td>
 
                         <td align="left">
-                            <br />
-                            <asp:Literal ID="litReset" runat="server"></asp:Literal>
-                            <asp:LinkButton ID="lbtnReset" CommandArgument='<%# Eval("orderid") %>' runat="server" OnClientClick="return sys_confirm('确认要对此订单进行核销？');">核销</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnReset" CommandArgument='<%# Eval("orderid") %>' runat="server" OnClientClick="return confirm('确认要对此订单进行核销？');">核销</asp:LinkButton>
                             <a href="/dingdan/order_detail.aspx?orderid=<%# Eval("orderid") %>">
                                 <span class="STYLE3">详情</span></a>
+                            <asp:LinkButton ID="lbtnDuanXin" runat="server" OnClientClick="return confirm('确认要重新发送该短信？');">短信重发</asp:LinkButton>
                             <!--<asp:HyperLink ID="hyDetail" runat="server" Visible="false" CssClass="linkAction" >详情</asp:HyperLink>-->
                             <asp:HyperLink ID="hyPay" runat="server" Visible="false" CssClass="linkAction">付款</asp:HyperLink>
                             <!--<asp:HyperLink ID="hyCancel" runat="server" Visible="false" CssClass="linkAction">取消</asp:HyperLink>-->
