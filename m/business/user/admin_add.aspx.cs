@@ -37,7 +37,7 @@ namespace ETicket.Web.business.user
             string RealName = txtRealName.Value.Trim();
             string Phone = txtPhone.Value.Trim();
             string Email = txtEmail.Value.Trim();
-            
+
             #region 验证
             if (string.IsNullOrEmpty(UserName))
             {
@@ -69,21 +69,22 @@ namespace ETicket.Web.business.user
                 PubFun.ShowMsg(this, "请输入手机号码");
                 return;
             }
-           
+
             #endregion
 
             EFEntity.User user = new EFEntity.User();
             user.UserName = UserName;
             user.Password = Encrypt.GetMd5Hash(Password);
-
-            user.UserCategory = "admin";
+            if (RoleID == 3)
+                user.UserCategory = "operator";
+            else
+                user.UserCategory = "admin";
             user.RoleID = RoleID;
-
             user.RealName = RealName;
             user.Phone = Phone;
-            if (Email!="")
+            if (Email != "")
                 user.Email = Email;
-           
+
             user.Account = 0;
             user.EnableAccountPay = false;
             user.EnableCashPay = false;

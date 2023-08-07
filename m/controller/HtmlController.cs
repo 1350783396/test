@@ -489,12 +489,12 @@ namespace ETicket.Web
             {
                 ppidStr = ppidStr.Substring(1, ppidStr.Length - 1);
             }
-            ret = ret + "<input type=\"hidden\"  name=\"Properties\" id=\"Properties\"/><input type=\"hidden\" name=\"Pcount\" id=\"Pcount\" value=\""+ k.ToString()+ "\"/><input type=\"hidden\" name=\"PidStr\" id=\"PidStr\" value=\"" + ppidStr+ "\"/>";
+            ret =  "<input type=\"hidden\"  name=\"Properties\" id=\"Properties\"/><input type=\"hidden\" name=\"Pcount\" id=\"Pcount\" value=\""+ k.ToString()+ "\"/><input type=\"hidden\" name=\"PidStr\" id=\"PidStr\" value=\"" + ppidStr+ "\"/>" + ret ;
             return ret;
         }
         public string PropStr(IEnumerable<EFEntity.vProperties2> vp, string name, int k,out string pidStr)
         {
-            string myRet ="<div>"+name + ":";
+            string myRet = "<div><span style='float:left;'>" + name + ":</span>";
             pidStr = k.ToString()+ "%"+name+"$";
             foreach (var vp1 in vp)
             {
