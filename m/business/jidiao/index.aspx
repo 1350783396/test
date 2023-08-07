@@ -243,7 +243,7 @@
         </div>--%>
         <!--header结束-->
         <div id="sxbox" style="padding: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
-            <div style="overflow: hidden; height: 13px; font-size: 0px"></div>
+            <div style="overflow: hidden; height: 35px; font-size: 0px"></div>
             日期类型：<asp:RadioButton ID="RadioButton1" runat="server" Text="游览日期" Checked="true" GroupName="sex" />
             <asp:RadioButton ID="RadioButton2" runat="server" Text="下单时间" GroupName="sex" />
             <asp:RadioButton ID="RadioButton3" runat="server" Text="验票时间" GroupName="sex" />

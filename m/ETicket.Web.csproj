@@ -878,6 +878,8 @@
     <Content Include="safe\chgLoginPwd_byPhone.aspx" />
     <Content Include="shopcar.aspx" />
     <Content Include="shopcar_pre.aspx" />
+    <Content Include="sms\index.aspx" />
+    <Content Include="sms\index000.aspx" />
     <Content Include="templ\art\admin_tr.html" />
     <Content Include="templ\art\tr.html" />
     <Content Include="templ\car\car.html" />
@@ -3188,6 +3190,7 @@
     <Content Include="business\images\.DS_Store" />
     <Content Include="css\fonts\fontawesome-webfont.ttf" />
     <Content Include="css\style.css.bak" />
+    <Content Include="sms\index.aspx.bak" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
