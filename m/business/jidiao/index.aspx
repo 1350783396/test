@@ -221,12 +221,14 @@
         .marginLeft20 {
             margin-left: 20px;
         }
+
+        .lineHeight40 {
+            line-height: 40px;
+        }
     </style>
     <form id="form1" runat="server">
-        <input type="text" class="txtcopy" />
-        <input type="hidden" id="hid_my" value="" />
         <div class="indextop" style="position: fixed; left: 0px; top: 0px; width: 100%; z-index: 99999; background-color: #008AB0">
-            <div class="fa-angle-left fa-2x" style="display: inline-block; float: left; width: 30px" onclick="window.open('/');"></div>
+            <div class="fa-angle-left fa-2x lineHeight40" style="display: inline-block; float: left; width: 30px" onclick="window.open('/');"></div>
             <span>报单统计 
             </span>
         </div>
@@ -242,9 +244,9 @@
         <!--header结束-->
         <div id="sxbox" style="padding: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
             <div style="overflow: hidden; height: 13px; font-size: 0px"></div>
-            日期类型：<asp:RadioButton ID="RadioButton1" runat="server"  Text="游览日期" Checked="true" GroupName="sex"/>
+            日期类型：<asp:RadioButton ID="RadioButton1" runat="server" Text="游览日期" Checked="true" GroupName="sex" />
             <asp:RadioButton ID="RadioButton2" runat="server" Text="下单时间" GroupName="sex" />
-            <asp:RadioButton ID="RadioButton3" runat="server" Text="验票时间" GroupName="sex" /> 
+            <asp:RadioButton ID="RadioButton3" runat="server" Text="验票时间" GroupName="sex" />
             <br />
             <input type="text" id="sx_date1" runat="server" class="pubtxt marginLeft20" style="width: 100px" placeholder="起始日期" readonly="" />
             - 
