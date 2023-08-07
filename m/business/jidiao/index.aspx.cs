@@ -159,22 +159,13 @@ namespace ETicket.Web.business.jidiao
                 CheckBox checkALL = e.Item.FindControl("chkAll") as CheckBox;
                 checkALL.Attributes.Add("onclick", string.Format("javascript:FormSelectAllEnable('{0}','chkItem',this);", this.form1.ClientID));
             }
-            //if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            //{
-            //    var sheet = e.Item.DataItem as EFEntity.OrderSheet;
-            //    var sms = BLL.SMSSendOrderBLL.Instance.GetEntity(p => p.OrderID == sheet.OrderID);
-            //    LinkButton lbtnReset = e.Item.FindControl("lbtnDuanXin") as LinkButton;
-            //    if (sms != null && sms.SendStatus == ETicket.Utility.SMSSendStatusEnum.发送中.ToString())
-            //    {
-            //        lbtnReset.Text = "发送中";
-            //    }
-            //    else
-            //    {
-            //        lbtnReset.Text = "短信重发";
-            //        lbtnReset.CommandArgument = sheet.OrderID.ToString();
-            //        lbtnReset.CommandName = "reset";
-            //    }
-            //}
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var sheet = e.Item.DataItem as EFEntity.OrderSheet;
+                LinkButton lbtnReset = e.Item.FindControl("lbtnDuanXin") as LinkButton;
+                lbtnReset.CommandArgument = sheet.OrderID.ToString();
+                lbtnReset.CommandName = "reset";
+            }
         }
         protected void repList_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -191,7 +182,7 @@ namespace ETicket.Web.business.jidiao
                     BLL.SMSSendOrderBLL.Instance.UpdateObject(sms);
                 }
                 LoadData(AspNetPager1.CurrentPageIndex, AspNetPager1.PageSize);
-
+          
             }
             else
             {
