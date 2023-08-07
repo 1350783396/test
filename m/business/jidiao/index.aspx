@@ -228,7 +228,7 @@
     </style>
     <form id="form1" runat="server">
         <div class="indextop" style="position: fixed; left: 0px; top: 0px; width: 100%; z-index: 99999; background-color: #008AB0">
-            <div class="fa-angle-left fa-2x lineHeight40" style="display: inline-block; float: left; width: 30px" onclick="window.open('/');"></div>
+            <div class="fa-angle-left fa-2x lineHeight40" style="display: inline-block; float: left; width: 30px" onclick="window.open('/business/jiDiaoMain.aspx')"></div>
             <span>报单统计 
             </span>
         </div>
