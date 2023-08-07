@@ -23,13 +23,6 @@ namespace ETicket.Web.business.jidiao
             //this.btnDel2.Click += btnDel_Click;
             if (!Page.IsPostBack)
             {
-
-                #region 绑定日期类型
-                riQiLx.Items.Clear();
-                riQiLx.Items.Add(new ListItem("游览日期", "llrq"));
-                riQiLx.Items.Add(new ListItem("下单时间", "xdrq"));
-                riQiLx.Items.Add(new ListItem("验票时间", "yprq"));
-                #endregion
                 #region 绑定产品类型
                 sx_th.Items.Clear();
                 sx_th.Items.Add(new ListItem("所有类型"));
@@ -260,21 +253,21 @@ namespace ETicket.Web.business.jidiao
             //日期
             if (sx_date1.Value.Trim() != "")
             {
-                if (riQiLx.SelectedValue == "llrq")
+                if (RadioButton1.Checked)
                     sb.AppendFormat(" and it.PalyDate>=DATETIME'{0} 00:00:00'", sx_date1.Value.Trim());
-                else if (riQiLx.SelectedValue == "xdrq")
+                else if (RadioButton2.Checked)
                     sb.AppendFormat(" and it.OrderTime>=DATETIME'{0} 00:00:00'", sx_date1.Value.Trim());
-                else if (riQiLx.SelectedValue == "yprq")
+                else if (RadioButton3.Checked)
                     sb.AppendFormat(" and it.ValidTime>=DATETIME'{0} 00:00:00'", sx_date1.Value.Trim());
             }
             //日期
             if (sx_date2.Value.Trim() != "")
             {
-                if (riQiLx.SelectedValue == "llrq")
+                if (RadioButton1.Checked)
                     sb.AppendFormat(" and it.PalyDate<=DATETIME'{0} 23:59:59'", sx_date2.Value.Trim());
-                else if (riQiLx.SelectedValue == "xdrq")
+                else if (RadioButton2.Checked)
                     sb.AppendFormat(" and it.OrderTime<=DATETIME'{0} 23:59:59'", sx_date2.Value.Trim());
-                else if (riQiLx.SelectedValue == "yprq")
+                else if (RadioButton3.Checked)
                     sb.AppendFormat(" and it.ValidTime<=DATETIME'{0} 23:59:59'", sx_date2.Value.Trim());
             }
             //发车日期

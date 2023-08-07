@@ -13,7 +13,6 @@
     <script type="text/javascript" src="/css/jidiao/fun.js?&amp;ver=1.03&amp;date=20230731"></script>
     <link href="/css/jidiao/basic.css?ver=2.02" type="text/css" rel="stylesheet" />
     <link href="/css/jidiao/pages.css?ver=2.02" type="text/css" rel="stylesheet" />
-    <link href="/css/jidiao/main.css" type="text/css" rel="stylesheet" />
     <link href="/css/jidiao/mob.css" type="text/css" rel="stylesheet" />
     <link href="/css/jidiao/animate.css" type="text/css" rel="stylesheet" />
     <link href="/css/jidiao/font.css" type="text/css" rel="stylesheet" />
@@ -218,6 +217,10 @@
             padding: 6px;
             border-bottom: 1px dashed #ddd
         }
+
+        .marginLeft20 {
+            margin-left: 20px;
+        }
     </style>
     <form id="form1" runat="server">
         <input type="text" class="txtcopy" />
@@ -238,58 +241,58 @@
         </div>--%>
         <!--header结束-->
         <div id="sxbox" style="padding: 10px; background-color: #fff; position: relative; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0px">
-            <span style="display: inline-block">
-                <asp:DropDownList CssClass="pubtxt" ID="riQiLx" runat="server" Width="100">
-                </asp:DropDownList>
-            </span>
-            <input type="text" id="sx_date1" runat="server" class="pubtxt" style="width: 100px" placeholder="起始日期" readonly="" />
+            <div style="overflow: hidden; height: 13px; font-size: 0px"></div>
+            日期类型：<asp:RadioButton ID="RadioButton1" runat="server"  Text="游览日期" Checked="true" GroupName="sex"/>
+            <asp:RadioButton ID="RadioButton2" runat="server" Text="下单时间" GroupName="sex" />
+            <asp:RadioButton ID="RadioButton3" runat="server" Text="验票时间" GroupName="sex" /> 
+            <br />
+            <input type="text" id="sx_date1" runat="server" class="pubtxt marginLeft20" style="width: 100px" placeholder="起始日期" readonly="" />
             - 
            
             <input type="text" id="sx_date2" runat="server" class="pubtxt" style="width: 100px" placeholder="终止日期" readonly="" />
-            <br />
-            <span id="cmdyestoday" class="cmd" style="width: 50px; margin-left: 110px">昨日</span><span id="cmdtoday" class="cmd" style="width: 50px">今日</span><span id="cmdtomorrow" class="cmd" style="width: 50px">明日</span>
+            <span id="cmdyestoday" class="cmd" style="width: 40px;">昨日</span><span id="cmdtoday" class="cmd" style="width: 40px">今日</span><%--<span id="cmdtomorrow" class="cmd" style="width: 40px">明日</span>--%>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            <span style="display: inline-block;width:320px">产品名称
-              <asp:DropDownList CssClass="pubtxt" ID="txtProductName" runat="server">
+            <span style="display: inline-block; width: 320px">产品名称：
+              <asp:DropDownList CssClass="pubtxt marginLeft20" ID="txtProductName" runat="server">
               </asp:DropDownList>
             </span>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
             <%-- <div style="overflow:hidden;height:1px;font-size:0px"></div>
             用户组　 <span id="sel_users" class="sxmore" data="">全部</span>--%>
 
-            <span style="display: inline-block;width:150px">票类
-            <asp:DropDownList CssClass="pubtxt" AutoPostBack="true" ID="ddlProperties" runat="server" >
+            <span style="display: inline-block; width: 150px">票类：
+            <asp:DropDownList CssClass="pubtxt marginLeft20" AutoPostBack="true" ID="ddlProperties" runat="server">
             </asp:DropDownList>
             </span>
-            <span style="display: inline-block;width:150px">场次
-            <asp:DropDownList CssClass="pubtxt" ID="txtProperties" runat="server" >
+            <span style="display: inline-block; width: 150px">场次：
+            <asp:DropDownList CssClass="pubtxt marginLeft20" ID="txtProperties" runat="server">
             </asp:DropDownList>
             </span>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            关键字<br />
-            <input type="text" id="sx_tckey" runat="server" class="pubtxt" style="width: 200px" placeholder="套餐/手机号/姓名/订单号" />
+            关键字：<br />
+            <input type="text" id="sx_tckey" runat="server" class="pubtxt marginLeft20" style="width: 200px" placeholder="套餐/手机号/姓名/订单号" />
             <span id="tc1" class="cmd tckey" style="width: 40px;">观众</span><span id="tc2" class="cmd tckey" style="width: 40px">贵宾</span>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            <span style="display: inline-block;width:150px">产品类型
-                <asp:DropDownList CssClass="pubtxt" ID="sx_th" runat="server">
+            <span style="display: inline-block; width: 150px">产品类型：
+                <asp:DropDownList CssClass="pubtxt marginLeft20" ID="sx_th" runat="server">
                 </asp:DropDownList>
             </span>
-            <span style="display: inline-block;width:150px;">订单状态
-            <asp:DropDownList CssClass="pubtxt" ID="sx_ykyes" runat="server">
+            <span style="display: inline-block; width: 150px;">订单状态：
+            <asp:DropDownList CssClass="pubtxt marginLeft20" ID="sx_ykyes" runat="server">
             </asp:DropDownList>
             </span>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            <span style="display: inline-block;width:150px">下单人级别
-                <asp:DropDownList CssClass="pubtxt" ID="ddlUserLevel" runat="server" >
+            <span style="display: inline-block; width: 150px">下单人级别：
+                <asp:DropDownList CssClass="pubtxt marginLeft20" ID="ddlUserLevel" runat="server">
                 </asp:DropDownList>
             </span>
-            <span style="display: inline-block;width:150px;">分销商
-            <asp:DropDownList CssClass="pubtxt" ID="txtSelValue" runat="server" >
+            <span style="display: inline-block; width: 150px;">分销商：
+            <asp:DropDownList CssClass="pubtxt marginLeft20" ID="txtSelValue" runat="server">
             </asp:DropDownList>
             </span>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
-            发车时间
-            <input type="text" id="txtStartTime1" runat="server" class="pubtxt" style="width: 100px" placeholder="起始日期" readonly="" />
+            发车时间：<br />
+            <input type="text" id="txtStartTime1" runat="server" class="pubtxt marginLeft20" style="width: 100px" placeholder="起始日期" readonly="" />
             - 
            
             <input type="text" id="txtStartTime2" runat="server" class="pubtxt" style="width: 100px" placeholder="终止日期" readonly="" />
@@ -299,9 +302,9 @@
 
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
             <div style="text-align: center; padding-top: 3px; border-top: 1px solid #ddd">
-                <span id="tckeycls" class="cmd" style="width:70px; background-color: #f63">重置</span>
-                <button runat="server" id="btnQuery" style="background-color:#009933;width:70px" class="cmd">查询</button>
-                <button runat="server" id="btnRefrech" style="background-color:#000F90;width:70px" class="cmd">刷新</button>
+                <span id="tckeycls" class="cmd" style="width: 70px; background-color: #f63">重置</span>
+                <button runat="server" id="btnQuery" style="background-color: #009933; width: 70px" class="cmd">查询</button>
+                <button runat="server" id="btnRefrech" style="background-color: #000F90; width: 70px" class="cmd">刷新</button>
             </div>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
         </div>

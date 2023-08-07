@@ -119,7 +119,7 @@ function shopinit(){
 		$("#txtStartHM").val("");
 		$("#sx_date1").val("");
 		$("#sx_date2").val("");
-		$("#sx_th option:first").prop("selected", 'selected');
+		$("#RadioButton1").prop("checked", 'checked');
 		$("#sx_ykyes option:first").prop("selected", 'selected');
 		$("#ddlUserLevel option:first").prop("selected", 'selected');
 		$("#txtSelValue option:first").prop("selected", 'selected');
