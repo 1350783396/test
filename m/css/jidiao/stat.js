@@ -114,6 +114,18 @@ function shopinit(){
 	});
 	$("#tckeycls").unbind().click(function(){
 		$("#sx_tckey").val("");
+		$("#txtStartTime1").val("");
+		$("#txtStartTime2").val("");
+		$("#txtStartHM").val("");
+		$("#sx_date1").val("");
+		$("#sx_date2").val("");
+		$("#sx_th option:first").prop("selected", 'selected');
+		$("#sx_ykyes option:first").prop("selected", 'selected');
+		$("#ddlUserLevel option:first").prop("selected", 'selected');
+		$("#txtSelValue option:first").prop("selected", 'selected');
+		$("#txtProductName option:first").prop("selected", 'selected');
+		$("#ddlProperties option:first").prop("selected", 'selected');
+		$("#txtProperties").empty();
 	});
 	$("#telcls").unbind().click(function(){
 		$("#sx_tel").val("");
