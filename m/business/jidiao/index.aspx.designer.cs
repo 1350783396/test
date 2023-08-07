@@ -156,7 +156,7 @@ namespace ETicket.Web.business.jidiao
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnQuery;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnQuery;
 
         /// <summary>
         /// btnRefrech 控件。
@@ -165,7 +165,7 @@ namespace ETicket.Web.business.jidiao
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRefrech;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnRefrech;
 
         /// <summary>
         /// zongdanliang 控件。

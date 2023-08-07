@@ -299,10 +299,9 @@
 
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
             <div style="text-align: center; padding-top: 3px; border-top: 1px solid #ddd">
-                <span id="tckeycls" class="cmd" style="width: 40px; background-color: #f63">重置</span>
-                <asp:Button ID="btnQuery" BackColor="#009933" CssClass="cmd" Text="查询" Width="70" runat="server" CausesValidation="false" />
-                <asp:Button ID="btnRefrech" BackColor="#000F90" Text="刷新" Width="70px" runat="server" CausesValidation="false"
-                    CssClass="cmd" />
+                <span id="tckeycls" class="cmd" style="width:70px; background-color: #f63">重置</span>
+                <button runat="server" id="btnQuery" style="background-color:#009933;width:70px" class="cmd">查询</button>
+                <button runat="server" id="btnRefrech" style="background-color:#000F90;width:70px" class="cmd">刷新</button>
             </div>
             <div style="overflow: hidden; height: 3px; font-size: 0px"></div>
         </div>

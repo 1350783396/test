@@ -17,8 +17,8 @@ namespace ETicket.Web.business.jidiao
             this.repList.ItemCommand += repList_ItemCommand;
             this.AspNetPager1.PageChanged += AspNetPager1_PageChanged;
             this.ddlProperties.SelectedIndexChanged += ddlProperties_SelectedIndexChanged;
-            this.btnQuery.Click += btnQuery_Click;
-            this.btnRefrech.Click += btnRefrech_Click;
+            this.btnQuery.ServerClick += btnQuery_Click;
+            this.btnRefrech.ServerClick += btnRefrech_Click;
             //this.btnDel.Click += btnDel_Click;
             //this.btnDel2.Click += btnDel_Click;
             if (!Page.IsPostBack)
